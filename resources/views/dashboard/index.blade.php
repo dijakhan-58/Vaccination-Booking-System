@@ -2,6 +2,7 @@
 
 @section('title', 'Dashboard')
 
+
 @section('body')
 <section>
     <!-- Page Header -->

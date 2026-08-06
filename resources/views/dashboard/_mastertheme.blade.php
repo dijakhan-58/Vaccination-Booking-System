@@ -31,11 +31,11 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
     <link rel="manifest" href="{{ asset('assets/manifest-DTaoG9pG.json') }}">
 
     <!-- Main JavaScript Modules -->
-    <script type="module" crossorigin src="{{ asset('assets/rolldown-runtime-QTnfLwEv.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/vendor-bootstrap-DgdwyLYF.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/vendor-ui-DCXHuVks.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/vendor-charts-Dcrko_Gn.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/main-Ynqz-sB_.js') }}"></script>
+    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/rolldown-runtime-QTnfLwEv.js') }}"></script>
+    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-bootstrap-DgdwyLYF.js') }}"></script>
+    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-ui-DCXHuVks.js') }}"></script>
+    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-charts-Dcrko_Gn.js') }}"></script>
+    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/main-Ynqz-sB_.js') }}"></script>
     <link rel="stylesheet" crossorigin href="{{ asset('assets/dashboard/mainstyle.css') }}">
 
     @stack('styles')
