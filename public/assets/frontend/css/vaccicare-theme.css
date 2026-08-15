@@ -1,0 +1,141 @@
+/*
+  VacciCare — Minimal Green palette override
+  Swaps the default Medilo blue/teal theme colors for the client's palette:
+  #051F20  #0B2B26  #163832  #235347  #8EB69B  #DAF1DE
+  Loaded AFTER style.css so these custom properties win.
+*/
+:root {
+  --heading-color: #051F20;
+  --blue-color: #0B2B26;
+  --accent-color: #235347;
+  --body-color: #163832;
+  --gray-color: #DAF1DE;
+  --border-color: #8EB69B;
+}
+
+/* Booking flow additions that aren't part of the base theme */
+.vc_badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.vc_badge_pending { background: #8EB69B; color: #051F20; }
+.vc_badge_confirmed { background: #235347; color: #fff; }
+.vc_badge_cancelled { background: #b3261e; color: #fff; }
+
+.vc_vaccine_card {
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+  text-decoration: none;
+  display: block;
+}
+.vc_vaccine_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(5, 31, 32, .12);
+}
+.vc_price_tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #051F20;
+  background: #DAF1DE;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+.vc_alert_success {
+  background: #DAF1DE;
+  border: 1px solid #8EB69B;
+  color: #0B2B26;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+.vc_alert_error {
+  background: #fdecea;
+  border: 1px solid #b3261e;
+  color: #7a1c14;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+.vc_alert_error ul { margin: 0; padding-left: 18px; }
+
+.vc_booking_form label {
+  font-weight: 600;
+  color: #051F20;
+  margin-bottom: 6px;
+}
+.vc_booking_form .form-control {
+  border: 1px solid #8EB69B;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  width: 100%;
+  background: #fff;
+}
+.vc_booking_form .form-control:focus {
+  outline: none;
+  border-color: #235347;
+  box-shadow: 0 0 0 3px rgba(35, 83, 71, .15);
+}
+.vc_booking_box {
+  background: #fff;
+  border: 1px solid #DAF1DE;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 10px 40px rgba(5, 31, 32, .08);
+}
+
+.vc_dash_table th {
+  background: #051F20;
+  color: #fff;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+}
+.vc_dash_table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #DAF1DE;
+  vertical-align: middle;
+}
+.vc_dash_table tr:hover td { background: #f5fbf6; }
+.vc_dash_stat {
+  background: #fff;
+  border: 1px solid #DAF1DE;
+  border-radius: 14px;
+  padding: 22px 24px;
+  text-align: center;
+}
+.vc_dash_stat h3 { color: #051F20; margin-bottom: 4px; }
+.vc_dash_stat p { margin: 0; color: #235347; font-weight: 600; }
+.vc_status_form select {
+  border: 1px solid #8EB69B;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+.vc_status_form button {
+  background: #235347;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  margin-left: 6px;
+  font-weight: 600;
+}
+.vc_status_form button:hover { background: #163832; }
+
+label.patient_name,
+label.child_name {
+  color: var(--heading-color) !important;
+
+}
+
+.cs_service_subtitle{
+  color: #051F20 !important;
+}
