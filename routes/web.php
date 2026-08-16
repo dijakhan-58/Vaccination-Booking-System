@@ -273,6 +273,35 @@ Route::delete('/vaccine_managemnet/{vaccine}', [AdminVaccineController::class, '
     ->middleware(['auth', 'verified']);
 
 
+    Route::post('Vaccination_status/{vaccine}/update', [AdminVaccination_statusController::class, 'updateStatus'])
+    ->name('vaccine_status.update')
+    ->middleware(['auth', 'verified']);
+
+
+    Route::get('/upcoming_vaccine/index', [AdminUpcomingVaccineController::class, 'index'])
+    ->name('upcoming_index')
+    ->middleware(['auth', 'verified']);
+
+
+
+
+
+
+    Route::post('vaccination_reports/store', [AdminVaccination_reportController::class, 'store'])
+    ->name('vaccin_report_store')
+    ->middleware(['auth', 'verified']);
+
+Route::get('vaccination_reports/{vaccinationRecord}/edit', [AdminVaccination_reportController::class, 'edit'])
+    ->name('vaccin_report_edit')
+    ->middleware(['auth', 'verified']);
+
+Route::put('vaccination_reports/{vaccinationRecord}', [AdminVaccination_reportController::class, 'update'])
+    ->name('vaccin_report_update')
+    ->middleware(['auth', 'verified']);
+
+Route::delete('vaccination_reports/{vaccinationRecord}', [AdminVaccination_reportController::class, 'destroy'])
+    ->name('vaccin_report_destroy')
+    ->middleware(['auth', 'verified']);
 /*
 |--------------------------------------------------------------------------
 | Public Website

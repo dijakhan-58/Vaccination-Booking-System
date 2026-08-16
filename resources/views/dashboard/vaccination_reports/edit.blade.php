@@ -1,6 +1,6 @@
 @extends('dashboard._mastertheme')
 
-@section('title', 'Add Vaccination Record')
+@section('title', 'Edit Vaccination Record')
 
 @section('body')
 
@@ -15,8 +15,8 @@
                         <i class="fas fa-file-medical-alt text-teal-600 fs-5"></i>
                     </div>
                     <div>
-                        <h1 class="h3 fw-bold text-slate-800 mb-0">Add Vaccination Record</h1>
-                        <p class="text-muted small mb-0">Log a new administered vaccination</p>
+                        <h1 class="h3 fw-bold text-slate-800 mb-0">Edit Vaccination Record</h1>
+                        <p class="text-muted small mb-0">Update an administered vaccination record</p>
                     </div>
                 </div>
                 <div class="d-flex gap-2 flex-wrap">
@@ -37,14 +37,9 @@
                 </div>
             @endif
 
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            <form action="{{ route('vaccin_report_store') }}" method="POST">
+            <form action="{{ route('vaccin_report_update', $vaccinationRecord) }}" method="POST">
                 @csrf
+                @method('PUT')
 
                 <div class="row g-3">
 
@@ -53,7 +48,7 @@
                         <select name="booking_id" class="form-select" required>
                             <option value="">Select Booking</option>
                             @foreach ($bookings as $booking)
-                                <option value="{{ $booking->id }}" {{ old('booking_id') == $booking->id ? 'selected' : '' }}>
+                                <option value="{{ $booking->id }}" {{ old('booking_id', $vaccinationRecord->booking_id) == $booking->id ? 'selected' : '' }}>
                                     {{ $booking->booking_number }} — {{ $booking->child->first_name ?? '' }} {{ $booking->child->last_name ?? '' }}
                                 </option>
                             @endforeach
@@ -65,7 +60,7 @@
                         <select name="administered_by" class="form-select" required>
                             <option value="">Select Staff</option>
                             @foreach ($users as $user)
-                                <option value="{{ $user->id }}" {{ old('administered_by') == $user->id ? 'selected' : '' }}>
+                                <option value="{{ $user->id }}" {{ old('administered_by', $vaccinationRecord->administered_by) == $user->id ? 'selected' : '' }}>
                                     {{ $user->name }} ({{ $user->email }})
                                 </option>
                             @endforeach
@@ -74,41 +69,41 @@
 
                     <div class="col-md-4">
                         <label class="form-label fw-semibold small">Vaccination Date</label>
-                        <input type="date" name="vaccination_date" value="{{ old('vaccination_date') }}"
+                        <input type="date" name="vaccination_date"
+                            value="{{ old('vaccination_date', $vaccinationRecord->vaccination_date->format('Y-m-d')) }}"
                             class="form-control" required />
                     </div>
 
                     <div class="col-md-4">
                         <label class="form-label fw-semibold small">Dose Number</label>
-                        <input type="number" name="dose_number" value="{{ old('dose_number', 1) }}" class="form-control"
-                            min="1" required />
+                        <input type="number" name="dose_number" value="{{ old('dose_number', $vaccinationRecord->dose_number) }}"
+                            class="form-control" min="1" required />
                     </div>
 
                     <div class="col-md-4">
                         <label class="form-label fw-semibold small">Next Dose Date</label>
-                        <input type="date" name="next_dose_date" value="{{ old('next_dose_date') }}" class="form-control" />
+                        <input type="date" name="next_dose_date"
+                            value="{{ old('next_dose_date', optional($vaccinationRecord->next_dose_date)->format('Y-m-d')) }}"
+                            class="form-control" />
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label fw-semibold small">Status</label>
                         <select name="status" class="form-select" required>
-                            <option value="completed" {{ old('status', 'completed') == 'completed' ? 'selected' : '' }}>
-                                Completed</option>
-                            <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>Pending</option>
-                            <option value="cancelled" {{ old('status') == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                            <option value="completed" {{ old('status', $vaccinationRecord->status) == 'completed' ? 'selected' : '' }}>Completed</option>
+                            <option value="pending" {{ old('status', $vaccinationRecord->status) == 'pending' ? 'selected' : '' }}>Pending</option>
+                            <option value="cancelled" {{ old('status', $vaccinationRecord->status) == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
                         </select>
                     </div>
 
                     <div class="col-12">
                         <label class="form-label fw-semibold small">Side Effects</label>
-                        <textarea name="side_effects" class="form-control" rows="2"
-                            placeholder="Any reactions or side effects observed...">{{ old('side_effects') }}</textarea>
+                        <textarea name="side_effects" class="form-control" rows="2">{{ old('side_effects', $vaccinationRecord->side_effects) }}</textarea>
                     </div>
 
                     <div class="col-12">
                         <label class="form-label fw-semibold small">Remarks</label>
-                        <textarea name="remarks" class="form-control" rows="2"
-                            placeholder="Any additional remarks...">{{ old('remarks') }}</textarea>
+                        <textarea name="remarks" class="form-control" rows="2">{{ old('remarks', $vaccinationRecord->remarks) }}</textarea>
                     </div>
 
                 </div>
@@ -116,7 +111,7 @@
                 <div class="mt-4 pt-3 border-top d-flex justify-content-end gap-2">
                     <a href="{{ route('vaccin_report_index') }}" class="btn btn-outline-secondary">Cancel</a>
                     <button type="submit" class="btn btn-teal d-flex align-items-center gap-2">
-                        <i class="fas fa-save"></i> Save Record
+                        <i class="fas fa-save"></i> Update Record
                     </button>
                 </div>
 
