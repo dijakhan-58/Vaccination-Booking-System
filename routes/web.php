@@ -23,7 +23,7 @@ use Spatie\Permission\Middleware\PermissionMiddleware;
 
 
 // Hospital
-use App\Http\Controllers\Hospital\HospitalDashboardController;
+
 use App\Http\Controllers\Hospital\HospitalBookingController;
 use App\Http\Controllers\Hospital\HospitalInventoryController;
 use App\Http\Controllers\Hospital\HospitalVaccinationController;
@@ -57,18 +57,39 @@ Route::get('/users', [AdminUserController::class, 'index'])
     ->middleware(['auth', 'verified']);
 
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Children
 |--------------------------------------------------------------------------
 */
 
+Route::get('children/fetch', [AdminChildController::class, 'index'])
+    ->name('children.index')
+    ->middleware(['auth', 'verified']);
 
-Route::get('children/fetch', [AdminChildController::class, 'index'])->name('children.index')
+Route::get('children/add', [AdminChildController::class, 'create'])
+    ->name('children.add')
     ->middleware(['auth', 'verified']);
-Route::get('children/add', [AdminChildController::class, 'create'])->name('children.add')
+
+Route::post('children/store', [AdminChildController::class, 'store'])
+    ->name('children.store')
     ->middleware(['auth', 'verified']);
-/*
+
+Route::get('children/edit/{child}', [AdminChildController::class, 'edit'])
+    ->name('children.edit')
+    ->middleware(['auth', 'verified']);
+
+Route::put('children/update/{child}', [AdminChildController::class, 'update'])
+    ->name('children.update')
+    ->middleware(['auth', 'verified']);
+
+Route::delete('children/delete/{child}', [AdminChildController::class, 'destroy'])
+    ->name('children.destroy')
+    ->middleware(['auth', 'verified']);
+
+    /*
 |--------------------------------------------------------------------------
 | Hospitals
 |--------------------------------------------------------------------------
@@ -169,35 +190,24 @@ Route::get('/notifications', [AdminNotificationController::class, 'index'])
 
 
 
+// hospital
 
 
+Route::post('hospitals/store', [AdminHospitalController::class, 'store'])
+    ->name('hospitals.store')
+    ->middleware(['auth', 'verified']);
 
-/*
-|--------------------------------------------------------------------------
-| Hospital
-|--------------------------------------------------------------------------
-*/
+Route::get('hospitals/edit/{hospital}', [AdminHospitalController::class, 'edit'])
+    ->name('hospitals.edit')
+    ->middleware(['auth', 'verified']);
 
-Route::prefix('hospital')
-    ->name('hospital.')
-    ->middleware(['auth', 'verified'])
-    ->group(function () {
+Route::put('hospitals/update/{hospital}', [AdminHospitalController::class, 'update'])
+    ->name('hospitals.update')
+    ->middleware(['auth', 'verified']);
 
-        Route::get('/dashboard', [HospitalDashboardController::class, 'index'])
-            ->name('dashboard');
-
-        Route::get('/bookings', [HospitalBookingController::class, 'index'])
-            ->name('bookings');
-
-        Route::get('/inventory', [HospitalInventoryController::class, 'index'])
-            ->name('inventory');
-
-        Route::get('/vaccination-records', [HospitalVaccinationController::class, 'index'])
-            ->name('vaccination-records');
-
-        Route::get('/certificates', [HospitalCertificateController::class, 'index'])
-            ->name('certificates');
-    });
+Route::delete('hospitals/delete/{hospital}', [AdminHospitalController::class, 'destroy'])
+    ->name('hospitals.destroy')
+    ->middleware(['auth', 'verified']);
 
 
 /*
@@ -261,6 +271,12 @@ Route::get('/contact', [ContactController::class, 'contact'])
     ->name('Website_contact');
 
 
+
+
+
+
+
+    
 /*
 |--------------------------------------------------------------------------
 | Breeze Authentication Routes

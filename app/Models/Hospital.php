@@ -8,15 +8,12 @@ class Hospital extends Model
 {
     protected $fillable = [
         'name',
-        'email',
-        'password',
-        'address',
         'city',
+        'address',
+        'floors',
+        'timings_slot',
         'status',
-    ];
-
-    protected $hidden = [
-        'password',
+        'profile_img',
     ];
 
     public function bookings()
@@ -24,7 +21,7 @@ class Hospital extends Model
         return $this->hasMany(Booking::class);
     }
 
-   
+  
 
     public function users()
     {

@@ -165,7 +165,7 @@
                 </div>
             </nav>
         </header>
-{{-- sidebar --}}
+        {{-- sidebar --}}
         <aside class="admin-sidebar" id="admin-sidebar">
             <div class="sidebar-content">
                 <nav class="sidebar-nav">
@@ -237,25 +237,41 @@
                                 </ul>
                             </div>
                         </li>
+                      <!-- 5. Child Management -->
+<li class="nav-item">
+    <a class="nav-link"
+       href="#"
+       data-bs-toggle="collapse"
+       data-bs-target="#childManagement"
+       aria-expanded="false">
 
-                        <!-- 5. Child Management -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#childManagement" aria-expanded="false">
-                                <i class="bi bi-person-hearts"></i>
-                                <span>Child Management</span>
-                                <i class="bi bi-chevron-down ms-auto"></i>
-                            </a>
-                            <div class="collapse" id="childManagement">
-                                <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('children.add') }}"><i
-                                                class="bi bi-person-plus"></i><span>Add Child</span></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('children.index') }}"><i
-                                                class="bi bi-people"></i><span>Fetch Child</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
+        <i class="bi bi-person-hearts"></i>
+        <span>Child Management</span>
+        <i class="bi bi-chevron-down ms-auto"></i>
+    </a>
 
+    <div class="collapse" id="childManagement">
+        <ul class="nav nav-submenu flex-column">
+
+            <!-- Add Child -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('children.add') }}">
+                    <i class="bi bi-person-plus"></i>
+                    <span>Add Child</span>
+                </a>
+            </li>
+
+            <!-- Fetch Child -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('children.index') }}">
+                    <i class="bi bi-people"></i>
+                    <span>Fetch Child</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</li>
                         <!-- 6. Vaccine Management -->
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="collapse"

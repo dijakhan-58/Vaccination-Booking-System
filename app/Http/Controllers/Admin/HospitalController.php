@@ -3,63 +3,84 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hospital;
 use Illuminate\Http\Request;
 
-class HospitalController extends Controller
+class HospitalController extends Controller   // <-- was AdminHospitalController
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('dashboard.hospitals.fetch');
+        $hospitals = Hospital::latest()->get();
+
+        return view('dashboard.hospitals.fetch', compact('hospitals'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-     return view('dashboard.hospitals.add');
+        return view('dashboard.hospitals.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'floors' => 'required|integer|min:1',
+            'timings_slot' => 'required|string|max:255',
+            'status' => 'required|in:active,inactive,pending',
+            'profile_img' => 'nullable|image',
+        ]);
+
+        $data = $request->only(['name', 'city', 'address', 'floors', 'timings_slot', 'status']);
+
+        if ($request->hasFile('profile_img')) {
+            $data['profile_img'] = $request->file('profile_img')->store('hospitals', 'public');
+        }
+
+        Hospital::create($data);
+
+        return redirect()
+            ->route('hospitals.fetch')
+            ->with('success', 'Hospital added successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(Hospital $hospital)
     {
-        //
+        return view('dashboard.hospitals.edit', compact('hospital'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, Hospital $hospital)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'floors' => 'required|integer|min:1',
+            'timings_slot' => 'required|string|max:255',
+            'status' => 'required|in:active,inactive,pending',
+            'profile_img' => 'nullable|image',
+        ]);
+
+        $data = $request->only(['name', 'city', 'address', 'floors', 'timings_slot', 'status']);
+
+        if ($request->hasFile('profile_img')) {
+            $data['profile_img'] = $request->file('profile_img')->store('hospitals', 'public');
+        }
+
+        $hospital->update($data);
+
+        return redirect()
+            ->route('hospitals.fetch')
+            ->with('success', 'Hospital updated successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(Hospital $hospital)
     {
-        //
-    }
+        $hospital->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()
+            ->route('hospitals.fetch')
+            ->with('success', 'Hospital deleted successfully.');
     }
 }
