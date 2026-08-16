@@ -9,7 +9,7 @@ use App\Models\Hospital;
 use App\Models\Vaccine;
 use Illuminate\Http\Request;
 
-class ParentBookingController extends Controller
+class ParentDashboardController extends Controller
 {
     public function index()
     {

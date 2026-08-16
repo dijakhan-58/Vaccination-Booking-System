@@ -22,6 +22,8 @@ class ParentVaccinationController extends Controller
         );
     }
 
+    
+
     public function show(VaccinationRecord $vaccinationRecord)
     {
         return view(

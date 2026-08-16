@@ -761,52 +761,52 @@
     <hr>
   </section>
 
-  <!-- Appointment/Contact Section -->
-  <section class="cs_card cs_style_3 cs_gray_bg position-relative">
+<!-- Appointment/Contact Section -->
+<section class="cs_card cs_style_3 cs_gray_bg position-relative">
     <div class="cs_height_110 cs_height_lg_70"></div>
     <div class="container">
-      <div class="row cs_gap_y_40">
-        <div class="col-lg-6">
-          <div class="cs_section_heading cs_style_1">
-            <p class="cs_section_subtitle cs_accent_color">
-              <span class="cs_shape_left"></span>BOOK VACCINATION
-            </p>
-            <h2 class="cs_section_title">Schedule Your Child's <br>Vaccination Today.</h2>
-          </div>
-          <div class="cs_height_25 cs_height_lg_25"></div>
-          <form class="cs_contact_form row cs_gap_y_30 home_form_area">
-            <div class="col-md-6">
-              <input type="text" name="name" class="cs_form_field" placeholder="Parent/Guardian name">
+        <div class="row cs_gap_y_40">
+            <div class="col-lg-6">
+                <div class="cs_section_heading cs_style_1">
+                    <p class="cs_section_subtitle cs_accent_color">
+                        <span class="cs_shape_left"></span>BOOK VACCINATION
+                    </p>
+                    <h2 class="cs_section_title">Schedule Your Child's <br>Vaccination Today.</h2>
+                </div>
+                <div class="cs_height_25 cs_height_lg_25"></div>
+                <form class="cs_contact_form row cs_gap_y_30 home_form_area">
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="cs_form_field" placeholder="Parent/Guardian name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" name="email" class="cs_form_field" placeholder="Your email">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="subject" class="cs_form_field" placeholder="Child's name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="phone" class="cs_form_field" placeholder="Your phone">
+                    </div>
+                    <div class="col-lg-12">
+                        <textarea rows="5" name="message" class="cs_form_field" placeholder="Vaccine type or request"></textarea>
+                    </div>
+                    <div class="col-lg-12">
+                        <button type="submit" class="cs_btn cs_style_1 cs_color_1">Book Appointment</button>
+                    </div>
+                </form>
             </div>
-            <div class="col-md-6">
-              <input type="email" name="email" class="cs_form_field" placeholder="Your email">
+            <div class="col-lg-6">
+                <div class="cs_solution_thumbnail cs_bg_filed"
+                    data-src="{{ asset('assets/frontend/img/pexels-pavel-danilyuk-7653101.jpg') }}">
+                </div>
             </div>
-            <div class="col-md-6">
-              <input type="text" name="subject" class="cs_form_field" placeholder="Child's name">
-            </div>
-            <div class="col-md-6">
-              <input type="text" name="phone" class="cs_form_field" placeholder="Your phone">
-            </div>
-            <div class="col-lg-12">
-              <textarea rows="5" name="message" class="cs_form_field" placeholder="Vaccine type or request"></textarea>
-            </div>
-            <div class="col-lg-12">
-              <button type="submit" class="cs_btn cs_style_1 cs_color_1">Book Appointment</button>
-            </div>
-          </form>
         </div>
-        <div class="col-lg-6">
-          <div class="cs_solution_thumbnail cs_bg_filed"
-            data-src="{{ asset('assets/frontend/img/pexels-pavel-danilyuk-7653101.jpg') }}">
-          </div>
-        </div>
-      </div>
     </div>
     <div class="cs_solution_shape position-absolute">
-      <img src="assets/img/stethoscope.png" alt="Shape">
+        <img src="assets/img/stethoscope.png" alt="Shape">
     </div>
     <div class="cs_height_120 cs_height_lg_80"></div>
-  </section>
+</section>
 
 
 

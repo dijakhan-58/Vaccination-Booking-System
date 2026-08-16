@@ -81,15 +81,15 @@ Mobile
   --white: #fff;
   --black: #000;
   /* --heading-color: #222; */
-  --heading-color: #163832;
+  --heading-color: #0b3c26;
   /* --body-color: #636363; */
   --body-color: #daf1da;
   /* --accent-color: #52b1a2; */
   --accent-color: #8eb69b;
   /* --blue-color: #468178; */
-  --blue-color: #235347;
+  --blue-color: #0b3c26;
   --dark-green: #051f20;
-  --light-green: #4e8C76;
+  --light-green: #0b3c26;
 
   --gray-color: #e8edf0;
   --border-color: #dddddd;
@@ -105,32 +105,7 @@ Mobile
   --text: #0A1F1A;
   --white: #FFFFFF;
 }
-/*--------------------------------------------------------------
->> TABLE OF CONTENTS:
-----------------------------------------------------------------
-1. Typography
-2. Preloader
-3. Spacing
-4. General
-5. Slider
-6. Video Modal
-7. Header
-8. Footer
-9. Sidebar
-10. Hero
-11. Iconbox
-12. Posts
-13. CTA
-14. Testimonial
-15. Counter
-16. Casestudie
-17. Team
-18. Pricing
-19. Card
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-1. Typography
-----------------------------------------------------------------*/
+
 body,
 html {
   color: var(--body-color);
@@ -141,10 +116,8 @@ html {
   overflow-x: clip;
 }
 
-/* Root Variables - Green Color Palette */
 
 
-/* Why Choose Us Section Styles */
 .container-fluid.bg-primary {
   /* background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important; */
   background-color : #235347 !important;
@@ -166,12 +139,6 @@ Background Pattern Overlay
   pointer-events: none;
 }
 
-/* .feature {
-  max-width: 1320px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-} */
 
 /* Feature Text Section */
 .feature-text {
@@ -9556,3 +9523,229 @@ label {
     .cs_footer_logo img:hover {
         transform: none !important;
     }
+
+    :root {
+        --primary: #0D4A3E;
+        --secondary: #1A6B5A;
+        --accent: #4CAF8C;
+        --light: #D4EDE4;
+        --bg: #F2FAF7;
+        --text: #0A1F1A;
+        --white: #FFFFFF;
+
+        --glass-fill: rgba(255, 255, 255, .6);
+        --glass-fill-strong: rgba(255, 255, 255, .78);
+        --glass-border: rgba(255, 255, 255, .55);
+        --glass-fill-dark: rgba(255, 255, 255, .1);
+        --glass-border-dark: rgba(255, 255, 255, .22);
+        --shadow-soft: 0 10px 34px rgba(10, 31, 26, .1);
+        --shadow-strong: 0 16px 44px rgba(10, 31, 26, .16);
+    }
+
+    body { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+
+    /* ---------- top contact strip ---------- */
+    .cs_top_header.cs_blue_bg {
+        background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+    .cs_top_header .cs_header_contact_list li,
+    .cs_top_header .cs_header_contact_list li a {
+        color: rgba(255, 255, 255, .82) !important;
+        font-size: .82rem;
+    }
+    .cs_top_header .cs_header_contact_list li i { color: var(--accent) !important; }
+    .cs_top_header .cs_social_btns.cs_style_1 a {
+        background: rgba(255, 255, 255, .12) !important;
+        border: 1px solid rgba(255, 255, 255, .2) !important;
+        color: #fff !important;
+        backdrop-filter: blur(8px);
+    }
+    .cs_top_header .cs_social_btns.cs_style_1 a:hover {
+        background: var(--accent) !important;
+        color: #06231b !important;
+        border-color: transparent !important;
+    }
+
+    /* ---------- main sticky header ---------- */
+    .cs_site_header.cs_sticky_header {
+        background: var(--glass-fill-strong) !important;
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        box-shadow: var(--shadow-soft);
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .cs_main_header { background: transparent !important; }
+
+    /* ---------- nav links ---------- */
+    .cs_nav_list > li > a {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: .9rem !important;
+        color: var(--text) !important;
+        letter-spacing: -.01em;
+        transition: color .2s ease;
+    }
+    .cs_nav_list > li > a:hover,
+    .cs_nav_list > li.active > a,
+    .cs_nav_list > li.menu-item-has-children:hover > a {
+        color: var(--secondary) !important;
+    }
+
+    /* ---------- dropdown (menu-item-has-children) ---------- */
+    .cs_nav_list li.menu-item-has-children > ul {
+        background: var(--glass-fill-strong) !important;
+        border: 1px solid var(--glass-border) !important;
+        border-radius: 1rem !important;
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        box-shadow: var(--shadow-strong) !important;
+        padding: .5rem !important;
+        overflow: hidden;
+    }
+    .cs_nav_list li.menu-item-has-children > ul > li > a {
+        color: var(--text) !important;
+        font-weight: 600 !important;
+        font-size: .86rem !important;
+        border-radius: .7rem !important;
+        padding: .55rem .8rem !important;
+        display: flex; align-items: center; gap: .5rem;
+        transition: background .2s ease, color .2s ease;
+    }
+    .cs_nav_list li.menu-item-has-children > ul > li > a:hover {
+        background: var(--light) !important;
+        color: var(--secondary) !important;
+    }
+    .cs_nav_list li.menu-item-has-children > ul > li > a i { color: var(--accent) !important; }
+
+    /* ---------- search ---------- */
+    .cs_search_toggle {
+        background: var(--light) !important;
+        color: var(--secondary) !important;
+        border-radius: 50% !important;
+        transition: background .2s ease, color .2s ease;
+    }
+    .cs_search_toggle:hover { background: var(--accent) !important; color: #06231b !important; }
+    .cs_header_search_form_in {
+        background: var(--glass-fill-strong) !important;
+        border: 1px solid var(--glass-border) !important;
+        border-radius: 999px !important;
+        backdrop-filter: blur(18px) saturate(160%);
+        box-shadow: var(--shadow-strong) !important;
+    }
+    .cs_header_search_field { background: transparent !important; color: var(--text) !important; }
+    .cs_header_submit_btn { color: var(--secondary) !important; }
+
+    /* ---------- login button (same glass-accent treatment as the rest of the site) ---------- */
+    .cs_main_header .cs_btn.cs_style_1.cs_color_1 {
+        background: var(--accent) !important;
+        color: #06231b !important;
+        border: 1px solid rgba(255, 255, 255, .4) !important;
+        border-radius: 999px !important;
+    }
+    .cs_main_header .cs_btn.cs_style_1.cs_color_1:hover { filter: brightness(1.06); }
+
+    /* ---------- scroll-to-top ---------- */
+    .cs_scrollup {
+        background: var(--glass-fill-strong) !important;
+        border: 1px solid var(--glass-border) !important;
+        color: var(--primary) !important;
+        border-radius: 50% !important;
+        backdrop-filter: blur(14px);
+        box-shadow: var(--shadow-strong) !important;
+    }
+    .cs_scrollup:hover { background: var(--accent) !important; color: #06231b !important; }
+
+    /* ---------- footer, left as-is aside from palette alignment ---------- */
+    .cs_footer.cs_blue_bg {
+        background: linear-gradient(160deg, var(--primary), #071e18) !important;
+    }
+    .cs_footer_widget_title { font-family: 'Fraunces', serif !important; color: #fff !important; }
+    .cs_footer .cs_social_btns.cs_style_1 a {
+        background: rgba(255, 255, 255, .1) !important;
+        border: 1px solid rgba(255, 255, 255, .2) !important;
+        color: #fff !important;
+    }
+    .cs_footer .cs_social_btns.cs_style_1 a:hover { background: var(--accent) !important; color: #06231b !important; }
+
+
+
+
+
+      .cs_card.cs_style_3.cs_gray_bg {
+        background: var(--bg, #F2FAF7) !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .cs_card.cs_style_3.cs_gray_bg::before {
+        content: '';
+        position: absolute;
+        width: 380px; height: 380px;
+        border-radius: 50%;
+        background: var(--accent, #4CAF8C);
+        opacity: .18;
+        filter: blur(90px);
+        top: -10%; right: -4%;
+        pointer-events: none;
+    }
+
+    /* form becomes its own glass card */
+    .cs_contact_form.home_form_area {
+        background: rgba(255, 255, 255, .6) !important;
+        border: 1px solid rgba(255, 255, 255, .55) !important;
+        border-radius: 1.5rem !important;
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        box-shadow: 0 16px 44px rgba(10, 31, 26, .12) !important;
+        padding: 1.8rem !important;
+        margin: 0 !important;
+        position: relative;
+        z-index: 1;
+    }
+    .cs_contact_form.home_form_area .cs_form_field {
+        background: rgba(255, 255, 255, .75) !important;
+        border: 1px solid rgba(13, 74, 62, .15) !important;
+        border-radius: .9rem !important;
+        padding: .8rem 1rem !important;
+        width: 100%;
+        transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .cs_contact_form.home_form_area .cs_form_field:focus {
+        outline: none;
+        border-color: var(--accent, #4CAF8C) !important;
+        box-shadow: 0 0 0 .2rem rgba(76, 175, 140, .18) !important;
+        background: #fff !important;
+    }
+    .cs_contact_form.home_form_area .cs_btn.cs_style_1.cs_color_1 {
+        background: var(--primary, #0D4A3E) !important;
+        color: #fff !important;
+        border-radius: 999px !important;
+        border: none !important;
+        padding: .9rem 1.8rem !important;
+    }
+    .cs_contact_form.home_form_area .cs_btn.cs_style_1.cs_color_1:hover { filter: brightness(1.15); }
+
+    /* image side */
+    .cs_solution_thumbnail.cs_bg_filed {
+        border-radius: 1.5rem !important;
+        overflow: hidden;
+        min-height: 380px;
+        box-shadow: 0 20px 60px rgba(10, 31, 26, .2) !important;
+        position: relative;
+        z-index: 1;
+    }
+    .cs_solution_thumbnail.cs_bg_filed::after {
+        content: 'Same-day confirmation';
+        position: absolute;
+        left: 1.2rem; bottom: 1.2rem;
+        background: rgba(255, 255, 255, .18);
+        border: 1px solid rgba(255, 255, 255, .3);
+        backdrop-filter: blur(14px);
+        color: #fff;
+        font-size: .78rem;
+        font-weight: 700;
+        padding: .55rem 1rem;
+        border-radius: 999px;
+    }
+
+    .cs_solution_shape { opacity: .5; }
