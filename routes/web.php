@@ -241,12 +241,36 @@ Route::prefix('parent')
 |--------------------------------------------------------------------------
 */
 
-Route::get('/vaccine/{id}', [VaccinationController::class, 'show'])
-    ->name('vaccine.show');
+// Fetch / Listing
+Route::get('/vaccine_managemnet/index', [AdminVaccineController::class, 'index'])
+    ->name('vaccines.index')
+    ->middleware(['auth', 'verified']);
 
-Route::post('/vaccine/{id}/book', [VaccinationController::class, 'store'])
-    ->whereNumber('id')
-    ->name('vaccine.book');
+Route::get('/vaccine_managemnet/add', [AdminVaccineController::class, 'create'])
+    ->name('vaccines.add')
+    ->middleware(['auth', 'verified']);
+
+Route::post('/vaccine_managemnet/store', [AdminVaccineController::class, 'store'])
+    ->name('vaccines.store')
+    ->middleware(['auth', 'verified']);
+
+
+// EDIT
+Route::get('/vaccine_managemnet/{vaccine}/edit', [AdminVaccineController::class, 'edit'])
+    ->name('vaccines.edit')
+    ->middleware(['auth', 'verified']);
+
+
+// UPDATE
+Route::post('/vaccine_managemnet/{vaccine}', [AdminVaccineController::class, 'update'])
+    ->name('vaccines.update')
+    ->middleware(['auth', 'verified']);
+
+
+// DELETE
+Route::delete('/vaccine_managemnet/{vaccine}', [AdminVaccineController::class, 'destroy'])
+    ->name('vaccines.destroy')
+    ->middleware(['auth', 'verified']);
 
 
 /*
@@ -260,7 +284,7 @@ Route::get('/', [WebsiteController::class, 'index'])
 
 Route::get('/about', [WebsiteController::class, 'about'])
     ->name('Website_about');
-
+    
 Route::get('/hospital', [WebsiteController::class, 'hospital'])
     ->name('Website_hospital');
 

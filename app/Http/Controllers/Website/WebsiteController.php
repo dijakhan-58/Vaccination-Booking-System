@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Hospital;
 
 class WebsiteController extends Controller
 {
@@ -13,10 +14,12 @@ class WebsiteController extends Controller
     public function about(){
         return view('front_theme.about');
     }
-    public function hospital(){
-        return view('front_theme.hospital');
+   public function hospital()
+    {
+        $hospitals = Hospital::where('status', 'active')
+            ->latest()
+            ->get();
+
+        return view('front_theme.hospital', compact('hospitals'));
     }
-    // public function vaccine(){
-    //     return view('front_theme.vaccine');
-    // }
 }
