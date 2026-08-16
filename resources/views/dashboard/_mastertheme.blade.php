@@ -189,10 +189,10 @@
                             </a>
                             <div class="collapse" id="roleManagement">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="#"><i
+                                    <li class="nav-item"><a class="nav-link" href="{{route('role_create')}}"><i
                                                 class="bi bi-plus-circle"></i><span>Add
                                                 Role</span></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#"><i
+                                    <li class="nav-item"><a class="nav-link" href="{{route('role_view')}}"><i
                                                 class="bi bi-list-ul"></i><span>Fetch
                                                 Role</span></a></li>
                                 </ul>
@@ -209,10 +209,10 @@
                             </a>
                             <div class="collapse" id="userManagement">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="#"><i
+                                    <li class="nav-item"><a class="nav-link" href="{{route('user_create')}}"><i
                                                 class="bi bi-person-plus"></i><span>Add
                                                 User</span></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#"><i
+                                    <li class="nav-item"><a class="nav-link" href="{{route('user_view')}}"><i
                                                 class="bi bi-list-ul"></i><span>Fetch
                                                 User</span></a></li>
                                 </ul>

@@ -36,11 +36,13 @@ use App\Http\Controllers\ParentPortal\ChildController;
 use App\Http\Controllers\ParentPortal\ParentBookingController;
 use App\Http\Controllers\ParentPortal\ParentVaccinationController;
 use App\Http\Controllers\ParentPortal\ParentNotificationController;
-
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 // Website
 use App\Http\Controllers\Website\WebsiteController;
 use App\Http\Controllers\Website\VaccinationController;
 use App\Http\Controllers\Website\ContactController;
+
 
 //admin
 
@@ -52,7 +54,17 @@ Route::get('/users', [AdminUserController::class, 'index'])
     ->name('users')
     ->middleware(['auth', 'verified']);
 
+    
+    //role 
+    Route::get("/role",[RoleController::class,"index"])->name("role_view")->middleware(['auth', 'verified']);
+    Route::get("/role/create",[RoleController::class,"create"])->name("role_create")->middleware(['auth', 'verified']);
+    Route::get("/role/edit/{id}",[RoleController::class,"edit"])->name("role_edit")->middleware(['auth', 'verified']);
+    // user 
+    Route::get("/user",[UserController::class,"index"])->name("user_view")->middleware(['auth', 'verified']);
+    Route::get("/user/create",[UserController::class,"create"])->name("user_create")->middleware(['auth', 'verified']);
+    Route::get("/user/edit/{id}",[UserController::class,"edit"])->name("user_edit")->middleware(['auth', 'verified']);
 
+    
 
 
 //children
