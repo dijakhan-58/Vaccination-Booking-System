@@ -30,6 +30,7 @@ class VaccinationRecordController extends Controller
     }
 
     public function create(Booking $booking)
+    
     {
         return view(
             'admin.vaccination-records.create',

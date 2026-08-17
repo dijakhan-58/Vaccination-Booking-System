@@ -55,10 +55,17 @@ Route::get('/users', [AdminUserController::class, 'index'])
     ->middleware(['auth', 'verified']);
 
     
-    //role 
-    Route::get("/role",[RoleController::class,"index"])->name("role_view")->middleware(['auth', 'verified']);
-    Route::get("/role/create",[RoleController::class,"create"])->name("role_create")->middleware(['auth', 'verified']);
-    Route::get("/role/edit/{id}",[RoleController::class,"edit"])->name("role_edit")->middleware(['auth', 'verified']);
+  // role
+Route::get('/role', [RoleController::class, 'index'])->name('role_view')->middleware(['auth', 'verified']);
+Route::get('/role/create', [RoleController::class, 'create'])->name('role_create')->middleware(['auth', 'verified']);
+Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('role_edit')->middleware(['auth', 'verified']);
+
+// Action routes
+Route::post('/role/create', [RoleController::class, 'store'])->name('role_create_action');
+Route::put('/role/update/{id}', [RoleController::class, 'update'])->name('role_update_action');
+Route::delete('/role/destroy/{id}', [RoleController::class, 'destroy'])->name('role_delete_action');
+
+    
     // user 
     Route::get("/user",[UserController::class,"index"])->name("user_view")->middleware(['auth', 'verified']);
     Route::get("/user/create",[UserController::class,"create"])->name("user_create")->middleware(['auth', 'verified']);
