@@ -42,7 +42,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Website\WebsiteController;
 use App\Http\Controllers\Website\VaccinationController;
 use App\Http\Controllers\Website\ContactController;
-
+use App\Models\User;
 
 //admin
 
@@ -54,8 +54,8 @@ Route::get('/users', [AdminUserController::class, 'index'])
     ->name('users')
     ->middleware(['auth', 'verified']);
 
-    
-  // role
+
+// role
 Route::get('/role', [RoleController::class, 'index'])->name('role_view')->middleware(['auth', 'verified']);
 Route::get('/role/create', [RoleController::class, 'create'])->name('role_create')->middleware(['auth', 'verified']);
 Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('role_edit')->middleware(['auth', 'verified']);
@@ -65,13 +65,18 @@ Route::post('/role/create', [RoleController::class, 'store'])->name('role_create
 Route::put('/role/update/{id}', [RoleController::class, 'update'])->name('role_update_action');
 Route::delete('/role/destroy/{id}', [RoleController::class, 'destroy'])->name('role_delete_action');
 
-    
-    // user 
-    Route::get("/user",[UserController::class,"index"])->name("user_view")->middleware(['auth', 'verified']);
-    Route::get("/user/create",[UserController::class,"create"])->name("user_create")->middleware(['auth', 'verified']);
-    Route::get("/user/edit/{id}",[UserController::class,"edit"])->name("user_edit")->middleware(['auth', 'verified']);
 
-    
+// user 
+Route::get("/user", [UserController::class, "index"])->name("user_view")->middleware(['auth', 'verified']);
+Route::get("/user/create", [UserController::class, "create"])->name("user_create")->middleware(['auth', 'verified']);
+Route::get("/user/edit/{id}", [UserController::class, "edit"])->name("user_edit")->middleware(['auth', 'verified']);
+
+//action routes
+Route::post('/user/create', [UserController::class, 'store'])->name('user_create_action');
+Route::put('/user/update/{id}', [UserController::class, 'update'])->name('user_update_action');
+Route::delete('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user_delete_action');
+
+
 
 
 //children
@@ -275,7 +280,7 @@ Route::delete('vaccination_reports/{vaccinationRecord}', [AdminVaccination_repor
 
 
 
-    
+
 // Public Website
 
 

@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'phone' => '03001234567',
             'city' => 'Karachi',
-            'email_verified_at' => now(),
+          
         ]);
 
         $admin->assignRole($adminRole);
