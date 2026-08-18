@@ -12,7 +12,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/dashboard/images/care4kids_logo.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/dashboard/icons/favicon.png') }}">
+    
 
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -166,236 +166,306 @@
             </nav>
         </header>
         {{-- sidebar --}}
+               {{-- sidebar --}}
         <aside class="admin-sidebar" id="admin-sidebar">
             <div class="sidebar-content">
                 <nav class="sidebar-nav">
-                    <ul class="nav flex-column gap-1">
+                    <ul class="nav flex-column gap-1" id="sidebarAccordion">
 
                         <!-- 1. Dashboard -->
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('dashboard') }}">
+                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
+                                href="{{ route('dashboard') }}">
                                 <i class="bi bi-speedometer2"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
                         <!-- 2. Role Management -->
+                        @php $roleActive = request()->routeIs('role_create') || request()->routeIs('role_view') || request()->routeIs('role_edit'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#roleManagement" aria-expanded="false">
+                            <a class="nav-link {{ $roleActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#roleManagement"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $roleActive ? 'true' : 'false' }}">
                                 <i class="bi bi-person-badge"></i>
                                 <span>Role Management</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="roleManagement">
+                            <div class="collapse {{ $roleActive ? 'show' : '' }}" id="roleManagement"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="{{route('role_create')}}"><i
-                                                class="bi bi-plus-circle"></i><span>Add
-                                                Role</span></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{route('role_view')}}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch
-                                                Role</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('role_create') ? 'active' : '' }}"
+                                            href="{{ route('role_create') }}">
+                                            <i class="bi bi-plus-circle"></i><span>Add Role</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('role_view') ? 'active' : '' }}"
+                                            href="{{ route('role_view') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch Role</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
 
                         <!-- 3. User Management -->
+                        @php $userActive = request()->routeIs('user_create') || request()->routeIs('user_view') || request()->routeIs('user_edit'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#userManagement" aria-expanded="false">
+                            <a class="nav-link {{ $userActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#userManagement"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $userActive ? 'true' : 'false' }}">
                                 <i class="bi bi-people"></i>
                                 <span>User Management</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="userManagement">
+                            <div class="collapse {{ $userActive ? 'show' : '' }}" id="userManagement"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="{{route('user_create')}}"><i
-                                                class="bi bi-person-plus"></i><span>Add
-                                                User</span></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{route('user_view')}}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch
-                                                User</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('user_create') ? 'active' : '' }}"
+                                            href="{{ route('user_create') }}">
+                                            <i class="bi bi-person-plus"></i><span>Add User</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('user_view') ? 'active' : '' }}"
+                                            href="{{ route('user_view') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch User</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
 
                         <!-- 4. Hospital Management -->
+                        @php $hospitalActive = request()->routeIs('hospitals.*'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#hospitalManagement" aria-expanded="false">
+                            <a class="nav-link {{ $hospitalActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#hospitalManagement"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $hospitalActive ? 'true' : 'false' }}">
                                 <i class="bi bi-hospital"></i>
                                 <span>Hospital Management</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="hospitalManagement">
+                            <div class="collapse {{ $hospitalActive ? 'show' : '' }}" id="hospitalManagement"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('hospitals.add') }}"><i
-                                                class="bi bi-hospital-fill"></i><span>Add Hospital</span></a></li>
-                                    <li class="nav-item"><a class="nav-link"
-                                            href="{{ route('hospitals.fetch') }}"><i
-                                                class="bi bi-buildings"></i><span>Fetch Hospital</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('hospitals.add') ? 'active' : '' }}"
+                                            href="{{ route('hospitals.add') }}">
+                                            <i class="bi bi-hospital-fill"></i><span>Add Hospital</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('hospitals.fetch') ? 'active' : '' }}"
+                                            href="{{ route('hospitals.fetch') }}">
+                                            <i class="bi bi-buildings"></i><span>Fetch Hospital</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
-                      <!-- 5. Child Management -->
-<li class="nav-item">
-    <a class="nav-link"
-       href="#"
-       data-bs-toggle="collapse"
-       data-bs-target="#childManagement"
-       aria-expanded="false">
 
-        <i class="bi bi-person-hearts"></i>
-        <span>Child Management</span>
-        <i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-
-    <div class="collapse" id="childManagement">
-        <ul class="nav nav-submenu flex-column">
-
-            <!-- Add Child -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('children.add') }}">
-                    <i class="bi bi-person-plus"></i>
-                    <span>Add Child</span>
-                </a>
-            </li>
-
-            <!-- Fetch Child -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('children.index') }}">
-                    <i class="bi bi-people"></i>
-                    <span>Fetch Child</span>
-                </a>
-            </li>
-
-        </ul>
-    </div>
-</li>
-                        <!-- 6. Vaccine Management -->
+                        <!-- 5. Child Management -->
+                        @php $childActive = request()->routeIs('children.*'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#vaccineManagement" aria-expanded="false">
+                            <a class="nav-link {{ $childActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#childManagement"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $childActive ? 'true' : 'false' }}">
+                                <i class="bi bi-person-hearts"></i>
+                                <span>Child Management</span>
+                                <i class="bi bi-chevron-down ms-auto"></i>
+                            </a>
+                            <div class="collapse {{ $childActive ? 'show' : '' }}" id="childManagement"
+                                data-bs-parent="#sidebarAccordion">
+                                <ul class="nav nav-submenu flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('children.add') ? 'active' : '' }}"
+                                            href="{{ route('children.add') }}">
+                                            <i class="bi bi-person-plus"></i><span>Add Child</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('children.index') ? 'active' : '' }}"
+                                            href="{{ route('children.index') }}">
+                                            <i class="bi bi-people"></i><span>Fetch Child</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 6. Vaccine Management -->
+                        @php $vaccineActive = request()->routeIs('vaccines.*'); @endphp
+                        <li class="nav-item">
+                            <a class="nav-link {{ $vaccineActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#vaccineManagement"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $vaccineActive ? 'true' : 'false' }}">
                                 <i class="bi bi-shield-plus"></i>
                                 <span>Vaccine Management</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="vaccineManagement">
+                            <div class="collapse {{ $vaccineActive ? 'show' : '' }}" id="vaccineManagement"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('vaccines.add') }}"><i
-                                                class="bi bi-plus-circle"></i><span>Add
-                                                Vaccine</span></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('vaccines.index') }}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch Vaccine</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('vaccines.add') ? 'active' : '' }}"
+                                            href="{{ route('vaccines.add') }}">
+                                            <i class="bi bi-plus-circle"></i><span>Add Vaccine</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('vaccines.index') ? 'active' : '' }}"
+                                            href="{{ route('vaccines.index') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch Vaccine</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
 
                         <!-- 7. Upcoming Vaccination -->
+                        @php $upcomingVaccineActive = request()->routeIs('upcoming_index'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#upcomingVaccination" aria-expanded="false">
+                            <a class="nav-link {{ $upcomingVaccineActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#upcomingVaccination"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $upcomingVaccineActive ? 'true' : 'false' }}">
                                 <i class="bi bi-calendar-week"></i>
                                 <span>Upcoming Vaccination</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="upcomingVaccination">
+                            <div class="collapse {{ $upcomingVaccineActive ? 'show' : '' }}" id="upcomingVaccination"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('upcoming_index') }}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch Upcoming Vaccination</span></a>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('upcoming_index') ? 'active' : '' }}"
+                                            href="{{ route('upcoming_index') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch Upcoming Vaccination</span>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
 
                         <!-- 8. Vaccination Report -->
+                        @php $reportActive = request()->routeIs('vaccin_report_*'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#vaccinationReport" aria-expanded="false">
+                            <a class="nav-link {{ $reportActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#vaccinationReport"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $reportActive ? 'true' : 'false' }}">
                                 <i class="bi bi-file-earmark-medical"></i>
                                 <span>Vaccination Report</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="vaccinationReport">
+                            <div class="collapse {{ $reportActive ? 'show' : '' }}" id="vaccinationReport"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link"
-                                            href="{{ route('vaccin_report_add') }}"><i
-                                                class="bi bi-plus-circle"></i><span>Add
-                                                Report</span></a></li>
-                                    <li class="nav-item"><a class="nav-link"
-                                            href="{{ route('vaccin_report_index') }}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch
-                                                Report</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('vaccin_report_add') ? 'active' : '' }}"
+                                            href="{{ route('vaccin_report_add') }}">
+                                            <i class="bi bi-plus-circle"></i><span>Add Report</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('vaccin_report_index') ? 'active' : '' }}"
+                                            href="{{ route('vaccin_report_index') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch Report</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
 
                         <!-- 9. Vaccination Status -->
+                        @php $statusActive = request()->routeIs('vaccine_status_index') || request()->routeIs('vaccine_status.*'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#vaccinationStatus" aria-expanded="false">
+                            <a class="nav-link {{ $statusActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#vaccinationStatus"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $statusActive ? 'true' : 'false' }}">
                                 <i class="bi bi-clipboard2-pulse"></i>
                                 <span>Vaccination Status</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="vaccinationStatus">
+                            <div class="collapse {{ $statusActive ? 'show' : '' }}" id="vaccinationStatus"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link"
-                                            href="{{ route('vaccine_status_index') }}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch
-                                                Vaccination Status</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('vaccine_status_index') ? 'active' : '' }}"
+                                            href="{{ route('vaccine_status_index') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch Vaccination Status</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
 
                         <!-- 10. Parent Appointment Request -->
+                        @php $parentReqActive = request()->routeIs('parent_index'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#parentAppointmentRequest" aria-expanded="false">
+                            <a class="nav-link {{ $parentReqActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#parentAppointmentRequest"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $parentReqActive ? 'true' : 'false' }}">
                                 <i class="bi bi-envelope-check"></i>
                                 <span>Parent Appointment Request</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="parentAppointmentRequest">
+                            <div class="collapse {{ $parentReqActive ? 'show' : '' }}" id="parentAppointmentRequest"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('parent_index') }}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch
-                                                Appointment Request</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('parent_index') ? 'active' : '' }}"
+                                            href="{{ route('parent_index') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch Appointment Request</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
 
                         <!-- 11. Booking Detail -->
+                        @php $bookingActive = request()->routeIs('bookings/index'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#bookingDetail" aria-expanded="false">
+                            <a class="nav-link {{ $bookingActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#bookingDetail"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $bookingActive ? 'true' : 'false' }}">
                                 <i class="bi bi-card-list"></i>
                                 <span>Booking Detail</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="bookingDetail">
+                            <div class="collapse {{ $bookingActive ? 'show' : '' }}" id="bookingDetail"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('bookings/index') }}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch
-                                                Booking Detail</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('bookings/index') ? 'active' : '' }}"
+                                            href="{{ route('bookings/index') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch Booking Detail</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
 
                         <!-- 12. Upcoming Vaccine Status -->
+                        @php $upcomingStatusActive = request()->routeIs('upcoming_vaccine_status_index'); @endphp
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#upcomingVaccineStatus" aria-expanded="false">
+                            <a class="nav-link {{ $upcomingStatusActive ? 'active' : 'collapsed' }}" href="#"
+                                data-bs-toggle="collapse" data-bs-target="#upcomingVaccineStatus"
+                                data-bs-parent="#sidebarAccordion" aria-expanded="{{ $upcomingStatusActive ? 'true' : 'false' }}">
                                 <i class="bi bi-clock-history"></i>
                                 <span>Upcoming Vaccine Status</span>
                                 <i class="bi bi-chevron-down ms-auto"></i>
                             </a>
-                            <div class="collapse" id="upcomingVaccineStatus">
+                            <div class="collapse {{ $upcomingStatusActive ? 'show' : '' }}" id="upcomingVaccineStatus"
+                                data-bs-parent="#sidebarAccordion">
                                 <ul class="nav nav-submenu flex-column">
-                                    <li class="nav-item"><a class="nav-link"
-                                            href="{{ route('upcoming_vaccine_status_index') }}"><i
-                                                class="bi bi-list-ul"></i><span>Fetch
-                                                Upcoming Vaccine Status</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ request()->routeIs('upcoming_vaccine_status_index') ? 'active' : '' }}"
+                                            href="{{ route('upcoming_vaccine_status_index') }}">
+                                            <i class="bi bi-list-ul"></i><span>Fetch Upcoming Vaccine Status</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -408,15 +478,7 @@
                             </a>
                         </li>
 
-                        <!-- 14. Logout -->
-                        <li class="nav-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="dropdown-item text-danger">
-                                    <i class="bi bi-box-arrow-right me-2"></i>Logout
-                                </button>
-                            </form>
-                        </li>
+                        
 
                     </ul>
                 </nav>
@@ -443,7 +505,7 @@
             </div>
         </footer>
 
-    </div> <!-- /.admin-wrapper -->
+    </div> 
 
     <!-- Toast Container -->
     <div aria-live="polite" aria-atomic="true" class="position-fixed top-0 end-0 p-3" style="z-index: 1050">
@@ -454,41 +516,52 @@
 
     <!-- JavaScript Dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sidebar = document.getElementById('admin-sidebar');
-            const backdrop = document.getElementById('sidebar-backdrop');
-            const toggle = document.querySelector('[data-sidebar-toggle]');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+        }
 
-            if (!sidebar || !toggle || !backdrop) return;
+        const sidebar = document.getElementById('admin-sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+        let toggle = document.querySelector('[data-sidebar-toggle]');
 
-            function openSidebar() {
-                sidebar.classList.add('show');
-                backdrop.classList.add('show');
-            }
+        if (!sidebar || !toggle || !backdrop) return;
 
-            function closeSidebar() {
-                sidebar.classList.remove('show');
-                backdrop.classList.remove('show');
-            }
+        // Strip any listeners the theme's own bundle may have already attached
+        // to this button, so only our handler controls the sidebar.
+        const cleanToggle = toggle.cloneNode(true);
+        toggle.parentNode.replaceChild(cleanToggle, toggle);
+        toggle = cleanToggle;
 
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                sidebar.classList.contains('show') ? closeSidebar() : openSidebar();
-            });
+        function openSidebar() {
+            sidebar.classList.add('show');
+            backdrop.classList.add('show');
+        }
 
-            backdrop.addEventListener('click', closeSidebar);
+        function closeSidebar() {
+            sidebar.classList.remove('show');
+            backdrop.classList.remove('show');
+        }
 
-            // Auto-close sidebar on mobile view when clicking internal sub links
-            document.querySelectorAll('.sidebar-nav .nav-link:not([data-bs-toggle])').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth < 992) closeSidebar();
-                });
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            sidebar.classList.contains('show') ? closeSidebar() : openSidebar();
+        });
+
+        backdrop.addEventListener('click', closeSidebar);
+
+        document.querySelectorAll('.sidebar-nav .nav-link:not([data-bs-toggle])').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) closeSidebar();
             });
         });
-    </script>
+    });
+</script>
     @stack('scripts')
 </body>
 
