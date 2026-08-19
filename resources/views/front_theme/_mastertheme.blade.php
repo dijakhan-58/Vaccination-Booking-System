@@ -11,6 +11,8 @@
 <link rel="icon" href="{{ asset('assets/frontend/img/care4kids_logo.png') }}" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <!-- Site Title -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <title>Medilo- Medical & Health HTML Template</title>
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome.min.css') }}">
@@ -19,17 +21,10 @@
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/slick.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/pages_detail.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/vaccicare-theme.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('assets/frontend/css/front-theme.css') }}"> --}}
 
-{{-- ============================================================
-     NAVBAR GLASSMORPHISM SKIN
-     Style-only: no header/nav markup, classes, ids, routes, or
-     JS hooks below were changed (cs_site_header, cs_sticky_header,
-     cs_nav, cs_nav_list, menu-item-has-children, cs_search_toggle,
-     cs_header_search_form, cs_scrollup all exactly as before).
-     This block only repaints the header — frosted glass bars,
-     a glass dropdown, a glass search pill, and a floating glass
-     scroll-up button — on top of the existing structure/behavior.
-============================================================ --}}
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -101,7 +96,7 @@
                 </li>
                 <li><a href='{{route('Website_about')}}'>About</a></li>
                 <li class="">
-                  <a href="">Vaccine</a>
+                  <a href="{{ route('vaccination') }}">Vaccine</a>
 
                 </li>
                 <li class="">
@@ -109,7 +104,7 @@
 
                 </li>
                 <li class="menu-item-has-children">
-                  <a href='service.html'>Service</a>
+                  <a href='javasript:void()'>Service</a>
               <ul>
                 <li>
                   <a href="{{ route('parent.profile') }}" class="{{ request()->routeIs('parent.profile') ? 'text-sage' : '' }}">
@@ -143,7 +138,7 @@
               </ul>
                 </li>
 
-                <li><a href='contact.html'>Contact</a></li>
+                <li><a href='{{route('Website_contact')}}'>Contact</a></li>
               </ul>
             </div>
             <div class="cs_search_wrap">
@@ -159,10 +154,18 @@
                 </div>
               </form>
             </div>
-            <a class='cs_btn cs_style_1 cs_color_1' href='{{route('login')}}'>
+            @php
+              if(!isset(auth())){
+                echo"
+            <a class='cs_btn cs_style_1 cs_color_1' >
               <span>Log In </span>
-              <i class="fa-solid fa-angles-right"></i>
+              <i class='fa-solid fa-angles-right'></i>";
             </a>
+              }
+            @endphp
+              
+           
+            {{-- @endif --}}
           </div>
         </div>
       </div>

@@ -14,12 +14,21 @@ use App\Models\Notification;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Permissions (run first, so roles below can sync against them)
+        |--------------------------------------------------------------------------
+        */
+
+        $this->call(permission_seeder::class);
+
         /*
         |--------------------------------------------------------------------------
         | Roles
@@ -41,24 +50,24 @@ class DatabaseSeeder extends Seeder
             'guard_name' => 'web',
         ]);
 
+        // Give Admin every permission that exists, no matter how many get added later
+        $adminRole->syncPermissions(Permission::all());
 
-        /*
-        |--------------------------------------------------------------------------
-        | Admin
-        |--------------------------------------------------------------------------
-        */
 
-        $admin = User::create([
-            'name' => 'System Administrator',
-            'email' => 'admin@vaccination.test',
-            'password' => Hash::make('password'),
-            'phone' => '03001234567',
-            'city' => 'Karachi',
-          
-        ]);
+        // Admin User
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@gmail.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('password'),
+                'phone' => '03001234567',
+                'city' => 'Karachi',
+            ]
+        );
 
-        $admin->assignRole($adminRole);
-
+        if (!$admin->hasRole('Admin')) {
+            $admin->assignRole($adminRole);
+        }
 
         /*
         |--------------------------------------------------------------------------
@@ -169,8 +178,6 @@ class DatabaseSeeder extends Seeder
             'allergy_notes' => 'No known allergies',
         ]);
 
-
-  
 
         /*
         |--------------------------------------------------------------------------

@@ -20,6 +20,9 @@
                     </div>
                 </div>
                 <div class="d-flex gap-2 flex-wrap">
+                    <a href="{{ route('vaccin_report_pdf') }}" class="btn btn-outline-teal d-flex align-items-center gap-2">
+                        <i class="fas fa-file-pdf"></i> Download PDF
+                    </a>
                     <a href="{{ route('vaccin_report_add') }}" class="btn btn-teal d-flex align-items-center gap-2">
                         <i class="fas fa-plus-circle"></i> Add Record
                     </a>
@@ -72,7 +75,7 @@
                             <th style="width: 100px;">Status</th>
                             <th style="min-width: 150px;">Side Effects</th>
                             <th style="min-width: 150px;">Remarks</th>
-                            <th style="width: 100px;" class="text-center">Actions</th>
+                            <th style="width: 120px;" class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,13 +83,17 @@
                             <tr>
                                 <td class="text-muted small">{{ $record->id }}</td>
                                 <td class="text-muted font-monospace small">{{ $record->booking->booking_number ?? '—' }}</td>
-                                <td class="text-secondary small text-nowrap">{{ $record->vaccination_date->format('Y-m-d') }}</td>
+                                <td class="text-secondary small text-nowrap">{{ $record->vaccination_date->format('Y-m-d') }}
+                                </td>
                                 <td><span class="badge bg-light text-dark fw-normal">{{ $record->dose_number }}</span></td>
-                                <td class="text-secondary small text-nowrap">{{ optional($record->next_dose_date)->format('Y-m-d') ?? '—' }}</td>
+                                <td class="text-secondary small text-nowrap">
+                                    {{ optional($record->next_dose_date)->format('Y-m-d') ?? '—' }}
+                                </td>
                                 <td class="text-secondary small">{{ $record->administeredBy->name ?? '—' }}</td>
                                 <td>
                                     @if ($record->status == 'completed')
-                                        <span class="badge badge-completed fw-normal"><span class="status-indicator status-completed"></span>Completed</span>
+                                        <span class="badge badge-completed fw-normal"><span
+                                                class="status-indicator status-completed"></span>Completed</span>
                                     @elseif ($record->status == 'pending')
                                         <span class="badge bg-warning-subtle text-warning-emphasis fw-normal">Pending</span>
                                     @else
@@ -97,10 +104,16 @@
                                 <td class="text-secondary small">{{ $record->remarks ?? '—' }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-1">
-                                        <a href="{{ route('vaccin_report_edit', $record) }}" class="btn btn-sm btn-link text-teal p-1" title="Edit">
+                                        <a href="{{ route('vaccin_report_single_pdf', $record) }}"
+                                            class="btn btn-sm btn-link text-info p-1" title="Download PDF">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </a>
+                                        <a href="{{ route('vaccin_report_edit', $record) }}"
+                                            class="btn btn-sm btn-link text-teal p-1" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('vaccin_report_destroy', $record) }}" method="POST" class="d-inline">
+                                        <form action="{{ route('vaccin_report_destroy', $record) }}" method="POST"
+                                            class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-link text-danger p-1" title="Delete">

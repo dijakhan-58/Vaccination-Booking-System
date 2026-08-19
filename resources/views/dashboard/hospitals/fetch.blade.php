@@ -66,10 +66,7 @@
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-1">
-                                        <button class="btn btn-sm btn-link text-primary p-1" title="View Details"
-                                            data-bs-toggle="modal" data-bs-target="#viewHospitalModal{{ $hospital->id }}">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
+                                       
                                         <a href="{{ route('hospitals.edit', $hospital) }}" class="btn btn-sm btn-link text-teal p-1" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
@@ -84,24 +81,6 @@
                                 </td>
                             </tr>
 
-                            <!-- View Details Modal -->
-                            <div class="modal fade" id="viewHospitalModal{{ $hospital->id }}" tabindex="-1">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">{{ $hospital->name }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p><strong>City:</strong> {{ $hospital->city }}</p>
-                                            <p><strong>Address:</strong> {{ $hospital->address }}</p>
-                                            <p><strong>Floors:</strong> {{ $hospital->floors }}</p>
-                                            <p><strong>Timings Slot:</strong> {{ $hospital->timings_slot }}</p>
-                                            <p><strong>Status:</strong> {{ ucfirst($hospital->status) }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         @empty
                             <tr>
                                 <td colspan="9" class="text-center text-muted py-4">No hospitals found.</td>

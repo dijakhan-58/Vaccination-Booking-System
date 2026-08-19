@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Child;
 use App\Models\Hospital;
 use App\Models\Vaccine;
+use App\Models\VaccinationRecord;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -54,7 +55,7 @@ class BookingController extends Controller
         ]);
 
         return redirect()
-            ->route('bookings/index')
+            ->route('bookings.index')
             ->with('success', 'Booking created successfully.');
     }
 
@@ -90,7 +91,7 @@ class BookingController extends Controller
         ]));
 
         return redirect()
-            ->route('bookings/index')
+            ->route('bookings.index')
             ->with('success', 'Booking updated successfully.');
     }
 
@@ -103,6 +104,41 @@ class BookingController extends Controller
         ]);
 
         return back()->with('success', 'Booking approved.');
+    }
+
+    public function complete(Booking $booking)
+    {
+        if ($booking->status !== 'approved') {
+            return back()->with('error', 'Only approved bookings can be marked as completed.');
+        }
+
+        $booking->update(['status' => 'completed']);
+
+        // Is child ke is vaccine ki pehle kitni doses complete ho chuki hain
+        $previousDoses = VaccinationRecord::whereHas('booking', function ($q) use ($booking) {
+            $q->where('child_id', $booking->child_id)
+              ->where('vaccine_id', $booking->vaccine_id);
+        })->count();
+
+        $doseNumber = $previousDoses + 1;
+
+        $vaccine = $booking->vaccine;
+        $nextDoseDate = null;
+
+        if ($doseNumber < $vaccine->dose_count && $vaccine->dose_interval_days) {
+            $nextDoseDate = now()->addDays($vaccine->dose_interval_days);
+        }
+
+        VaccinationRecord::create([
+            'booking_id' => $booking->id,
+            'administered_by' => auth()->id(),
+            'vaccination_date' => now(),
+            'dose_number' => $doseNumber,
+            'next_dose_date' => $nextDoseDate,
+            'status' => 'completed',
+        ]);
+
+        return back()->with('success', 'Booking marked as completed and vaccination record created.');
     }
 
     public function cancel(Booking $booking)
@@ -119,7 +155,7 @@ class BookingController extends Controller
         $booking->delete();
 
         return redirect()
-            ->route('bookings/index')
+            ->route('bookings.index')
             ->with('success', 'Booking deleted successfully.');
     }
 }

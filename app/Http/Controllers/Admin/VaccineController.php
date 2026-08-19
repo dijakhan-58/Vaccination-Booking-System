@@ -36,6 +36,7 @@ class VaccineController extends Controller
             'disease' => 'required|string|max:255',
             'description' => 'nullable|string',
             'dose_count' => 'required|integer|min:1',
+            'dose_interval_days' => 'nullable|integer|min:1',
             'manufacturer' => 'nullable|string|max:255',
             'recommended_age_days' => 'nullable|integer|min:0',
 
@@ -69,6 +70,7 @@ class VaccineController extends Controller
             'disease' => 'required|string|max:255',
             'description' => 'nullable|string',
             'dose_count' => 'required|integer|min:1',
+            'dose_interval_days' => 'nullable|integer|min:1',
             'manufacturer' => 'nullable|string|max:255',
             'recommended_age_days' => 'nullable|integer|min:0',
 
@@ -91,6 +93,6 @@ class VaccineController extends Controller
 
         return redirect()
             ->route('vaccines.index')
-            ->with('success', 'Vaccine deleted successfully!');
+            ->with('success', 'Vaccine updated successfully!');
     }
 }
