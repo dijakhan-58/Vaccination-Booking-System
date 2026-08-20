@@ -34,7 +34,10 @@ class Booking extends Model
     {
         return $this->belongsTo(Hospital::class);
     }
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, "created_by");
+    }
     public function vaccine()
     {
         return $this->belongsTo(Vaccine::class);

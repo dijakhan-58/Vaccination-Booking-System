@@ -77,26 +77,8 @@
                         <span class="h5 mb-0 fw-bold text-primary-emphasis">Care4Kids</span>
                     </a>
 
-                    <!-- Search Bar with Alpine.js -->
-                    <div class="search-container flex-grow-1 mx-2 mx-lg-4 d-none d-sm-block" x-data="searchComponent">
-                        <div class="position-relative">
-                            <input type="search" class="form-control" placeholder="Search... (Ctrl+K)" x-model="query"
-                                @input="search()" data-search-input aria-label="Search">
-                            <i
-                                class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
-                        </div>
-                    </div>
 
-                    <!-- Right Side Icons -->
-                    <div class="navbar-nav flex-row ms-auto align-items-center">
-                        <!-- Theme Toggle -->
-                        <div x-data="themeSwitch">
-                            <button class="btn btn-outline-secondary me-2" type="button" @click="toggle()"
-                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toggle theme">
-                                <i class="bi bi-sun-fill" x-show="currentTheme === 'light'"></i>
-                                <i class="bi bi-moon-fill" x-show="currentTheme === 'dark'"></i>
-                            </button>
-                        </div>
+                
 
                         <!-- Fullscreen Toggle -->
                         <button class="btn btn-outline-secondary me-2 d-none d-lg-inline-block" type="button"

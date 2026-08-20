@@ -37,6 +37,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Website\WebsiteController;
 use App\Http\Controllers\Website\VaccinationController;
 use App\Http\Controllers\Website\ContactController;
+
+use App\Models\AppointmentNotification;
 use App\Models\User;
 
 /*
@@ -293,15 +295,21 @@ Route::post('/bookings/{booking}/complete', [AdminBookingController::class, 'com
     ->name('bookings.complete')
     ->middleware(['auth', 'verified']);
 
+
+Route::get("/notification", function () {
+    $notification = AppointmentNotification::where("user_id_fk", auth()->id())->latest()->first();
+    dd($notification);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Notifications
 |--------------------------------------------------------------------------
 */
 
-Route::get('/notifications', [AdminNotificationController::class, 'index'])
-    ->name('notifications')
-    ->middleware(['auth', 'verified']);
+// Route::get('/notifications', [AdminNotificationController::class, 'index'])
+//     ->name('notifications')
+//     ->middleware(['auth', 'verified']);
 
 /*
 |--------------------------------------------------------------------------
@@ -339,7 +347,7 @@ Route::delete('hospitals/delete/{hospital}', [AdminHospitalController::class, 'd
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth', 'role:user'])->group(function () {
+Route::middleware(['auth', 'role:Parent'])->group(function () {
 
     // Profile
     Route::get('/parent/profile', [ParentController::class, 'profile'])

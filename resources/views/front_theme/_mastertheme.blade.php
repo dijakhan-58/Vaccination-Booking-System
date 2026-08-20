@@ -11,7 +11,7 @@
 <link rel="icon" href="{{ asset('assets/frontend/img/care4kids_logo.png') }}" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <!-- Site Title -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
 <title>Medilo- Medical & Health HTML Template</title>
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
@@ -27,13 +27,15 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
 
 </head>
 
 <body>
-  {{-- <div class="cs_preloader">
+    {{-- <div class="cs_preloader">
     <div class="cs_preloader_in">
       <div class="cs_wave_first">
         <svg enable-background="new 0 0 300.08 300.08" viewBox="0 0 300.08 300.08" xmlns="http://www.w3.org/2000/svg">
@@ -51,240 +53,253 @@
       </div>
     </div>
   </div> --}}
-  <!-- Start Header Section -->
-  <header class="cs_site_header cs_style_1 cs_primary_color cs_sticky_header cs_white_bg">
-    <div class="cs_top_header cs_blue_bg cs_white_color">
-      <div class="container p-2">
-        <div class="cs_top_header_in">
-          <div class="cs_top_header_left">
-            <ul class="cs_header_contact_list cs_mp_0">
-              <li>
-                <i class="fa-solid fa-envelope"></i>
-                <a href="mailto:demo@example.com">demo@example.com</a>
-              </li>
-              <li>
-                <i class="fa-solid fa-location-dot"></i>
-                15/K, Dhaka London City, LOT
-              </li>
-            </ul>
-          </div>
-          <div class="cs_top_header_right">
-            <div class="cs_social_btns cs_style_1">
-              <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="cs_center"><i class="fa-brands fa-pinterest-p"></i></a>
-              <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
-              <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cs_main_header">
-      <div class="container">
-        <div class="cs_main_header_in">
-          <div class="cs_main_header_left">
-            <a class='cs_site_branding' href='index.html'>
-              <img src="{{ asset('assets/frontend/img/care4kids_logo.png') }}" alt="Logo">
-            </a>
-          </div>
-          <div class="cs_main_header_right">
-            <div class="cs_nav cs_primary_color">
-              <ul class="cs_nav_list">
-                <li class="">
-                  <a href="{{ route('Website_index') }}">Home</a>
-
-                </li>
-                <li><a href='{{route('Website_about')}}'>About</a></li>
-                <li class="">
-                  <a href="{{ route('vaccination') }}">Vaccine</a>
-
-                </li>
-                <li class="">
-                  <a href="{{ route('Website_hospital') }}">Hospitals</a>
-
-                </li>
-                <li class="menu-item-has-children">
-                  <a href='javasript:void()'>Service</a>
-              <ul>
-                <li>
-                  <a href="{{ route('parent.profile') }}" class="{{ request()->routeIs('parent.profile') ? 'text-sage' : '' }}">
-                    <i class="bi bi-person-circle"></i> Profile
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="{{ route('parent.addChild') }}">
-                    <i class="bi bi-person-plus"></i> Add Child
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="{{ route('parent.childDetail') }}">
-                    <i class="bi bi-clipboard2-pulse"></i> Child Detail
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="{{ route('parent.appointment') }}">
-                    <i class="bi bi-calendar-plus"></i> Appointment
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="{{ route('parent.viewAppointment') }}">
-                    <i class="bi bi-calendar-check"></i> View Appointment
-                  </a>
-                </li>
-              </ul>
-                </li>
-
-                <li><a href='{{route('Website_contact')}}'>Contact</a></li>
-              </ul>
-            </div>
-            <div class="cs_search_wrap">
-              <div class="cs_search_toggle cs_center">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <form action="#" class="cs_header_search_form">
-                <div class="cs_header_search_form_in">
-                  <input type="text" placeholder="Search" class="cs_header_search_field">
-                  <button class="cs_header_submit_btn">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
+    <!-- Start Header Section -->
+    <header class="cs_site_header cs_style_1 cs_primary_color cs_sticky_header cs_white_bg">
+        <div class="cs_top_header cs_blue_bg cs_white_color">
+            <div class="container p-2">
+                <div class="cs_top_header_in">
+                    <div class="cs_top_header_left">
+                        <ul class="cs_header_contact_list cs_mp_0">
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                <a href="mailto:demo@example.com">demo@example.com</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                15/K, Dhaka London City, LOT
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cs_top_header_right">
+                        <div class="cs_social_btns cs_style_1">
+                            <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="cs_center"><i class="fa-brands fa-pinterest-p"></i></a>
+                            <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
                 </div>
-              </form>
             </div>
-            @php
-              if(!isset(auth())){
-                echo"
-            <a class='cs_btn cs_style_1 cs_color_1' >
-              <span>Log In </span>
-              <i class='fa-solid fa-angles-right'></i>";
-            </a>
-              }
-            @endphp
-              
-           
-            {{-- @endif --}}
-          </div>
         </div>
-      </div>
-    </div>
-  </header>
-  <div class="cs_site_header_spacing_150"></div>
+        <div class="cs_main_header">
+            <div class="container">
+                <div class="cs_main_header_in">
+                    <div class="cs_main_header_left">
+                        <a class='cs_site_branding' href='index.html'>
+                            <img src="{{ asset('assets/frontend/img/care4kids_logo.png') }}" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="cs_main_header_right">
+                        <div class="cs_nav cs_primary_color">
+                            <ul class="cs_nav_list">
+                                <li class="">
+                                    <a href="{{ route('Website_index') }}">Home</a>
+
+                                </li>
+                                <li><a href='{{ route('Website_about') }}'>About</a></li>
+                                <li class="">
+                                    <a href="{{ route('vaccination') }}">Vaccine</a>
+
+                                </li>
+                                <li class="">
+                                    <a href="{{ route('Website_hospital') }}">Hospitals</a>
+
+                                </li>
+                               
+
+                                <li><a href='{{ route('Website_contact') }}'>Contact</a></li>
+                                  @if (auth()->check() && auth()->user()->hasRole('Parent')??"")
+                                 <li class="menu-item-has-children">
+                                    <a href='javasript:void()'>{{'@'.auth()->user()->name}}</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ route('parent.profile') }}"
+                                                class="{{ request()->routeIs('parent.profile') ? 'text-sage' : '' }}">
+                                                <i class="bi bi-person-circle"></i> Profile
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('parent.addChild') }}">
+                                                <i class="bi bi-person-plus"></i> Add Child
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('parent.childDetail') }}">
+                                                <i class="bi bi-clipboard2-pulse"></i> Child Detail
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('parent.appointment') }}">
+                                                <i class="bi bi-calendar-plus"></i> Appointment
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('parent.viewAppointment') }}">
+                                                <i class="bi bi-calendar-check"></i> View Appointment
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @endif
+                            </ul>
+                        </div>
+                        <div class="cs_search_wrap">
+                            <div class="cs_search_toggle cs_center">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <form action="#" class="cs_header_search_form">
+                                <div class="cs_header_search_form_in">
+                                    <input type="text" placeholder="Search" class="cs_header_search_field">
+                                    <button class="cs_header_submit_btn">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                       
+                        
+                        @if (auth()->check() && auth()->user()->hasRole('Parent')??"")
+                            <span>{{ auth()->user()->name }}</span>
+
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class='cs_btn cs_style_1 cs_color_1'>
+                                <span>Log In </span>
+                                <i class='fa-solid fa-angles-right'></i>
+                            </a>
+                        @endif
 
 
-
-
-  <main id="main" class="front_main">
-    @yield('fornt_body')
-  </main>
-
-
-
-  <footer class="cs_footer cs_blue_bg cs_white_color">
-    <div class="container">
-      <!-- Footer Top -->
-      <div class="cs_footer_top">
-        <div class="row">
-          <!-- Column 1 - Brand -->
-          <div class="col-lg-4 col-md-6">
-            <div class="cs_footer_widget cs_footer_brand">
-              <div class="cs_footer_logo">
-                <img src="{{ asset('assets/frontend/img/kid.png') }}" alt="Vaccination Management">
-              </div>
-              <p class="cs_footer_description">
-                Complete child vaccination management system with expert pediatricians and modern healthcare facilities.
-              </p>
-              <div class="cs_social_btns cs_style_1">
-                <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="cs_center"><i class="fa-brands fa-youtube"></i></a>
-              </div>
+                        {{-- @endif --}}
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <!-- Column 2 - Quick Links -->
-          <div class="col-lg-2 col-md-6">
-            <div class="cs_footer_widget">
-              <h2 class="cs_footer_widget_title">Quick Links</h2>
-              <ul class="cs_footer_widget_nav_list cs_mp_0">
-                <li><a href="{{ route('Website_index') }}">Home</a></li>
-                <li><a href="{{ route('Website_about') }}">About Us</a></li>
-                <li><a href="#">Vaccines</a></li>
-                <li><a href="#">Immunization Schedule</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Column 3 - Services -->
-          <div class="col-lg-3 col-md-6">
-            <div class="cs_footer_widget">
-              <h2 class="cs_footer_widget_title">Our Services</h2>
-              <ul class="cs_footer_widget_nav_list cs_mp_0">
-                <li><a href="#">Child Immunization</a></li>
-                <li><a href="#">Pediatric Care</a></li>
-                <li><a href="#">Health Checkups</a></li>
-                <li><a href="#">Vaccine Types</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Column 4 - Contact Info -->
-          <div class="col-lg-3 col-md-6">
-            <div class="cs_footer_widget">
-              <h2 class="cs_footer_widget_title">Get In Touch</h2>
-              <ul class="cs_footer_contact cs_mp_0">
-                <li>
-                  <i class="fa-solid fa-location-dot"></i>
-                  <span>123 Health Care Avenue, NY</span>
-                </li>
-                <li>
-                  <i class="fa-solid fa-phone"></i>
-                  <span>+1 (555) 123-4567</span>
-                </li>
-                <li>
-                  <i class="fa-regular fa-envelope"></i>
-                  <span>info@vaccination.com</span>
-                </li>
-                <li>
-                  <i class="fa-regular fa-clock"></i>
-                  <span>Mon-Sat: 8am - 8pm</span>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
+    </header>
+    <div class="cs_site_header_spacing_150"></div>
 
-      <!-- Footer Bottom -->
-      <div class="cs_footer_bottom">
-        <div class="cs_footer_bottom_in">
-          <p class="cs_footer_copyright mb-0">Copyright &copy; 2024 Vaccination Management System. All Rights Reserved.
-          </p>
-          <ul class="cs_footer_menu cs_mp_0">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-          </ul>
+
+
+
+    <main id="main" class="front_main">
+        @yield('fornt_body')
+    </main>
+
+
+
+    <footer class="cs_footer cs_blue_bg cs_white_color">
+        <div class="container">
+            <!-- Footer Top -->
+            <div class="cs_footer_top">
+                <div class="row">
+                    <!-- Column 1 - Brand -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cs_footer_widget cs_footer_brand">
+                            <div class="cs_footer_logo">
+                                <img src="{{ asset('assets/frontend/img/kid.png') }}" alt="Vaccination Management">
+                            </div>
+                            <p class="cs_footer_description">
+                                Complete child vaccination management system with expert pediatricians and modern
+                                healthcare facilities.
+                            </p>
+                            <div class="cs_social_btns cs_style_1">
+                                <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="cs_center"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 - Quick Links -->
+                    <div class="col-lg-2 col-md-6">
+                        <div class="cs_footer_widget">
+                            <h2 class="cs_footer_widget_title">Quick Links</h2>
+                            <ul class="cs_footer_widget_nav_list cs_mp_0">
+                                <li><a href="{{ route('Website_index') }}">Home</a></li>
+                                <li><a href="{{ route('Website_about') }}">About Us</a></li>
+                                <li><a href="#">Vaccines</a></li>
+                                <li><a href="#">Immunization Schedule</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Column 3 - Services -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="cs_footer_widget">
+                            <h2 class="cs_footer_widget_title">Our Services</h2>
+                            <ul class="cs_footer_widget_nav_list cs_mp_0">
+                                <li><a href="#">Child Immunization</a></li>
+                                <li><a href="#">Pediatric Care</a></li>
+                                <li><a href="#">Health Checkups</a></li>
+                                <li><a href="#">Vaccine Types</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Column 4 - Contact Info -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="cs_footer_widget">
+                            <h2 class="cs_footer_widget_title">Get In Touch</h2>
+                            <ul class="cs_footer_contact cs_mp_0">
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>123 Health Care Avenue, NY</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>+1 (555) 123-4567</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <span>info@vaccination.com</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span>Mon-Sat: 8am - 8pm</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="cs_footer_bottom">
+                <div class="cs_footer_bottom_in">
+                    <p class="cs_footer_copyright mb-0">Copyright &copy; 2024 Vaccination Management System. All Rights
+                        Reserved.
+                    </p>
+                    <ul class="cs_footer_menu cs_mp_0">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
 
 
-  <span class="cs_scrollup">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 10L1.7625 11.7625L8.75 4.7875V20H11.25V4.7875L18.225 11.775L20 10L10 0L0 10Z" fill="currentColor" />
-    </svg>
-  </span>4
+    <span class="cs_scrollup">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10L1.7625 11.7625L8.75 4.7875V20H11.25V4.7875L18.225 11.775L20 10L10 0L0 10Z"
+                fill="currentColor" />
+        </svg>
+    </span>4
 
-  <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
-  <script src="{{ asset('assets/frontend/js/wow.min.js') }}"></script>
-  <script src="{{ asset('assets/frontend/js/jquery.slick.min.js') }}"></script>
-  <script src="{{ asset('assets/frontend/js/odometer.js') }}"></script>
-  <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.slick.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/odometer.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
 
 </body>
 

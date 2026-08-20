@@ -96,18 +96,7 @@
                 <div class="info-number">{{ $upcomingVaccinations }}</div>
             </div>
         </div>
-        {{-- <div class="col-md-4">
-            <div class="info-box">
-                <div class="info-left">
-                    <div class="info-icon gold"><i class="fas fa-clock"></i></div>
-                    <div>
-                        <div class="info-title">Expiring Vaccines</div>
-                        <div class="info-desc">Within 30 days</div>
-                    </div>
-                </div>
-                <div class="info-number">{{ $expiringVaccines }}</div>
-            </div>
-        </div> --}}
+ 
         <div class="col-md-4">
             <div class="info-box">
                 <div class="info-left">

@@ -16,9 +16,9 @@ class UpcomingVaccineController extends Controller
 
         return view('dashboard.upcoming_vaccine.index', compact('upcoming'));
     }
+
+    
 }
-
-
 
 // class UpcomingVaccineController extends Controller
 // {

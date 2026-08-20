@@ -8,6 +8,8 @@ use App\Models\Child;
 use App\Models\Hospital;
 use App\Models\Vaccine;
 use App\Models\VaccinationRecord;
+use App\Models\AppointmentNotification;
+use App\Models\AppointmentNotify;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -80,6 +82,7 @@ class BookingController extends Controller
             'status' => 'required|in:pending,approved,completed,cancelled',
         ]);
 
+        $check_status = $booking->status !== $request->status;
         $booking->update($request->only([
             'child_id',
             'hospital_id',
@@ -89,6 +92,23 @@ class BookingController extends Controller
             'reason',
             'status',
         ]));
+        if ($check_status) {
+            $user = $booking->creator;
+            if ($user) {
+                AppointmentNotification::create([
+                    'type' => "App\Models\AppointmentNotification",
+                    'notifiable_type' => "App\Models\AppointmentNotification",
+                    'user_id_fk' => $user->id,
+                    'data' => 'Your appointment status has been changed to ' . $booking->status,
+                    // 'booking_id' => $booking->id,
+                    // 'status' => $booking->status,
+                ]);
+                // $user->notify(
+                //     new AppointmentNotify($booking)
+                // );
+            }
+        }
+
 
         return redirect()
             ->route('bookings.index')
@@ -117,7 +137,7 @@ class BookingController extends Controller
         // Is child ke is vaccine ki pehle kitni doses complete ho chuki hain
         $previousDoses = VaccinationRecord::whereHas('booking', function ($q) use ($booking) {
             $q->where('child_id', $booking->child_id)
-              ->where('vaccine_id', $booking->vaccine_id);
+                ->where('vaccine_id', $booking->vaccine_id);
         })->count();
 
         $doseNumber = $previousDoses + 1;
