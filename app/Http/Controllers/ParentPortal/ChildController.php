@@ -5,24 +5,45 @@ namespace App\Http\Controllers\ParentPortal;
 use App\Http\Controllers\Controller;
 use App\Models\Child;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChildController extends Controller
 {
-    // Show all children
+    /*
+    |--------------------------------------------------------------------------
+    | Show Logged-in Parent's Children
+    |--------------------------------------------------------------------------
+    */
+
     public function show()
     {
-        $children = Child::where('parent_id', auth()->id())->get();
+        $children = Child::where('parent_id', Auth::id())->get();
 
-        return view('front_theme.child.child_detail', compact('children'));
+        return view(
+            'front_theme.child.child_detail',
+            compact('children')
+        );
     }
 
-    // Add Child Form
+
+    /*
+    |--------------------------------------------------------------------------
+    | Create Child
+    |--------------------------------------------------------------------------
+    */
+
     public function create()
     {
         return view('front_theme.child.addchild');
     }
 
-    // Save Child
+
+    /*
+    |--------------------------------------------------------------------------
+    | Store Child
+    |--------------------------------------------------------------------------
+    */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -38,7 +59,7 @@ class ChildController extends Controller
         ]);
 
         Child::create([
-            'parent_id' => auth()->id(),
+            'parent_id' => Auth::id(),
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'dob' => $request->dob,
@@ -55,21 +76,69 @@ class ChildController extends Controller
             ->with('success', 'Child added successfully.');
     }
 
-    // View One Child
-    public function viewRecord(Child $child)
+
+    /*
+    |--------------------------------------------------------------------------
+    | View Child Record
+    |--------------------------------------------------------------------------
+    */
+
+    public function viewRecord($child)
     {
-        return view('front_theme.child.view_record', compact('child'));
+        $child = Child::where('id', $child)
+            ->where('parent_id', Auth::id())
+            ->firstOrFail();
+
+        return view(
+            'front_theme.child.view_record',
+            compact('child')
+        );
     }
 
-    // Edit Form
-    public function edit(Child $child)
+
+    /*
+    |--------------------------------------------------------------------------
+    | Edit Child
+    |--------------------------------------------------------------------------
+    */
+
+    public function edit($child)
     {
-        return view('front_theme.child.edit_child', compact('child'));
+        $child = Child::where('id', $child)
+            ->where('parent_id', Auth::id())
+            ->firstOrFail();
+
+        return view(
+            'front_theme.child.edit_child',
+            compact('child')
+        );
     }
 
-    // Update Child
-    public function update(Request $request, Child $child)
+
+    /*
+    |--------------------------------------------------------------------------
+    | Update Child
+    |--------------------------------------------------------------------------
+    */
+
+    public function update(Request $request, $child)
     {
+        $child = Child::where('id', $child)
+            ->where('parent_id', Auth::id())
+            ->firstOrFail();
+
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'dob' => 'required|date',
+            'gender' => 'required',
+            'blood_group' => 'nullable',
+            'b_form_number' => 'nullable',
+            'weight' => 'nullable|numeric',
+            'medical_notes' => 'nullable',
+            'allergy_notes' => 'nullable',
+        ]);
+
         $child->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -87,9 +156,19 @@ class ChildController extends Controller
             ->with('success', 'Child updated successfully.');
     }
 
-    // Delete Child
-    public function destroy(Child $child)
+
+    /*
+    |--------------------------------------------------------------------------
+    | Delete Child
+    |--------------------------------------------------------------------------
+    */
+
+    public function destroy($child)
     {
+        $child = Child::where('id', $child)
+            ->where('parent_id', Auth::id())
+            ->firstOrFail();
+
         $child->delete();
 
         return redirect()

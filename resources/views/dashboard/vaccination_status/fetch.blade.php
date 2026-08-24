@@ -23,7 +23,7 @@
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
 
-            <!-- Summary Cards -->
+          
             <div class="row g-3 mb-4">
                 <div class="col-md-4 col-sm-6">
                     <div class="p-3 rounded-3 border bg-light d-flex align-items-center justify-content-between">
@@ -54,7 +54,6 @@
                 </div>
             </div>
 
-            <!-- Table -->
             <div class="table-responsive rounded-3 border">
                 <table class="table table-hover mb-0">
                     <thead>
@@ -68,9 +67,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $index = 1;
+                        @endphp
                         @forelse ($vaccines as $vaccine)
                             <tr>
-                                <td class="text-muted font-monospace small">{{ $vaccine->id }}</td>
+                                <td class="text-muted font-monospace small">{{ $index++ }}</td>
                                 <td class="fw-semibold">{{ $vaccine->name }}</td>
                                 <td>{{ $vaccine->manufacturer ?? '—' }}</td>
                                 <td><span class="badge bg-light text-dark fw-normal">{{ $vaccine->dose_count }}</span></td>

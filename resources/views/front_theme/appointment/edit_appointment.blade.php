@@ -15,27 +15,23 @@
         </div>
 
 
-        {{-- Errors --}}
-        @if ($errors->any())
 
+        @if ($errors->any())
             <div class="alert alert-danger">
 
                 <ul class="mb-0">
 
                     @foreach ($errors->all() as $error)
-
                         <li>{{ $error }}</li>
-
                     @endforeach
 
                 </ul>
 
             </div>
-
         @endif
 
 
-        {{-- Edit Form --}}
+
         <form method="POST" action="{{ route('parent.editAppointment.update', $appointment->id) }}">
 
             @csrf
@@ -45,7 +41,6 @@
             <div class="form-grid">
 
 
-                {{-- Child --}}
                 <div class="field">
 
                     <label>
@@ -60,14 +55,12 @@
                         </option>
 
                         @foreach ($children as $child)
-
                             <option value="{{ $child->id }}" @if ($appointment->child_id == $child->id) selected @endif>
 
                                 {{ $child->first_name }}
                                 {{ $child->last_name }}
 
                             </option>
-
                         @endforeach
 
                     </select>
@@ -75,7 +68,7 @@
                 </div>
 
 
-                {{-- Vaccine --}}
+
                 <div class="field">
 
                     <label>
@@ -90,13 +83,11 @@
                         </option>
 
                         @foreach ($vaccines as $vaccine)
-
                             <option value="{{ $vaccine->id }}" @if ($appointment->vaccine_id == $vaccine->id) selected @endif>
 
                                 {{ $vaccine->name }}
 
                             </option>
-
                         @endforeach
 
                     </select>
@@ -104,7 +95,7 @@
                 </div>
 
 
-                {{-- Hospital --}}
+
                 <div class="field">
 
                     <label>
@@ -119,13 +110,11 @@
                         </option>
 
                         @foreach ($hospitals as $hospital)
-
                             <option value="{{ $hospital->id }}" @if ($appointment->hospital_id == $hospital->id) selected @endif>
 
                                 {{ $hospital->name }}
 
                             </option>
-
                         @endforeach
 
                     </select>
@@ -133,7 +122,8 @@
                 </div>
 
 
-                {{-- Preferred Date --}}
+
+
                 <div class="field">
 
                     <label>
@@ -147,7 +137,7 @@
                 </div>
 
 
-                {{-- Appointment Time --}}
+
                 <div class="field">
 
                     <label>
@@ -159,7 +149,7 @@
                 </div>
 
 
-                {{-- Reason --}}
+
                 <div class="field field-full">
 
                     <label>
@@ -174,7 +164,7 @@
             </div>
 
 
-            {{-- Buttons --}}
+
             <div class="form-actions">
 
                 <a href="{{ route('parent.viewAppointment') }}" class="btn btn-outline">

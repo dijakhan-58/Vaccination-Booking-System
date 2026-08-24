@@ -4,7 +4,7 @@ namespace App\Http\Controllers\ParentPortal;
 
 use App\Http\Controllers\Controller;
 use App\Models\VaccinationRecord;
-
+use Illuminate\Support\Facades\Auth;
 class ParentVaccinationController extends Controller
 {
     public function index()
@@ -13,7 +13,7 @@ class ParentVaccinationController extends Controller
             'booking.child',
             'booking.vaccine'
         ])->whereHas('booking', function ($query) {
-            $query->where('created_by', auth()->id());
+            $query->where('created_by', Auth::id());
         })->latest()->get();
 
         return view(
@@ -31,4 +31,4 @@ class ParentVaccinationController extends Controller
             compact('vaccinationRecord')
         );
     }
-}
+} 

@@ -16,7 +16,7 @@
                     </div>
                     <div>
                         <h1 class="h3 fw-bold text-slate-800 mb-0">Edit Vaccination Record</h1>
-                        <p class="text-muted small mb-0">Update an administered vaccination record</p>
+                        <p class="text-muted small mb-0">Update an administered vaccination record</p> 
                     </div>
                 </div>
                 <div class="d-flex gap-2 flex-wrap">

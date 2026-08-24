@@ -25,11 +25,7 @@
 
     <link rel="manifest" href="{{ asset('assets/manifest-DTaoG9pG.json') }}">
 
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/rolldown-runtime-QTnfLwEv.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-bootstrap-DgdwyLYF.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-ui-DCXHuVks.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-charts-Dcrko_Gn.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/main-Ynqz-sB_.js') }}"></script>
+
 
     <link rel="stylesheet" crossorigin href="{{ asset('assets/dashboard/login.css') }}">
 </head>
@@ -43,7 +39,7 @@
     <div class="stage">
         <div class="card">
 
-            <!-- LEFT: BRAND PANEL -->
+
             <div class="panel">
                 <div class="panel-shape-anim"></div>
 
@@ -79,15 +75,13 @@
                 </div>
             </div>
 
-            <!-- RIGHT: FORM PANEL -->
+
             <div class="form-side">
                 <div class="form-icon">
                     <i class="bi bi-shield-check"></i>
                 </div>
 
                 <div class="views">
-
-                    <!-- ================= LOGIN ================= -->
                     <div class="view active" id="loginView">
 
                         <div class="form-title">Welcome back</div>
@@ -96,10 +90,17 @@
                             Sign in to manage your child's vaccination schedule
                         </div>
 
+
+                        @if (session('status'))
+                            <div class="text-success small mb-3">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
-                            <!-- EMAIL -->
+
                             <div class="field">
                                 <i class="bi bi-envelope"></i>
 
@@ -107,20 +108,21 @@
                                     value="{{ old('email') }}" required autofocus autocomplete="username">
                             </div>
 
-                            @error('email')
-                                <div class="text-danger small mt-1">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                        @error('email')
+    <div class="login-error">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        {{ $message }}
+    </div>
+@enderror
 
-                            <!-- PASSWORD -->
                             <div class="field">
                                 <i class="bi bi-lock"></i>
 
                                 <input type="password" name="password" placeholder="Password" id="loginPass" required
                                     autocomplete="current-password">
 
-                                <i class="bi bi-eye toggle-eye" onclick="togglePass('loginPass', this)"></i>
+                                <i class="bi bi-eye toggle-eye" style="cursor: pointer;"
+                                    onclick="togglePass('loginPass', this)"></i>
                             </div>
 
                             @error('password')
@@ -129,53 +131,16 @@
                                 </div>
                             @enderror
 
-                            <!-- REMEMBER + FORGOT PASSWORD -->
-                            <div class="row-between">
+                         
 
-                                <label class="remember">
-                                    <input type="checkbox" name="remember" value="1"
-                                        {{ old('remember') ? 'checked' : '' }}>
 
-                                    Remember me
-                                </label>
-
-                                <a href="{{ route('password.request') }}" class="fp-link">
-                                    Forgot password?
-                                </a>
-
-                            </div>
-
-                            <!-- LOGIN BUTTON -->
                             <button class="btn-geo" type="submit">
                                 LOG IN
                             </button>
 
                         </form>
 
-                        <div class="divider">
-                            OR CONTINUE WITH
-                        </div>
-
-                        <div class="socials">
-                            <a href="#" class="social-btn">
-                                <i class="bi bi-google"></i> Google
-                            </a>
-
-                            <a href="#" class="social-btn">
-                                <i class="bi bi-facebook"></i> Facebook
-                            </a>
-                        </div>
-
-                        <div class="switch-line">
-                            New to care4kids?
-
-                            <a href="{{ route('register') }}">
-                                Create an account
-                            </a>
-                        </div>
-
                     </div>
-
                 </div>
             </div>
 
@@ -183,14 +148,19 @@
     </div>
 
     <script>
-        function togglePass(id, icon) {
-            const input = document.getElementById(id);
-            const isPass = input.type === 'password';
+        function togglePass(inputId, icon) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
 
-            input.type = isPass ? 'text' : 'password';
-
-            icon.classList.toggle('bi-eye');
-            icon.classList.toggle('bi-eye-slash');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
         }
     </script>
 

@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/pages_detail.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/vaccicare-theme.css') }}">
-{{-- <link rel="stylesheet" href="{{ asset('assets/frontend/css/front-theme.css') }}"> --}}
+
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,25 +35,27 @@
 </head>
 
 <body>
-    {{-- <div class="cs_preloader">
-    <div class="cs_preloader_in">
-      <div class="cs_wave_first">
-        <svg enable-background="new 0 0 300.08 300.08" viewBox="0 0 300.08 300.08" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="m293.26 184.14h-82.877l-12.692-76.138c-.546-3.287-3.396-5.701-6.718-5.701-.034 0-.061 0-.089 0-3.369.027-6.199 2.523-6.677 5.845l-12.507 87.602-14.874-148.69c-.355-3.43-3.205-6.056-6.643-6.138-.048 0-.096 0-.143 0-3.39 0-6.274 2.489-6.752 5.852l-19.621 137.368h-9.405l-12.221-42.782c-.866-3.028-3.812-5.149-6.8-4.944-3.13.109-5.777 2.332-6.431 5.395l-8.941 42.332h-73.049c-3.771 0-6.82 3.049-6.82 6.82 0 3.778 3.049 6.82 6.82 6.82h78.566c3.219 0 6.002-2.251 6.67-5.408l4.406-20.856 6.09 21.313c.839 2.939 3.526 4.951 6.568 4.951h20.46c3.396 0 6.274-2.489 6.752-5.845l12.508-87.596 14.874 148.683c.355 3.437 3.205 6.056 6.643 6.138h.143c3.39 0 6.274-2.489 6.752-5.845l14.227-99.599 6.397 38.362c.546 3.287 3.396 5.702 6.725 5.702h88.66c3.771 0 6.82-3.049 6.82-6.82-.001-3.772-3.05-6.821-6.821-6.821z">
-          </path>
-        </svg>
-      </div>
-      <div class="cs_wave_second">
-        <svg enable-background="new 0 0 300.08 300.08" viewBox="0 0 300.08 300.08" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="m293.26 184.14h-82.877l-12.692-76.138c-.546-3.287-3.396-5.701-6.718-5.701-.034 0-.061 0-.089 0-3.369.027-6.199 2.523-6.677 5.845l-12.507 87.602-14.874-148.69c-.355-3.43-3.205-6.056-6.643-6.138-.048 0-.096 0-.143 0-3.39 0-6.274 2.489-6.752 5.852l-19.621 137.368h-9.405l-12.221-42.782c-.866-3.028-3.812-5.149-6.8-4.944-3.13.109-5.777 2.332-6.431 5.395l-8.941 42.332h-73.049c-3.771 0-6.82 3.049-6.82 6.82 0 3.778 3.049 6.82 6.82 6.82h78.566c3.219 0 6.002-2.251 6.67-5.408l4.406-20.856 6.09 21.313c.839 2.939 3.526 4.951 6.568 4.951h20.46c3.396 0 6.274-2.489 6.752-5.845l12.508-87.596 14.874 148.683c.355 3.437 3.205 6.056 6.643 6.138h.143c3.39 0 6.274-2.489 6.752-5.845l14.227-99.599 6.397 38.362c.546 3.287 3.396 5.702 6.725 5.702h88.66c3.771 0 6.82-3.049 6.82-6.82-.001-3.772-3.05-6.821-6.821-6.821z">
-          </path>
-        </svg>
-      </div>
+    <div class="cs_preloader">
+        <div class="cs_preloader_in">
+            <div class="cs_wave_first">
+                <svg enable-background="new 0 0 300.08 300.08" viewBox="0 0 300.08 300.08"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="m293.26 184.14h-82.877l-12.692-76.138c-.546-3.287-3.396-5.701-6.718-5.701-.034 0-.061 0-.089 0-3.369.027-6.199 2.523-6.677 5.845l-12.507 87.602-14.874-148.69c-.355-3.43-3.205-6.056-6.643-6.138-.048 0-.096 0-.143 0-3.39 0-6.274 2.489-6.752 5.852l-19.621 137.368h-9.405l-12.221-42.782c-.866-3.028-3.812-5.149-6.8-4.944-3.13.109-5.777 2.332-6.431 5.395l-8.941 42.332h-73.049c-3.771 0-6.82 3.049-6.82 6.82 0 3.778 3.049 6.82 6.82 6.82h78.566c3.219 0 6.002-2.251 6.67-5.408l4.406-20.856 6.09 21.313c.839 2.939 3.526 4.951 6.568 4.951h20.46c3.396 0 6.274-2.489 6.752-5.845l12.508-87.596 14.874 148.683c.355 3.437 3.205 6.056 6.643 6.138h.143c3.39 0 6.274-2.489 6.752-5.845l14.227-99.599 6.397 38.362c.546 3.287 3.396 5.702 6.725 5.702h88.66c3.771 0 6.82-3.049 6.82-6.82-.001-3.772-3.05-6.821-6.821-6.821z">
+                    </path>
+                </svg>
+            </div>
+            <div class="cs_wave_second">
+                <svg enable-background="new 0 0 300.08 300.08" viewBox="0 0 300.08 300.08"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="m293.26 184.14h-82.877l-12.692-76.138c-.546-3.287-3.396-5.701-6.718-5.701-.034 0-.061 0-.089 0-3.369.027-6.199 2.523-6.677 5.845l-12.507 87.602-14.874-148.69c-.355-3.43-3.205-6.056-6.643-6.138-.048 0-.096 0-.143 0-3.39 0-6.274 2.489-6.752 5.852l-19.621 137.368h-9.405l-12.221-42.782c-.866-3.028-3.812-5.149-6.8-4.944-3.13.109-5.777 2.332-6.431 5.395l-8.941 42.332h-73.049c-3.771 0-6.82 3.049-6.82 6.82 0 3.778 3.049 6.82 6.82 6.82h78.566c3.219 0 6.002-2.251 6.67-5.408l4.406-20.856 6.09 21.313c.839 2.939 3.526 4.951 6.568 4.951h20.46c3.396 0 6.274-2.489 6.752-5.845l12.508-87.596 14.874 148.683c.355 3.437 3.205 6.056 6.643 6.138h.143c3.39 0 6.274-2.489 6.752-5.845l14.227-99.599 6.397 38.362c.546 3.287 3.396 5.702 6.725 5.702h88.66c3.771 0 6.82-3.049 6.82-6.82-.001-3.772-3.05-6.821-6.821-6.821z">
+                    </path>
+                </svg>
+            </div>
+        </div>
     </div>
-  </div> --}}
-    <!-- Start Header Section -->
+
     <header class="cs_site_header cs_style_1 cs_primary_color cs_sticky_header cs_white_bg">
         <div class="cs_top_header cs_blue_bg cs_white_color">
             <div class="container p-2">
@@ -62,11 +64,11 @@
                         <ul class="cs_header_contact_list cs_mp_0">
                             <li>
                                 <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:demo@example.com">demo@example.com</a>
+                                <a href="mailto:demo@example.com">care4kids@gmail.com</a>
                             </li>
                             <li>
                                 <i class="fa-solid fa-location-dot"></i>
-                                15/K, Dhaka London City, LOT
+                                Karachi,Pakistan 
                             </li>
                         </ul>
                     </div>
@@ -88,6 +90,10 @@
                         <a class='cs_site_branding' href='index.html'>
                             <img src="{{ asset('assets/frontend/img/care4kids_logo.png') }}" alt="Logo">
                         </a>
+                        <p
+                            style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; color: #066931; margin: 0; letter-spacing: -0.5px;">
+                            Care<span style="color: #063637;">4</span>Kids
+                        </p>
                     </div>
                     <div class="cs_main_header_right">
                         <div class="cs_nav cs_primary_color">
@@ -105,45 +111,45 @@
                                     <a href="{{ route('Website_hospital') }}">Hospitals</a>
 
                                 </li>
-                               
+
 
                                 <li><a href='{{ route('Website_contact') }}'>Contact</a></li>
-                                  @if (auth()->check() && auth()->user()->hasRole('Parent')??"")
-                                 <li class="menu-item-has-children">
-                                    <a href='javasript:void()'>{{'@'.auth()->user()->name}}</a>
-                                    <ul>
-                                        <li>
-                                            <a href="{{ route('parent.profile') }}"
-                                                class="{{ request()->routeIs('parent.profile') ? 'text-sage' : '' }}">
-                                                <i class="bi bi-person-circle"></i> Profile
-                                            </a>
-                                        </li>
+                                @if (auth()->check() && auth()->user()->hasRole('Parent') ?? '')
+                                    <li class="menu-item-has-children">
+                                        <a href='javasript:void()'>{{ '@' . auth()->user()->name }}</a>
+                                        <ul>
+                                            <li>
+                                                <a href="{{ route('parent.profile') }}"
+                                                    class="{{ request()->routeIs('parent.profile') ? 'text-sage' : '' }}">
+                                                    <i class="bi bi-person-circle"></i> Profile
+                                                </a>
+                                            </li>
 
-                                        <li>
-                                            <a href="{{ route('parent.addChild') }}">
-                                                <i class="bi bi-person-plus"></i> Add Child
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <a href="{{ route('parent.addChild') }}">
+                                                    <i class="bi bi-person-plus"></i> Add Child
+                                                </a>
+                                            </li>
 
-                                        <li>
-                                            <a href="{{ route('parent.childDetail') }}">
-                                                <i class="bi bi-clipboard2-pulse"></i> Child Detail
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <a href="{{ route('parent.childDetail') }}">
+                                                    <i class="bi bi-clipboard2-pulse"></i> Child Detail
+                                                </a>
+                                            </li>
 
-                                        <li>
-                                            <a href="{{ route('parent.appointment') }}">
-                                                <i class="bi bi-calendar-plus"></i> Appointment
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <a href="{{ route('parent.appointment') }}">
+                                                    <i class="bi bi-calendar-plus"></i> Appointment
+                                                </a>
+                                            </li>
 
-                                        <li>
-                                            <a href="{{ route('parent.viewAppointment') }}">
-                                                <i class="bi bi-calendar-check"></i> View Appointment
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                            <li>
+                                                <a href="{{ route('parent.viewAppointment') }}">
+                                                    <i class="bi bi-calendar-check"></i> View Appointment
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 @endif
                             </ul>
                         </div>
@@ -160,24 +166,31 @@
                                 </div>
                             </form>
                         </div>
-                       
-                        
-                        @if (auth()->check() && auth()->user()->hasRole('Parent')??"")
-                            <span>{{ auth()->user()->name }}</span>
 
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button type="submit">Logout</button>
-                            </form>
+                        @if (auth()->check() && auth()->user()->hasRole('Parent'))
+                            <div class="cs_user_nav d-flex align-items-center gap-3">
+                                <span class="cs_user_name fw-semibold text-dark">
+                                    <i class="fa-regular fa-user me-1"></i> {{ auth()->user()->name }}
+                                </span>
+
+                                <form action="{{ route('logout') }}" method="POST" class="d-inline m-0">
+                                    @csrf
+                                    <button type="submit" class="cs_btn cs_style_1 cs_color_1 border-0"
+                                        style="cursor: pointer;">
+                                        <span>Logout</span>
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </button>
+                                </form>
+                            </div>
                         @else
-                            <a href="{{ route('login') }}" class='cs_btn cs_style_1 cs_color_1'>
-                                <span>Log In </span>
-                                <i class='fa-solid fa-angles-right'></i>
+                            <a href="{{ route('login') }}" class="cs_btn cs_style_1 cs_color_1">
+                                <span>Log In</span>
+                                <i class="fa-solid fa-angles-right"></i>
                             </a>
                         @endif
 
 
-                        {{-- @endif --}}
+
                     </div>
                 </div>
             </div>
@@ -196,11 +209,11 @@
 
     <footer class="cs_footer cs_blue_bg cs_white_color">
         <div class="container">
-            <!-- Footer Top -->
+
             <div class="cs_footer_top">
                 <div class="row">
-                    <!-- Column 1 - Brand -->
-                    <div class="col-lg-4 col-md-6">
+
+                    <div class="col-lg-4 col-md-12">
                         <div class="cs_footer_widget cs_footer_brand">
                             <div class="cs_footer_logo">
                                 <img src="{{ asset('assets/frontend/img/kid.png') }}" alt="Vaccination Management">
@@ -218,33 +231,21 @@
                         </div>
                     </div>
 
-                    <!-- Column 2 - Quick Links -->
+
                     <div class="col-lg-2 col-md-6">
                         <div class="cs_footer_widget">
                             <h2 class="cs_footer_widget_title">Quick Links</h2>
                             <ul class="cs_footer_widget_nav_list cs_mp_0">
                                 <li><a href="{{ route('Website_index') }}">Home</a></li>
                                 <li><a href="{{ route('Website_about') }}">About Us</a></li>
-                                <li><a href="#">Vaccines</a></li>
-                                <li><a href="#">Immunization Schedule</a></li>
+                                <li><a href="{{ route('vaccination') }}">Vaccines</a></li>
+                                <li><a href="{{ route('Website_hospital') }}">Hospital</a></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Column 3 - Services -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="cs_footer_widget">
-                            <h2 class="cs_footer_widget_title">Our Services</h2>
-                            <ul class="cs_footer_widget_nav_list cs_mp_0">
-                                <li><a href="#">Child Immunization</a></li>
-                                <li><a href="#">Pediatric Care</a></li>
-                                <li><a href="#">Health Checkups</a></li>
-                                <li><a href="#">Vaccine Types</a></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <!-- Column 4 - Contact Info -->
+
                     <div class="col-lg-3 col-md-6">
                         <div class="cs_footer_widget">
                             <h2 class="cs_footer_widget_title">Get In Touch</h2>
@@ -271,10 +272,10 @@
                 </div>
             </div>
 
-            <!-- Footer Bottom -->
+
             <div class="cs_footer_bottom">
                 <div class="cs_footer_bottom_in">
-                    <p class="cs_footer_copyright mb-0">Copyright &copy; 2024 Vaccination Management System. All Rights
+                    <p class="cs_footer_copyright mb-0">Copyright &copy; 2026 Vaccination Management System. All Rights
                         Reserved.
                     </p>
                     <ul class="cs_footer_menu cs_mp_0">
@@ -293,7 +294,7 @@
             <path d="M0 10L1.7625 11.7625L8.75 4.7875V20H11.25V4.7875L18.225 11.775L20 10L10 0L0 10Z"
                 fill="currentColor" />
         </svg>
-    </span>4
+    </span>
 
     <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/wow.min.js') }}"></script>
@@ -303,6 +304,6 @@
 
 </body>
 
-<!-- Mirrored from medilo-html.netlify.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Aug 2026 12:17:03 GMT -->
+
 
 </html>

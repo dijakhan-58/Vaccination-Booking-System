@@ -19,5 +19,5 @@ class upcoming_vaccinestatusController extends Controller
             'dashboard.upcoming_vaccine_status.fetch',
             compact('vaccines', 'availableCount', 'limitedCount', 'outOfStockCount')
         );
-    }
+    } 
 }

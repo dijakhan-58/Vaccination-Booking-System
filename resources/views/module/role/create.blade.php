@@ -5,43 +5,7 @@ active
 @endsection
 
 @section('body')
-<style>
-    :root {
-        --emerald-primary: #0d5c46;
-        --emerald-hover: #084333;
-        --emerald-light-bg: #e8f5e9;
-        --emerald-badge-bg: #e0f2f1;
-        --emerald-border: #b2dfdb;
-    }
 
-    .btn-emerald {
-        background-color: var(--emerald-primary) !important;
-        color: #ffffff !important;
-        border: none;
-    }
-    .btn-emerald:hover {
-        background-color: var(--emerald-hover) !important;
-        color: #ffffff !important;
-    }
-
-    .badge-emerald {
-        background-color: var(--emerald-badge-bg) !important;
-        color: var(--emerald-primary) !important;
-    }
-
-    .text-emerald {
-        color: var(--emerald-primary) !important;
-    }
-
-    .form-check-input:checked {
-        background-color: var(--emerald-primary) !important;
-        border-color: var(--emerald-primary) !important;
-    }
-    .form-control:focus, .form-check-input:focus {
-        border-color: var(--emerald-primary) !important;
-        box-shadow: 0 0 0 0.25rem rgba(13, 92, 70, 0.15) !important;
-    }
-</style>
 
 <div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-3">

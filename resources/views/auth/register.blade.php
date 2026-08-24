@@ -25,11 +25,7 @@
 
     <link rel="manifest" href="{{ asset('assets/manifest-DTaoG9pG.json') }}">
 
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/rolldown-runtime-QTnfLwEv.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-bootstrap-DgdwyLYF.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-ui-DCXHuVks.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/vendor-charts-Dcrko_Gn.js') }}"></script>
-    <script type="module" crossorigin src="{{ asset('assets/dashboard/js/main-Ynqz-sB_.js') }}"></script>
+
 
     <link rel="stylesheet" crossorigin href="{{ asset('assets/dashboard/login.css') }}">
 </head>
@@ -43,7 +39,6 @@
     <div class="stage">
         <div class="card">
 
-            <!-- LEFT: BRAND PANEL -->
             <div class="panel">
                 <div class="panel-shape-anim"></div>
 
@@ -79,13 +74,13 @@
                 </div>
             </div>
 
-            <!-- RIGHT: FORM PANEL -->
+
             <div class="form-side">
-               
+
 
                 <div class="views">
 
-                    <!-- ================= SIGN UP ================= -->
+
                     <div class="view active" id="signupView">
 
                         <div class="form-title">Create your account</div>
@@ -97,12 +92,12 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-                            <!-- NAME -->
+
                             <div class="field">
                                 <i class="bi bi-person"></i>
 
-                                <input type="text" name="name" placeholder="Full name"
-                                    value="{{ old('name') }}" required autofocus autocomplete="name">
+                                <input type="text" name="name" placeholder="Full name" value="{{ old('name') }}"
+                                    required autofocus autocomplete="name">
                             </div>
 
                             @error('name')
@@ -111,7 +106,7 @@
                                 </div>
                             @enderror
 
-                            <!-- EMAIL -->
+
                             <div class="field">
                                 <i class="bi bi-envelope"></i>
 
@@ -119,18 +114,19 @@
                                     value="{{ old('email') }}" required autocomplete="username">
                             </div>
 
+
                             @error('email')
-                                <div class="text-danger small mt-1">
+                                <div class="login-error">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
                                     {{ $message }}
                                 </div>
                             @enderror
 
-                            <!-- PASSWORD -->
                             <div class="field">
                                 <i class="bi bi-lock"></i>
 
-                                <input type="password" name="password" placeholder="Password" id="signupPass"
-                                    required autocomplete="new-password">
+                                <input type="password" name="password" placeholder="Password" id="signupPass" required
+                                    autocomplete="new-password">
 
                                 <i class="bi bi-eye toggle-eye" onclick="togglePass('signupPass', this)"></i>
                             </div>
@@ -141,7 +137,6 @@
                                 </div>
                             @enderror
 
-                            <!-- CONFIRM PASSWORD -->
                             <div class="field">
                                 <i class="bi bi-lock-fill"></i>
 
@@ -164,13 +159,6 @@
 
                         </form>
 
-                        <div class="switch-line">
-                            Already have an account?
-
-                            <a href="{{ route('login') }}">
-                                Log in
-                            </a>
-                        </div>
 
                     </div>
 

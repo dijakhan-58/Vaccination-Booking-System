@@ -5,38 +5,7 @@
 @endsection
 
 @section('body')
-<style>
-    :root {
-        --emerald-primary: #0d5c46;
-        --emerald-hover: #084333;
-        --emerald-light-bg: #e8f5e9;
-        --emerald-badge-bg: #e0f2f1;
-    }
 
-    .btn-emerald {
-        background-color: var(--emerald-primary) !important;
-        color: #ffffff !important;
-        border: none;
-    }
-    .btn-emerald:hover {
-        background-color: var(--emerald-hover) !important;
-        color: #ffffff !important;
-    }
-
-    .badge-emerald {
-        background-color: var(--emerald-badge-bg) !important;
-        color: var(--emerald-primary) !important;
-    }
-
-    .text-emerald {
-        color: var(--emerald-primary) !important;
-    }
-
-    .form-control:focus, .form-select:focus {
-        border-color: var(--emerald-primary) !important;
-        box-shadow: 0 0 0 0.25rem rgba(13, 92, 70, 0.15) !important;
-    }
-</style>
 
 <div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -75,14 +44,14 @@
                 <p class="text-muted small mb-4 ms-1">Create a user account with validated fields.</p>
 
                 <div class="row g-3">
-                    <!-- Full Name -->
+              
                     <div class="col-md-6 mb-3">
                         <label for="name" class="form-label text-secondary fw-semibold">Full name</label>
                         <input type="text" class="form-control form-control-lg rounded-3 border-light-subtle shadow-none" 
                             id="name" name="name" value="{{ old('name') }}" placeholder="Enter full name" required>
                     </div>
 
-                    <!-- Roles Selection -->
+               
                     <div class="col-md-6 mb-3">
                         <label for="role" class="form-label text-secondary fw-semibold">Roles</label>
                         <select class="form-select form-select-lg rounded-3 border-light-subtle shadow-none text-capitalize" id="role" name="role" required>
@@ -95,33 +64,28 @@
                         </select>
                     </div>
 
-                    <!-- Email -->
+               
                     <div class="col-md-6 mb-3">
                         <label for="email" class="form-label text-secondary fw-semibold">Email</label>
                         <input type="email" class="form-control form-control-lg rounded-3 border-light-subtle shadow-none" 
                             id="email" name="email" value="{{ old('email') }}" placeholder="e.g. user@example.com" required>
                     </div>
 
-                    <!-- Phone -->
+                   
                     <div class="col-md-6 mb-3">
                         <label for="phone" class="form-label text-secondary fw-semibold">Phone</label>
                         <input type="text" class="form-control form-control-lg rounded-3 border-light-subtle shadow-none" 
                             id="phone" name="phone" value="{{ old('phone') }}" placeholder="Enter phone number">
                     </div>
 
-                    <!-- Password -->
-                    <div class="col-md-6 mb-3">
+                   
+                    <div class="col-md-12 mb-3">
                         <label for="password" class="form-label text-secondary fw-semibold">Password</label>
                         <input type="password" class="form-control form-control-lg rounded-3 border-light-subtle shadow-none" 
                             id="password" name="password" placeholder="••••••••" required>
                     </div>
 
-                    <!-- Confirm Password -->
-                    <div class="col-md-6 mb-3">
-                        <label for="password_confirmation" class="form-label text-secondary fw-semibold">Confirm Password</label>
-                        <input type="password" class="form-control form-control-lg rounded-3 border-light-subtle shadow-none" 
-                            id="password_confirmation" name="password_confirmation" placeholder="••••••••" required>
-                    </div>
+                    
                 </div>
 
                 <div class="d-flex justify-content-end gap-2 pt-3">

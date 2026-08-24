@@ -27,7 +27,6 @@
 
     @else
 
-        {{-- Children List --}}
         <div class="card container mt-5" style="margin-bottom:24px;">
 
             <div class="card-head">
@@ -56,19 +55,19 @@
 
                     <div class="child-card">
 
-                        {{-- Initials (photo column migration mein nahi hai) --}}
+               
                         <div class="child-avatar">
                             {{ strtoupper(substr($child->first_name, 0, 1) . substr($child->last_name, 0, 1)) }}
                         </div>
 
 
-                        {{-- Name --}}
+                       
                         <h4>
                             {{ $child->first_name }} {{ $child->last_name }}
                         </h4>
 
 
-                        {{-- DOB + Gender --}}
+                    
                     <div class="meta">
                         {{ $child->age_display }}
                         &bull;
@@ -76,7 +75,7 @@
                     </div>
 
 
-                        {{-- Blood Group --}}
+                    
                         @if($child->blood_group)
 
                             <div class="meta">
@@ -86,18 +85,7 @@
                         @endif
 
 
-                        {{-- Progress --}}
-                        {{-- <div class="progress-track">
-
-                            <div class="progress-fill" style="width:0%;">
-                            </div>
-
-                        </div> --}}
-
-
-                        {{-- View Record --}}
-                        {{-- Ye block har child-card ke andar daalein --}}
-                        {{-- (jahan pehle View/Edit/Delete buttons the) --}}
+                        
 
                         <div class="icon-actions">
 

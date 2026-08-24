@@ -2,7 +2,7 @@
 
 @section('fornt_body')
 
-  <!-- Page Heading -->
+
   <section class="cs_page_heading cs_bg_filed cs_center"
     data-src="{{ asset('assets/frontend/img//hospiatl4.jfif') }}"
     style="padding: 120px 0; position: relative; background-size: cover; background-position: center;">
@@ -33,39 +33,45 @@
     </div>
   </section>
 
-  <!-- Search & Filter Section -->
-  <section class="cs_search_filter">
+
+ <section class="cs_search_filter">
     <div class="cs_height_80 cs_height_lg_50"></div>
     <div class="container">
-      <div class="cs_search_filter_wrapper">
+      <form action="{{ route('Website_hospital') }}" method="GET" class="cs_search_filter_wrapper">
         <div class="row cs_gap_y_20">
           <div class="col-lg-4">
             <div class="cs_search_box">
-              <input type="text" placeholder="Search by hospital name, city or area..." class="cs_search_input">
+              <input
+                type="text"
+                name="search"
+                value="{{ request('search') }}"
+                placeholder="Search by hospital name, city or area..."
+                class="cs_search_input">
               <i class="fa-solid fa-search"></i>
             </div>
           </div>
           <div class="col-lg-2 col-md-4">
-            <select class="cs_select_box">
+            <select name="city" class="cs_select_box">
               <option value="">All Cities</option>
-              @foreach ($hospitals->pluck('city')->unique() as $city)
-                <option value="{{ $city }}">{{ $city }}</option>
+              @foreach ($cities as $city)
+                <option value="{{ $city }}" {{ request('city') === $city ? 'selected' : '' }}>
+                  {{ $city }}
+                </option>
               @endforeach
             </select>
           </div>
           <div class="col-lg-2 col-md-4">
-            <button class="cs_btn cs_style_1 cs_color_1 w-100">
+            <button type="submit" class="cs_btn cs_style_1 cs_color_1 w-100">
               <span>Search</span>
               <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
     <div class="cs_height_80 cs_height_lg_50"></div>
   </section>
 
-  <!-- Hospital List Section -->
   <section class="cs_hospital_list">
     <div class="container">
       <div class="row cs_gap_y_30">
@@ -109,9 +115,7 @@
                         <div class="cs_vaccine_stats">
                           <span><i class="fa-regular fa-clock"></i> {{ $hospital->timings_slot }}</span>
                         </div>
-                        <div class="cs_hospital_actions">
-                          <a href="#" class="cs_btn_link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
+                      
                       </div>
                     </div>
                   </div>
@@ -130,7 +134,7 @@
     <div class="cs_height_110 cs_height_lg_80"></div>
   </section>
 
-  <!-- Quick Booking CTA -->
+
   <section class="cs_quick_booking cs_blue_bg m-5">
     <div class="cs_height_80 cs_height_lg_50"></div>
     <div class="container">

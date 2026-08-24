@@ -34,7 +34,7 @@
                     @method('PUT')
 
                     <div class="row">
-                        <!-- Parent -->
+                       
                         <div class="col-md-6 mb-3">
                             <label for="parent_id" class="form-label fw-bold">
                                 <i class="bi bi-person-badge"></i> Parent <span class="text-danger">*</span>
@@ -49,7 +49,6 @@
                             </select>
                         </div>
 
-                        <!-- First Name -->
                         <div class="col-md-3 mb-3">
                             <label for="first_name" class="form-label fw-bold">
                                 <i class="bi bi-person"></i> First Name <span class="text-danger">*</span>
@@ -58,7 +57,7 @@
                                 value="{{ old('first_name', $child->first_name) }}" required>
                         </div>
 
-                        <!-- Last Name -->
+              
                         <div class="col-md-3 mb-3">
                             <label for="last_name" class="form-label fw-bold">
                                 <i class="bi bi-person"></i> Last Name <span class="text-danger">*</span>
@@ -67,7 +66,7 @@
                                 value="{{ old('last_name', $child->last_name) }}" required>
                         </div>
 
-                        <!-- DOB -->
+            
                         <div class="col-md-6 mb-3">
                             <label for="dob" class="form-label fw-bold">
                                 <i class="bi bi-calendar3"></i> Date of Birth <span class="text-danger">*</span>
@@ -76,7 +75,6 @@
                                 value="{{ old('dob', $child->dob->format('Y-m-d')) }}" required>
                         </div>
 
-                        <!-- Gender -->
                         <div class="col-md-6 mb-3">
                             <label for="gender" class="form-label fw-bold">
                                 <i class="bi bi-gender-ambiguous"></i> Gender <span class="text-danger">*</span>
@@ -89,7 +87,7 @@
                             </select>
                         </div>
 
-                        <!-- Blood Group -->
+               
                         <div class="col-md-6 mb-3">
                             <label for="blood_group" class="form-label fw-bold">
                                 <i class="bi bi-droplet"></i> Blood Group
@@ -102,7 +100,6 @@
                             </select>
                         </div>
 
-                        <!-- B-Form Number -->
                         <div class="col-md-6 mb-3">
                             <label for="b_form_number" class="form-label fw-bold">
                                 <i class="bi bi-card-text"></i> B-Form Number
@@ -111,7 +108,6 @@
                                 value="{{ old('b_form_number', $child->b_form_number) }}">
                         </div>
 
-                        <!-- Weight -->
                         <div class="col-md-6 mb-3">
                             <label for="weight" class="form-label fw-bold">
                                 <i class="bi bi-weight-scale"></i> Weight (kg)
@@ -120,7 +116,7 @@
                                 value="{{ old('weight', $child->weight) }}">
                         </div>
 
-                        <!-- Allergy Notes -->
+                     
                         <div class="col-12 mb-3">
                             <label for="allergy_notes" class="form-label fw-bold">
                                 <i class="bi bi-exclamation-triangle"></i> Allergy Notes
@@ -129,7 +125,7 @@
                                 rows="2">{{ old('allergy_notes', $child->allergy_notes) }}</textarea>
                         </div>
 
-                        <!-- Medical Notes -->
+                     
                         <div class="col-12 mb-3">
                             <label for="medical_notes" class="form-label fw-bold">
                                 <i class="bi bi-file-medical"></i> Medical Notes

@@ -48,7 +48,7 @@ class NotificationController extends Controller
         return view(
             'admin.notifications.show',
             compact('notification')
-        );
+        ); 
     }
 
     public function destroy(Notification $notification)

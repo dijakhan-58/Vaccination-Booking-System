@@ -36,96 +36,275 @@
     </div>
   </section>
 
-  <!-- Start About Section -->
-  <section class="cs_about cs_style_1 position-relative">
-    <div class="cs_height_120 cs_height_lg_80"></div>
-    <div class="container">
-      <div class="row align-items-center cs_gap_y_40">
-        <div class="col-lg-6">
-          <div class="cs_about_thumb">
-            <div class="cs_about_thumb_1">
-              <img src="{{ asset('assets/frontend/img/doctor.jfif') }}" alt="Vaccination Management" />
+<section class="cs_about cs_style_1 position-relative">
+  <div class="cs_height_120 cs_height_lg_80"></div>
 
-            </div>
-            <div class="cs_about_thumb_2">
-              <img src="{{ asset('assets/frontend/img/doctor2.jfif') }}" alt="Child Vaccination" />
-              <img src="{{ asset('assets/frontend/img/icons/about_shape_1.png') }}" alt="Shape Image"
-                class="cs_about_thumb_shape_2" />
-            </div>
-            <div class="cs_experience_box cs_center wow zoomIn" data-wow-duration="0.9s" data-wow-delay="0.25s">
-              <p class="cs_experience_box_number">10K+</p>
-              <p class="cs_experience_box_title">Children Vaccinated</p>
-            </div>
+  <div class="container">
+    <div class="row align-items-center cs_gap_y_40">
+
+     
+      <div class="col-lg-6">
+        <div class="cs_about_thumb">
+
+          <div class="cs_about_thumb_1">
+            <img src="{{ asset('assets/frontend/img/doctor.jfif') }}"
+              alt="Healthcare professional providing vaccination care" />
           </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="cs_about_content">
-            <div class="cs_section_heading cs_style_1">
-              <p class="cs_section_subtitle cs_accent_color wow fadeInLeft" data-wow-duration="0.9s"
-                data-wow-delay="0.25s">
-                <span class="cs_shape_left"></span>
-                ABOUT VACCINATION SYSTEM
-              </p>
-              <h2 class="cs_section_title">
-                Protecting Children Through Timely Vaccination Management
-              </h2>
-            </div>
-            <p class="cs_about_text">
-              We are privileged to work with hundreds of healthcare providers and parents, ensuring every child receives
-              life-saving vaccines on time. Our vaccination management system helps track, schedule, and monitor
-              immunization records for a healthier future.
+
+          <div class="cs_about_thumb_2">
+            <img src="{{ asset('assets/frontend/img/doctor2.jfif') }}"
+              alt="Child receiving vaccination" />
+
+            <img src="{{ asset('assets/frontend/img/icons/about_shape_1.png') }}"
+              alt="Decorative shape"
+              class="cs_about_thumb_shape_2" />
+          </div>
+
+        
+          <div class="cs_experience_box cs_center wow zoomIn"
+            data-wow-duration="0.9s"
+            data-wow-delay="0.25s">
+
+            <p class="cs_experience_box_number">
+              100%
             </p>
-            <div class="row cs_gap_y_30">
-              <div class="col-sm-6">
-                <div class="cs_iconbox cs_style_1">
-                  <div class="cs_iconbox_head">
-                    <div class="cs_iconbox_icon cs_center">
-                      <img src="{{ asset('assets/frontend/img/icons/about_icon_1.png') }}" alt="" />
-                    </div>
-                    <h3 class="cs_iconbox_title m-0">Vaccine Tracking</h3>
+
+            <p class="cs_experience_box_title">
+              Organized Vaccination Care
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="col-lg-6">
+        <div class="cs_about_content">
+
+          <div class="cs_section_heading cs_style_1">
+
+            <p class="cs_section_subtitle cs_accent_color wow fadeInLeft"
+              data-wow-duration="0.9s"
+              data-wow-delay="0.25s">
+
+              <span class="cs_shape_left"></span>
+              ABOUT CARE4KIDS
+
+            </p>
+
+            <h2 class="cs_section_title">
+              Making Childhood Vaccination Management Simple and Reliable
+            </h2>
+
+          </div>
+
+          <p class="cs_about_text">
+            Care4Kids is a vaccination management platform designed to make
+            childhood immunization easier for parents, hospitals, and
+            administrators. The system brings vaccination records,
+            appointments, vaccine information, and upcoming vaccination
+            schedules together in one convenient platform.
+          </p>
+
+          <div class="row cs_gap_y_30">
+
+           
+            <div class="col-sm-6">
+              <div class="cs_iconbox cs_style_1">
+
+                <div class="cs_iconbox_head">
+
+                  <div class="cs_iconbox_icon cs_center">
+                    <img src="{{ asset('assets/frontend/img/icons/about_icon_1.png') }}"
+                      alt="Vaccination tracking icon" />
                   </div>
-                  <p class="cs_iconbox_subtitle mb-0">
-                    Track each child's complete vaccination history with ease.
-                  </p>
+
+                  <h3 class="cs_iconbox_title m-0">
+                    Vaccination Tracking
+                  </h3>
+
                 </div>
+
+                <p class="cs_iconbox_subtitle mb-0">
+                  Maintain organized vaccination records and monitor each
+                  child's immunization progress.
+                </p>
+
               </div>
-              <div class="col-sm-6">
-                <div class="cs_iconbox cs_style_1">
-                  <div class="cs_iconbox_head">
-                    <div class="cs_iconbox_icon cs_center">
-                      <img src="{{ asset('assets/frontend/img/icons/about_icon_2.png') }}" alt="" />
-                    </div>
-                    <h3 class="cs_iconbox_title m-0">Schedule Reminders</h3>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="cs_iconbox cs_style_1">
+
+                <div class="cs_iconbox_head">
+
+                  <div class="cs_iconbox_icon cs_center">
+                    <img src="{{ asset('assets/frontend/img/icons/about_icon_2.png') }}"
+                      alt="Appointment scheduling icon" />
                   </div>
-                  <p class="cs_iconbox_subtitle mb-0">
-                    Automated reminders for upcoming vaccination appointments.
-                  </p>
+
+                  <h3 class="cs_iconbox_title m-0">
+                    Easy Appointments
+                  </h3>
+
+                </div>
+
+                <p class="cs_iconbox_subtitle mb-0">
+                  Find suitable vaccination services and manage hospital
+                  appointments conveniently.
+                </p>
+
+              </div>
+            </div>
+
+          </div>
+
+         
+          <div class="cs_about_iconbox">
+
+            <div class="cs_about_iconbox_icon cs_center">
+              <i class="fa-regular fa-circle-check"></i>
+            </div>
+
+            <p class="cs_about_iconbox_subtitle">
+              Care4Kids connects parents, hospitals, and administrators
+              through one organized vaccination management system.
+            </p>
+
+          </div>
+
+          <a class="cs_btn cs_style_1 cs_color_1"
+            href="{{ route('vaccination') }}">
+
+            <span>
+              Explore Vaccination
+            </span>
+
+            <i class="fa-solid fa-angles-right"></i>
+
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="cs_section_img">
+    <img src="{{ asset('assets/frontend/img/about_section_img_1.png') }}"
+      alt="Decorative healthcare background" />
+  </div>
+
+  <div class="cs_height_120 cs_height_lg_80"></div>
+
+</section>
+
+<div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
+  <div class="container feature px-lg-0">
+    <div class="row g-0 mx-lg-0">
+
+  
+      <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="p-lg-5 ps-lg-0">
+
+          <p class="d-inline-block border rounded-pill text-light py-1 px-4">
+            Features
+          </p>
+
+          <h1 class="text-white mb-4">
+            Why Choose Care4Kids?
+          </h1>
+
+          <p class="text-white mb-4 pb-2">
+            Care4Kids makes childhood vaccination management simple, organized,
+            and convenient. Parents can manage their children's vaccination
+            records, book appointments with hospitals, and stay informed about
+            upcoming vaccinations through one easy-to-use platform.
+          </p>
+
+          <div class="row g-4">
+
+  
+            <div class="col-6">
+              <div class="d-flex align-items-center">
+                <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
+                  style="width: 55px; height: 55px;">
+                  <i class="fa fa-syringe text-primary"></i>
+                </div>
+
+                <div class="ms-4">
+                  <p class="text-white mb-2">Complete</p>
+                  <h5 class="text-white mb-0">Vaccination Care</h5>
                 </div>
               </div>
             </div>
-            <div class="cs_about_iconbox">
-              <div class="cs_about_iconbox_icon cs_center">
-                <i class="fa-regular fa-circle-check"></i>
+
+            <div class="col-6">
+              <div class="d-flex align-items-center">
+                <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
+                  style="width: 55px; height: 55px;">
+                  <i class="fa fa-calendar-check text-primary"></i>
+                </div>
+
+                <div class="ms-4">
+                  <p class="text-white mb-2">Easy</p>
+                  <h5 class="text-white mb-0">Appointment Booking</h5>
+                </div>
               </div>
-              <p class="cs_about_iconbox_subtitle">
-                Join thousands of parents who trust our vaccination management system to keep their children safe.
-              </p>
             </div>
-            <a class="cs_btn cs_style_1 cs_color_1" href="#">
-              <span>Immunization Schedule </span>
-              <i class="fa-solid fa-angles-right"></i>
-            </a>
+
+            <div class="col-6">
+              <div class="d-flex align-items-center">
+                <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
+                  style="width: 55px; height: 55px;">
+                  <i class="fa fa-child text-primary"></i>
+                </div>
+
+                <div class="ms-4">
+                  <p class="text-white mb-2">For Your</p>
+                  <h5 class="text-white mb-0">Children</h5>
+                </div>
+              </div>
+            </div>
+
+           
+            <div class="col-6">
+              <div class="d-flex align-items-center">
+                <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
+                  style="width: 55px; height: 55px;">
+                  <i class="fa fa-bell text-primary"></i>
+                </div>
+
+                <div class="ms-4">
+                  <p class="text-white mb-2">Stay</p>
+                  <h5 class="text-white mb-0">Updated</h5>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
-    <div class="cs_section_img">
-      <img src="{{ asset('assets/frontend/img/about_section_img_1.png') }}" alt="" />
-    </div>
-    <div class="cs_height_120 cs_height_lg_80"></div>
-  </section>
 
-  <!-- Start Counter Section -->
+
+      <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s"
+        style="min-height: 400px;">
+        <div class="position-relative h-100">
+
+          <img class="position-absolute img-fluid w-100 h-100"
+            src="{{ asset('assets/frontend/img/pexels-pavel-danilyuk-7653324.jpg') }}"
+            style="object-fit: cover;"
+            alt="Child receiving vaccination">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
   <div class="cs_counter_area_2">
     <div class="container">
       <div class="cs_counter_2_wrap">
@@ -170,193 +349,5 @@
     <div class="cs_height_120 cs_height_lg_80"></div>
   </div>
 
-  <!-- Start CTA Section -->
-  <div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
-    <div class="container feature px-lg-0">
-      <div class="row g-0 mx-lg-0">
-        <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
-          <div class="p-lg-5 ps-lg-0">
-            <p class="d-inline-block border rounded-pill text-light py-1 px-4">Features</p>
-            <h1 class="text-white mb-4">Why Choose Us</h1>
-            <p class="text-white mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-              diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
-            <div class="row g-4">
-              <div class="col-6">
-                <div class="d-flex align-items-center">
-                  <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
-                    style="width: 55px; height: 55px;">
-                    <i class="fa fa-user-md text-primary"></i>
-                  </div>
-                  <div class="ms-4">
-                    <p class="text-white mb-2">Experience</p>
-                    <h5 class="text-white mb-0">Doctors</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="d-flex align-items-center">
-                  <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
-                    style="width: 55px; height: 55px;">
-                    <i class="fa fa-check text-primary"></i>
-                  </div>
-                  <div class="ms-4">
-                    <p class="text-white mb-2">Quality</p>
-                    <h5 class="text-white mb-0">Services</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="d-flex align-items-center">
-                  <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
-                    style="width: 55px; height: 55px;">
-                    <i class="fa fa-comment-medical text-primary"></i>
-                  </div>
-                  <div class="ms-4">
-                    <p class="text-white mb-2">Positive</p>
-                    <h5 class="text-white mb-0">Consultation</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="d-flex align-items-center">
-                  <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
-                    style="width: 55px; height: 55px;">
-                    <i class="fa fa-headphones text-primary"></i>
-                  </div>
-                  <div class="ms-4">
-                    <p class="text-white mb-2">24 Hours</p>
-                    <h5 class="text-white mb-0">Support</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
-          <div class="position-relative h-100">
-            <img class="position-absolute img-fluid w-100 h-100"
-              src="{{asset('assets/frontend/img/pexels-pavel-danilyuk-7653324.jpg')}}" style="object-fit: cover;" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <!-- Start Team Section -->
-  <section>
-    <div class="cs_height_110 cs_height_lg_70"></div>
-    <div class="container">
-      <div class="cs_section_heading cs_style_1 text-center">
-        <p class="cs_section_subtitle cs_accent_color wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.25s">
-          <span class="cs_shape_left"></span>OUR VACCINATION EXPERTS<span class="cs_shape_right"></span>
-        </p>
-        <h2 class="cs_section_title">Meet Our Immunization <br>Specialists</h2>
-      </div>
-      <div class="cs_height_50 cs_height_lg_50"></div>
-      <div class="cs_slider cs_style_1 cs_slider_gap_24">
-        <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="600" data-center="0"
-          data-variable-width="0" data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2"
-          data-md-slides="3" data-lg-slides="4" data-add-slides="4">
-          <div class="cs_slider_wrapper">
-            <div class="cs_slide">
-              <div class="cs_team cs_style_1 cs_blue_bg">
-                <div class="cs_team_shape cs_accent_bg"></div>
-                <a class='cs_team_thumbnail' href='doctor-details.html'>
-                  <img src="{{ asset('assets/frontend/img/doctore6.jpg') }}" alt="Dr. Sarah">
-                </a>
-                <div class="cs_team_bio">
-                  <h3 class="cs_team_title cs_extra_bold mb-0"><a href='doctor-details.html'>Dr. Ayesha Khan</a></h3>
-                  <p class="cs_team_subtitle">Pediatric Vaccination Specialist</p>
-                  <div class="cs_social_btns cs_style_1">
-                    <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-pinterest-p"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="cs_slide">
-              <div class="cs_team cs_style_1 cs_blue_bg">
-                <div class="cs_team_shape cs_accent_bg"></div>
-                <a class='cs_team_thumbnail' href='doctor-details.html'>
-                  <img src="{{ asset('assets/frontend/img/doctore3.jpg') }}" alt="Dr. James">
-                </a>
-                <div class="cs_team_bio">
-                  <h3 class="cs_team_title cs_extra_bold mb-0"><a href='doctor-details.html'>DDr. Muhammad Ali</a></h3>
-                  <p class="cs_team_subtitle">Child Immunization Specialist</p>
-                  <div class="cs_social_btns cs_style_1">
-                    <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-pinterest-p"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="cs_slide">
-              <div class="cs_team cs_style_1 cs_blue_bg">
-                <div class="cs_team_shape cs_accent_bg"></div>
-                <a class='cs_team_thumbnail' href='doctor-details.html'>
-                  <img src="{{ asset('assets/frontend/img/doctore5.jpg') }}" alt="Dr. Maria">
-                </a>
-                <div class="cs_team_bio">
-                  <h3 class="cs_team_title cs_extra_bold mb-0"><a href='doctor-details.html'>Dr. Fatima Zahra</a></h3>
-                  <p class="cs_team_subtitle">Infant Vaccination Specialist</p>
-                  <div class="cs_social_btns cs_style_1">
-                    <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-pinterest-p"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="cs_slide">
-              <div class="cs_team cs_style_1 cs_blue_bg">
-                <div class="cs_team_shape cs_accent_bg"></div>
-                <a class='cs_team_thumbnail' href='doctor-details.html'>
-                  <img src="{{ asset('assets/frontend/img/doctore4.jpg') }}" alt="Dr. Robert">
-                </a>
-                <div class="cs_team_bio">
-                  <h3 class="cs_team_title cs_extra_bold mb-0"><a href='doctor-details.html'>Dr. Hamza Ali</a></h3>
-                  <p class="cs_team_subtitle">Pediatric Infectious Disease Specialist</p>
-                  <div class="cs_social_btns cs_style_1">
-                    <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-pinterest-p"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="cs_slide">
-              <div class="cs_team cs_style_1 cs_blue_bg">
-                <div class="cs_team_shape cs_accent_bg"></div>
-                <a class='cs_team_thumbnail' href='doctor-details.html'>
-                  <img src="{{ asset('assets/frontend/img/doctor7.jpg') }}" alt="Dr. Linda">
-                </a>
-                <div class="cs_team_bio">
-                  <h3 class="cs_team_title cs_extra_bold mb-0"><a href='doctor-details.html'>Dr. Maham Shah</a></h3>
-                  <p class="cs_team_subtitle">Vaccine Researcher</p>
-                  <div class="cs_social_btns cs_style_1">
-                    <a href="#" class="cs_center"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-pinterest-p"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="cs_center"><i class="fa-brands fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cs_pagination cs_style_2"></div>
-      </div>
-    </div>
-    <div class="cs_height_120 cs_height_lg_80"></div>
-    <hr>
-  </section>
 
 @endsection

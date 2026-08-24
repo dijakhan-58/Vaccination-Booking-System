@@ -14,7 +14,7 @@
         <div
             style="max-width:650px; margin:0 auto; background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.1);">
 
-            <!-- Header -->
+  
             <div
                 style="background:linear-gradient(135deg, #198754 0%, #14532d 100%); padding:35px 30px; text-align:center;">
                 <div
@@ -29,14 +29,13 @@
                 </p>
             </div>
 
-            <!-- Content -->
             <div style="padding:35px 30px;">
 
                 <p style="margin-top:0; margin-bottom:25px; color:#555555; font-size:15px; line-height:1.6;">
                     You've received a new message through your website contact form. Details are below:
                 </p>
 
-                <!-- Info Grid: Name + Email side-by-side style (table for email compatibility) -->
+         
                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
                     <tr>
                         <td width="50%" style="padding-right:8px; vertical-align:top;">
@@ -95,7 +94,7 @@
                     </tr>
                 </table>
 
-                <!-- Message (full width, highlighted) -->
+              
                 <div
                     style="background:#f0f7f3; border-left:4px solid #198754; border-radius:8px; padding:18px 20px; margin-top:20px;">
                     <p
@@ -109,7 +108,7 @@
 
             </div>
 
-            <!-- Footer -->
+   
             <div style="background:#f7f9f8; padding:20px 30px; text-align:center; border-top:1px solid #eeeeee;">
                 <p style="margin:0; color:#888888; font-size:12px;">
                     This message was sent from your website contact form.

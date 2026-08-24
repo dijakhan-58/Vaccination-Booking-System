@@ -46,9 +46,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $index = 1;
+                        @endphp
                         @forelse ($hospitals as $hospital)
                             <tr>
-                                <td class="text-muted font-monospace small">{{ $hospital->id }}</td>
+                                <td class="text-muted font-monospace small">{{ $index++}}</td>
                                 <td>
                                     <img src="{{ $hospital->profile_img ? asset('storage/' . $hospital->profile_img) : 'https://ui-avatars.com/api/?name=' . urlencode($hospital->name) }}"
                                         class="rounded-circle" width="36" height="36" alt="{{ $hospital->name }}">
@@ -93,4 +96,4 @@
         </div>
     </div>
 
-@endsection
+@endsection 

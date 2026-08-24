@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Hospital;
 use Illuminate\Http\Request;
 
-class HospitalController extends Controller   // <-- was AdminHospitalController
+class HospitalController extends Controller   
 {
     public function index()
     {

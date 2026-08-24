@@ -8,9 +8,7 @@ use Spatie\Permission\Models\Permission;
 
 class permission_seeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+  
     public function run(): void
     {
       $permissions = [

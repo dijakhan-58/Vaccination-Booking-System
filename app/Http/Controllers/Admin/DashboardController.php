@@ -14,7 +14,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // ===== KPI Cards =====
+      
         $totalChildren = Child::count();
         $totalHospitals = Hospital::count();
         $totalVaccines = Vaccine::count();
@@ -22,7 +22,6 @@ class DashboardController extends Controller
         $pendingRequests = Booking::where('status', 'pending')->count();
         $completedCount = Booking::where('status', 'completed')->count();
 
-        // ===== Info Boxes =====
         $upcomingVaccinations = Booking::whereBetween('preferred_date', [today(), today()->addDays(7)])
             ->whereIn('status', ['pending', 'approved'])
             ->count();
@@ -31,7 +30,7 @@ class DashboardController extends Controller
             ->where('updated_at', '>=', now()->subDays(30))
             ->count();
 
-        // ===== Monthly Vaccination Trend (this year) =====
+  
         $monthlyRaw = VaccinationRecord::selectRaw('MONTH(vaccination_date) as month, COUNT(*) as total')
             ->whereYear('vaccination_date', now()->year)
             ->groupBy('month')
@@ -44,7 +43,7 @@ class DashboardController extends Controller
             $monthlyData[] = $monthlyRaw->get($m, 0);
         }
 
-        // ===== Booking Status Distribution =====
+    
         $statusCounts = Booking::selectRaw('status, COUNT(*) as total')
             ->groupBy('status')
             ->pluck('total', 'status');
@@ -52,26 +51,25 @@ class DashboardController extends Controller
         $statusLabels = ['completed', 'approved', 'pending', 'cancelled'];
         $statusData = array_map(fn ($s) => $statusCounts->get($s, 0), $statusLabels);
 
-        // ===== Pending Parent Requests (table) =====
+  
         $pendingBookings = Booking::with(['child.parent', 'vaccine', 'hospital'])
             ->where('status', 'pending')
             ->latest()
             ->take(4)
             ->get();
 
-        // ===== Today's Vaccinations (approved bookings today) =====
+       
         $todaysVaccinations = Booking::with(['child', 'vaccine', 'hospital'])
             ->whereDate('preferred_date', today())
             ->where('status', 'approved')
             ->get();
 
-        // ===== Recent Bookings (table) =====
         $recentBookings = Booking::with(['child', 'vaccine', 'hospital'])
             ->latest()
             ->take(4)
             ->get();
 
-        // ===== Recent Activity (merged, since there's no activity_log table) =====
+        
         $recentActivity = collect();
 
         Booking::with('child')->where('status', 'approved')->latest('updated_at')->take(3)->get()

@@ -2,7 +2,7 @@
 
 @section('fornt_body')
 
-    {{-- Agar appointment nahi hai --}}
+ 
     @if ($appointments->isEmpty())
 
         <div class="card container mt-5">
@@ -57,7 +57,7 @@
             </div>
 
 
-            {{-- Success Message --}}
+          
             @if (session('success'))
 
                 <div class="alert alert-success">
@@ -70,13 +70,12 @@
             <div class="child-grid">
 
 
-                {{-- All appointments --}}
+              
                 @foreach ($appointments as $appointment)
 
                         <div class="child-card">
 
 
-                            {{-- Child Name --}}
                             <div class="child-avatar">
 
                                 {{ substr($appointment->child->first_name, 0, 1) }}
@@ -93,7 +92,6 @@
                             </h4>
 
 
-                            {{-- Vaccine --}}
                             <div class="meta">
 
                                 <i class="bi bi-syringe"></i>
@@ -103,7 +101,7 @@
                             </div>
 
 
-                            {{-- Hospital --}}
+                            
                             <div class="meta">
 
                                 <i class="bi bi-hospital"></i>
@@ -113,7 +111,7 @@
                             </div>
 
 
-                    {{-- Status --}}
+                   
                     <div class="meta">
 
                         @if ($appointment->status == 'pending')
@@ -129,17 +127,17 @@
                     </div>
 
 
-                    {{-- Edit & Delete --}}
+                   
                     @if ($appointment->status == 'pending')
 
                         <div class="icon-actions">
 
-                            {{-- Edit --}}
+                           
                             <a href="{{ route('parent.editAppointment', $appointment->id) }}" class="icon-action icon-edit" title="Edit">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
 
-                            {{-- Delete --}}
+                          
                             <form action="{{ route('parent.cancelAppointment', $appointment->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')

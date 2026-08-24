@@ -29,7 +29,7 @@ class CertificateController extends Controller
 
     public function download(Certificate $certificate)
     {
-        // PDF download can be added later.
+        
         return view('admin.certificates.show', compact('certificate'));
     }
 }

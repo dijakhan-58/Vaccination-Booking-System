@@ -6,7 +6,7 @@
 
 <div class="main-content">
 
-    <!-- HERO BANNER -->
+
     <div class="hero-banner d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
         <div>
             <h2>Good to see you, {{ auth()->user()->name ?? 'Admin' }}</h2>
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <!-- KPI CARDS -->
+
     <div class="row g-3 mb-4 kpi-container">
         <div class="col-6 col-md-4 col-xl-2">
             <div class="kpi-card">
@@ -82,7 +82,6 @@
         </div>
     </div>
 
-    <!-- INFO BOXES -->
     <div class="row g-3 mb-4">
         <div class="col-md-4">
             <div class="info-box">
@@ -111,7 +110,7 @@
         </div>
     </div>
 
-    <!-- CHARTS -->
+
     <div class="row g-3 mb-4">
         <div class="col-lg-8">
             <div class="panel">
@@ -137,7 +136,7 @@
         </div>
     </div>
 
-    <!-- PENDING REQUESTS / TODAY'S VACCINATIONS / LOW STOCK -->
+    
     <div class="row g-3 mb-4">
         <div class="col-lg-7">
             <div class="panel">
@@ -219,33 +218,11 @@
                     </div>
                 </div>
 
-                {{-- <div class="col-12">
-                    <div class="panel">
-                        <div class="panel-header">
-                            <h5><i class="fas fa-exclamation-triangle" style="color:#ef4444;"></i>Low Stock Alerts</h5>
-                            <span class="badge rounded-pill" style="background:#ef4444; color:#fff; font-size:0.55rem;">{{ $lowStockItems->count() }}</span>
-                        </div>
-                        <div>
-                            @forelse ($lowStockItems as $item)
-                                <div class="stock-alert-item {{ $item->stock_quantity > 5 ? 'warning' : '' }}">
-                                    <div class="alert-icon"><i class="fas fa-exclamation"></i></div>
-                                    <div class="alert-info">
-                                        <div class="name">{{ $item->vaccine->name ?? '—' }}</div>
-                                        <div class="detail">{{ $item->hospital->name ?? '—' }} · Batch #{{ $item->batch_number ?? 'N/A' }}</div>
-                                    </div>
-                                    <div class="alert-qty">{{ $item->stock_quantity }} units</div>
-                                </div>
-                            @empty
-                                <p class="text-muted small mb-0">No low stock items.</p>
-                            @endforelse
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
 
-    <!-- RECENT BOOKINGS & ACTIVITY -->
+
     <div class="row g-3">
         <div class="col-lg-7">
             <div class="panel">
@@ -287,7 +264,7 @@
             </div>
         </div>
 
-        <div class="col-lg-5">
+     <div class="col-lg-5">
             <div class="panel">
                 <div class="panel-header">
                     <h5><i class="fas fa-history"></i>Recent Activity</h5>
@@ -306,6 +283,7 @@
             </div>
         </div>
     </div>
+    </div>
 
     <div class="text-center text-muted small mt-5 pt-3 border-top" style="border-color: var(--border-color) !important;">
         <i class="far fa-copyright me-1"></i> {{ date('Y') }} Care4Kids — Vaccination Management System
@@ -313,7 +291,7 @@
 
 </div>
 
-<!-- Chart.js (only these two charts require JS; everything else is server-rendered) -->
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     Chart.defaults.font.family = "'Inter', sans-serif";

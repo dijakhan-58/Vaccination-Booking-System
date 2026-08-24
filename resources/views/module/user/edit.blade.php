@@ -5,38 +5,7 @@
 @endsection
 
 @section('body')
-<style>
-    :root {
-        --emerald-primary: #0d5c46;
-        --emerald-hover: #084333;
-        --emerald-light-bg: #e8f5e9;
-        --emerald-badge-bg: #e0f2f1;
-    }
 
-    .btn-emerald {
-        background-color: var(--emerald-primary) !important;
-        color: #ffffff !important;
-        border: none;
-    }
-    .btn-emerald:hover {
-        background-color: var(--emerald-hover) !important;
-        color: #ffffff !important;
-    }
-
-    .badge-emerald {
-        background-color: var(--emerald-badge-bg) !important;
-        color: var(--emerald-primary) !important;
-    }
-
-    .text-emerald {
-        color: var(--emerald-primary) !important;
-    }
-
-    .form-control:focus, .form-select:focus {
-        border-color: var(--emerald-primary) !important;
-        box-shadow: 0 0 0 0.25rem rgba(13, 92, 70, 0.15) !important;
-    }
-</style>
 
 <div class="container-fluid p-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -107,17 +76,12 @@
                             id="phone" name="phone" value="{{ old('phone', $user_item->phone) }}">
                     </div>
 
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-12 mb-3">
                         <label for="password" class="form-label text-secondary fw-semibold">Password</label>
                         <input type="password" class="form-control form-control-lg rounded-3 border-light-subtle shadow-none"
                             id="password" name="password" placeholder="Leave blank to keep current password">
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label for="password_confirmation" class="form-label text-secondary fw-semibold">Confirm Password</label>
-                        <input type="password" class="form-control form-control-lg rounded-3 border-light-subtle shadow-none"
-                            id="password_confirmation" name="password_confirmation" placeholder="Re-enter new password">
-                    </div>
                 </div>
 
                 <div class="d-flex justify-content-end gap-2 pt-3">
@@ -126,6 +90,9 @@
                         <i class="bi bi-save"></i> Update User
                     </button>
                 </div>
+
+
+                
             </form>
         </div>
     </div>

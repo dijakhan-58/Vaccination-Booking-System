@@ -10,4 +10,4 @@ class HospitalDashboardController extends Controller
     {
         return view('hospital.dashboard');
     }
-}
+} 

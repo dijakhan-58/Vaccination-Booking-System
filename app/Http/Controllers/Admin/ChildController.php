@@ -103,5 +103,5 @@ class ChildController extends Controller
         return redirect()
             ->route('children.index')
             ->with('success', 'Child deleted successfully.');
-    }
+    } 
 }

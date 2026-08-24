@@ -6,209 +6,187 @@
 @section('fornt_body')
 
 
-  <!-- Start Hero Section -->
-  <section class="position-relative">
+
+<section class="position-relative">
     <div class="cs_hero_slider_thumb slick-slider">
-      <!-- Slide 1: Vaccination Focus -->
-      <div class="cs_hero_slider_thumb_item">
-        <div class="cs_hero cs_style_1 cs_center cs_bg_filed"
-          data-src="{{ asset('assets/frontend/img/hero_slider_2.jpg') }} ">
-
-          <div class="container">
-            <div class="cs_hero_text">
-              <div class="cs_hero_text_in">
-                <h1 class="cs_hero_title">Protect Their Health, Stay <span> Vaccinated.</span></h1>
-                <p class="cs_hero_subtitle">Keep your child’s immunization schedule on track with easy appointment
-                  booking, timely reminders, and secure digital records—all in one trusted platform.</p>
-                <div class="cs_hero_info">
-                  <h3>Complete Vaccination Care.</h3>
-                  <p>Book appointments and manage your <br>child’s vaccination history with ease.</p>
+     
+        <div class="cs_hero_slider_thumb_item">
+            <div class="cs_hero cs_style_1 cs_center cs_bg_filed" data-src="{{ asset('assets/frontend/img/hero_slider_2.jpg') }}">
+                <div class="container">
+                    <div class="cs_hero_text">
+                        <div class="cs_hero_text_in">
+                            <h1 class="cs_hero_title">Welcome to <span>Care4Kids</span></h1>
+                            <p class="cs_hero_subtitle">Protecting your child’s health through timely immunizations, seamless hospital appointment bookings, automated dose reminders, and verified digital certificates.</p>
+                            <div class="cs_hero_info">
+                                <h3>Smart Immunization Care</h3>
+                                <p>Easily register your child and track routine <br>doses across partner hospitals in Karachi.</p>
+                            </div>
+                            <div class="cs_hero_btns">
+                                <a class='cs_btn cs_style_1 cs_color_1' href='{{ route('login') }}'>
+                                    <span>Book Appointment</span>
+                                    <i class="fa-solid fa-angles-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cs_hero_shape">
+                            <img src="{{ asset('assets/frontend/img/icons/hero_icon.png') }}" alt="Care4Kids Icon" class="cs_spinner_img">
+                        </div>
+                    </div>
                 </div>
-                <div class="cs_hero_btns">
-                  <a class='cs_btn cs_style_1 cs_color_1' href='contact.html'>
-                    <span>Book Vaccination</span>
-                    <i class="fa-solid fa-angles-right"></i>
-                  </a>
-
-                </div>
-              </div>
-              <div class="cs_hero_shape">
-                <img src="{{ asset('assets/frontend/img/icons/hero_icon.png') }} " alt="Icon" class="cs_spinner_img">
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-      <!-- Slide 2: Childhood Immunization -->
-      <div class="cs_hero_slider_thumb_item">
-        <div class="cs_hero cs_style_1 cs_center cs_bg_filed"
-          data-src="{{ asset('assets/frontend/img/pexels-pavel-danilyuk-5998475.jpg') }} ">
-          <div class="container">
-            <div class="cs_hero_text">
-              <div class="cs_hero_text_in">
-                <h1 class="cs_hero_title">Childhood Immunization <br><span>Made Simple.</span></h1>
-                <p class="cs_hero_subtitle">Stay ahead of preventable diseases with our comprehensive vaccination
-                  scheduler, expert guidance, and instant access to your child's immunization records.</p>
-                <div class="cs_hero_info">
-                  <h3>Vaccination Reminders.</h3>
-                  <p>Get alerts for upcoming doses and boosters.</p>
-                </div>
-                <div class="cs_hero_btns">
-                  <a class='cs_btn cs_style_1 cs_color_1' href='contact.html'>
-                    <span>Explore Vaccines</span>
-                    <i class="fa-solid fa-angles-right"></i>
-                  </a>
 
+    
+        <div class="cs_hero_slider_thumb_item">
+            <div class="cs_hero cs_style_1 cs_center cs_bg_filed" data-src="{{ asset('assets/frontend/img/pexels-pavel-danilyuk-5998475.jpg') }}">
+                <div class="container">
+                    <div class="cs_hero_text">
+                        <div class="cs_hero_text_in">
+                            <h1 class="cs_hero_title">Childhood Immunization <br><span>Made Simple</span></h1>
+                            <p class="cs_hero_subtitle">Stay ahead of preventable childhood diseases with Care4Kids' automated EPI schedule tracking for BCG, Polio, Pentavalent, PCV, and Measles.</p>
+                            <div class="cs_hero_info">
+                                <h3>Automated Reminders</h3>
+                                <p>Receive timely SMS and portal alerts for every upcoming vaccine dose.</p>
+                            </div>
+                            <div class="cs_hero_btns">
+                                <a class='cs_btn cs_style_1 cs_color_1' href='{{ route('Website_contact') }}'>
+                                    <span>Explore Schedule</span>
+                                    <i class="fa-solid fa-angles-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cs_hero_shape">
+                            <img src="{{ asset('assets/frontend/img/icons/hero_icon.png') }}" alt="Care4Kids Icon" class="cs_spinner_img">
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="cs_hero_shape">
-                <img src="{{ asset('assets/frontend/img/icons/hero_icon.png') }}" alt="Icon" class="cs_spinner_img">
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-      <!-- Slide 3: Travel Vaccines -->
-      <div class="cs_hero_slider_thumb_item">
-        <div class="cs_hero cs_style_1 cs_center cs_bg_filed" data-src="{{ asset('assets/frontend/img/doctor.jfif') }}">
-          <div class="container">
-            <div class="cs_hero_text">
-              <div class="cs_hero_text_in">
-                <h1 class="cs_hero_title">Travel Vaccines & <span>Health Certificates.</span></h1>
-                <p class="cs_hero_subtitle">Prepare for your next journey with recommended travel vaccinations, digital
-                  yellow fever certificates, and personalized health advice for global travel.</p>
-                <div class="cs_hero_info">
-                  <h3>Travel Health.</h3>
-                  <p>Get vaccinated for your destination.</p>
-                </div>
 
-                <div class="cs_hero_btns">
-                  <a class='cs_btn cs_style_1 cs_color_1' href='#'>
-                    <span>View Schedule</span>
-                    <i class="fa-solid fa-angles-right"></i>
-                  </a>
-
+        <div class="cs_hero_slider_thumb_item">
+            <div class="cs_hero cs_style_1 cs_center cs_bg_filed" data-src="{{ asset('assets/frontend/img/doctor.jfif') }}">
+                <div class="container">
+                    <div class="cs_hero_text">
+                        <div class="cs_hero_text_in">
+                            <h1 class="cs_hero_title">Verified Hospitals & <span>Digital Cards</span></h1>
+                            <p class="cs_hero_subtitle">Select accredited medical centers near you, reserve hassle-free vaccination slots, and download official Care4Kids immunization certificates.</p>
+                            <div class="cs_hero_info">
+                                <h3>Trusted Healthcare</h3>
+                                <p>Connecting parents with authorized pediatric clinics and hospitals.</p>
+                            </div>
+                            <div class="cs_hero_btns">
+                                <a class='cs_btn cs_style_1 cs_color_1' href='{{ route('Website_about') }}'>
+                                    <span>Learn More</span>
+                                    <i class="fa-solid fa-angles-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cs_hero_shape">
+                            <img src="{{ asset('assets/frontend/img/icons/hero_icon.png') }}" alt="Care4Kids Icon" class="cs_spinner_img">
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="cs_hero_shape">
-                <img src="{{ asset('assets/frontend/img/icons/hero_icon.png') }}" alt="Icon" class="cs_spinner_img">
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
-    <!-- Thumbnail Navigation -->
+  
     <div class="cs_hero_slider_nav slick-slider">
-      <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/hero_slider_2.jpg') }}"
-          alt="Vaccination"></div>
-      <div class="cs_hero_slider_thumb_mini"><img
-          src="{{ asset('assets/frontend/img/pexels-pavel-danilyuk-5998475.jpg') }}" alt="Child"></div>
-      <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/doctor.jfif') }}" alt="Travel"></div>
-      <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/hero_slider_2.jpg') }}"
-          alt="Vaccination"></div>
-      <div class="cs_hero_slider_thumb_mini"><img src="{{asset('assets/frontend/img/pexels-pavel-danilyuk-5998475.jpg')}}"
-          alt="Child">
-      </div>
-      <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/doctor.jfif') }}" alt="Travel"></div>
+        <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/hero_slider_2.jpg') }}" alt="Care4Kids Home"></div>
+        <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/pexels-pavel-danilyuk-5998475.jpg') }}" alt="Child Immunization"></div>
+        <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/doctor.jfif') }}" alt="Pediatric Doctors"></div>
+        <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/hero_slider_2.jpg') }}" alt="Care4Kids Home"></div>
+        <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/pexels-pavel-danilyuk-5998475.jpg') }}" alt="Child Immunization"></div>
+        <div class="cs_hero_slider_thumb_mini"><img src="{{ asset('assets/frontend/img/doctor.jfif') }}" alt="Pediatric Doctors"></div>
     </div>
-  </section>
+</section>
 
-  <!-- CTA Section -->
-  <section class="cs_cta cs_style_1 cs_blue_bg position-relative overflow-hidden">
+<section class="cs_cta cs_style_1 cs_blue_bg position-relative overflow-hidden">
     <div class="container">
-      <div class="cs_cta_in">
-        <div class="cs_cta_left">
-          <div class="cs_cta_thumb wow fadeInLeft" data-wow-duration="0.9s" data-wow-delay="0.25s">
-            <img src="{{ asset('assets/frontend/img/doctor2.jfif') }}" alt="Vaccination Team">
-          </div>
-          <div class="cs_cta_info">
-            <h2 class="cs_cta_title">Meet Our Vaccination Specialists.</h2>
-            <p class="cs_cta_subtitle">Expert care for every stage of immunization.</p>
-          </div>
+        <div class="cs_cta_in">
+            <div class="cs_cta_left">
+                <div class="cs_cta_thumb wow fadeInLeft" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                    <img src="{{ asset('assets/frontend/img/doctor2.jfif') }}" alt="Care4Kids Medical Team">
+                </div>
+                <div class="cs_cta_info">
+                    <h2 class="cs_cta_title">Care4Kids Healthcare Network</h2>
+                    <p class="cs_cta_subtitle">Certified pediatric specialists and partner hospitals dedicated to safe child immunizations.</p>
+                </div>
+            </div>
         </div>
-
-      </div>
     </div>
     <div class="cs_cta_shape"></div>
-  </section>
+</section>
 
-  <!-- About Section -->
-  <section class="cs_about cs_style_1 position-relative">
+<section class="cs_about cs_style_1 position-relative">
     <div class="cs_height_120 cs_height_lg_80"></div>
     <div class="container">
-      <div class="row align-items-center cs_gap_y_40">
-        <div class="col-lg-6">
-          <div class="cs_about_thumb">
-            <div class="cs_about_thumb_1">
-              <img src="{{ asset('assets/frontend/img/doctor.jfif') }}" alt="Vaccination">
-
-            </div>
-            <div class="cs_about_thumb_2">
-              <img src="{{ asset('assets/frontend/img/download(34).jfif') }}" alt="Immunization">
-
-            </div>
-            <div class="cs_experience_box cs_center">
-              <p class="cs_experience_box_number">15+</p>
-              <p class="cs_experience_box_title">Years of Immunization Care</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
-          <div class="cs_about_content">
-            <div class="cs_section_heading cs_style_1">
-              <p class="cs_section_subtitle cs_accent_color">
-                <span class="cs_shape_left"></span> ABOUT OUR VACCINATION SERVICES
-              </p>
-              <h2 class="cs_section_title">Trusted Immunization for Every Age.</h2>
-            </div>
-            <p class="cs_about_text">We are proud to partner with leading health organizations to provide safe, effective,
-              and up-to-date vaccinations for children, travelers, and adults. Your health is our priority.</p>
-            <div class="row cs_gap_y_30">
-              <div class="col-sm-6">
-                <div class="cs_iconbox cs_style_1">
-                  <div class="cs_iconbox_head">
-                    <div class="cs_iconbox_icon cs_center">
-                      <img src="{{ asset('assets/frontend/img/icons/about_icon_1.png') }}" alt="Support">
+        <div class="row align-items-center cs_gap_y_40">
+            <div class="col-lg-6">
+                <div class="cs_about_thumb">
+                    <div class="cs_about_thumb_1">
+                        <img src="{{ asset('assets/frontend/img/doctor.jfif') }}" alt="Care4Kids Vaccination">
                     </div>
-                    <h3 class="cs_iconbox_title m-0">Client Support</h3>
-                  </div>
-                  <p class="cs_iconbox_subtitle mb-0">We answer all your vaccination questions.</p>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="cs_iconbox cs_style_1">
-                  <div class="cs_iconbox_head">
-                    <div class="cs_iconbox_icon cs_center">
-                      <img src="{{ asset('assets/frontend/img/icons/about_icon_2.png') }}" alt="Doctor">
+                    <div class="cs_about_thumb_2">
+                        <img src="{{ asset('assets/frontend/img/download(34).jfif') }}" alt="Child Healthcare">
                     </div>
-                    <h3 class="cs_iconbox_title m-0">Vaccine Experts</h3>
-                  </div>
-                  <p class="cs_iconbox_subtitle mb-0">Our doctors specialize in immunization.</p>
+                    <div class="cs_experience_box cs_center">
+                        <p class="cs_experience_box_number">100%</p>
+                        <p class="cs_experience_box_title">Verified EPI Schedules</p>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="cs_about_iconbox">
-              <div class="cs_about_iconbox_icon cs_center">
-                <i class="fa-regular fa-circle-check"></i>
-              </div>
-              <p class="cs_about_iconbox_subtitle">We provide comprehensive vaccination records and travel health
-                certificates. <a href="#">LEARN MORE +</a></p>
+            <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                <div class="cs_about_content">
+                    <div class="cs_section_heading cs_style_1">
+                        <p class="cs_section_subtitle cs_accent_color">
+                            <span class="cs_shape_left"></span> ABOUT CARE4KIDS
+                        </p>
+                        <h2 class="cs_section_title">Streamlining Childhood Vaccination Management</h2>
+                    </div>
+                    <p class="cs_about_text">Care4Kids is an all-in-one digital Vaccination Management System designed to help parents, pediatricians, and hospitals coordinate routine immunizations. We eliminate missed doses through automated tracking and instant digital record access.</p>
+                    <div class="row cs_gap_y_30">
+                        <div class="col-sm-6">
+                            <div class="cs_iconbox cs_style_1">
+                                <div class="cs_iconbox_head">
+                                    <div class="cs_iconbox_icon cs_center">
+                                        <img src="{{ asset('assets/frontend/img/icons/about_icon_1.png') }}" alt="Parent Support">
+                                    </div>
+                                    <h3 class="cs_iconbox_title m-0">Parent Portal</h3>
+                                </div>
+                                <p class="cs_iconbox_subtitle mb-0">Manage child profiles and appointment schedules effortlessly.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="cs_iconbox cs_style_1">
+                                <div class="cs_iconbox_head">
+                                    <div class="cs_iconbox_icon cs_center">
+                                        <img src="{{ asset('assets/frontend/img/icons/about_icon_2.png') }}" alt="Hospital Network">
+                                    </div>
+                                    <h3 class="cs_iconbox_title m-0">Hospital Network</h3>
+                                </div>
+                                <p class="cs_iconbox_subtitle mb-0">Direct integration with accredited healthcare centers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cs_about_iconbox">
+                        <div class="cs_about_iconbox_icon cs_center">
+                            <i class="fa-regular fa-circle-check"></i>
+                        </div>
+                        <p class="cs_about_iconbox_subtitle">Generate official vaccination cards and certificates upon dose completion. <a href="{{ route('Website_about') }}">LEARN MORE +</a></p>
+                    </div>
+                    <a class='cs_btn cs_style_1 cs_color_1' href='{{ route('Website_about') }}'>
+                        <span>About Care4Kids</span>
+                        <i class="fa-solid fa-angles-right"></i>
+                    </a>
+                </div>
             </div>
-            <a class='cs_btn cs_style_1 cs_color_1' href='about.html'>
-              <span>About More</span>
-              <i class="fa-solid fa-angles-right"></i>
-            </a>
-          </div>
         </div>
-      </div>
     </div>
-    <div class="cs_section_img"><img src="{{ asset('assets/frontend/img/about_section_img_1.png') }}" alt=""></div>
+    <div class="cs_section_img"><img src="{{ asset('assets/frontend/img/about_section_img_1.png') }}" alt="Care4Kids Background"></div>
     <div class="cs_height_120 cs_height_lg_80"></div>
-  </section>
+</section>
 
-  <!-- Counter -->
   <div class="cs_counter_area cs_gray_bg">
     <div class="container">
       <div class="cs_counter_content cs_blue_bg">
@@ -249,7 +227,7 @@
     </div>
   </div>
 
-  <!-- Start Service Section -->
+ 
   <section class="cs_gray_bg">
     <div class="cs_height_110 cs_height_lg_70"></div>
     <div class="container">
@@ -283,7 +261,10 @@
               </div>
               <h3 class="iconbox_index">01</h3>
             </div>
-            <h3 class="cs_iconbox_title"><a href='service-details.html'>Newborn Immunization</a></h3>
+            <h3 class="cs_iconbox_title">Newborn Immunization
+
+
+            </h3>
             <p class="cs_iconbox_subtitle m-0">BCG, Hepatitis B, and Polio doses for healthy start</p>
           </div>
         </div>
@@ -315,7 +296,7 @@
               </div>
               <h3 class="iconbox_index">03</h3>
             </div>
-            <h3 class="cs_iconbox_title"><a href='service-details.html'>MMR & Chickenpox</a></h3>
+            <h3 class="cs_iconbox_title">MMR & Chickenpox</h3>
             <p class="cs_iconbox_subtitle m-0">Protection vs measles, mumps, rubella & varicella</p>
           </div>
         </div>
@@ -331,7 +312,7 @@
               </div>
               <h3 class="iconbox_index">04</h3>
             </div>
-            <h3 class="cs_iconbox_title"><a href='service-details.html'>Booster Shots</a></h3>
+            <h3 class="cs_iconbox_title">Booster Shots</h3>
             <p class="cs_iconbox_subtitle m-0">DTaP, MMR, and Polio boosters for school-age kids</p>
           </div>
         </div>
@@ -347,12 +328,11 @@
               </div>
               <h3 class="iconbox_index">05</h3>
             </div>
-            <h3 class="cs_iconbox_title"><a href='service-details.html'>Flu (Influenza) Shots</a></h3>
+            <h3 class="cs_iconbox_title">Flu (Influenza) Shots</h3>
             <p class="cs_iconbox_subtitle m-0">Annual flu shot for children 6 months and above</p>
           </div>
         </div>
 
-        <!-- 6. HPV Vaccination -->
         <div class="col-xl-3 col-lg-4 col-sm-6">
           <div class="cs_iconbox cs_style_2 cs_radius_15">
             <div class="cs_iconbox_overlay cs_bg_filed" data-src="assets/img/service_bg.jpg"></div>
@@ -363,12 +343,12 @@
               </div>
               <h3 class="iconbox_index">06</h3>
             </div>
-            <h3 class="cs_iconbox_title"><a href='service-details.html'>HPV Vaccine</a></h3>
+            <h3 class="cs_iconbox_title">HPV Vaccine</h3>
             <p class="cs_iconbox_subtitle m-0">HPV protection for adolescents and young adults</p>
           </div>
         </div>
 
-        <!-- 7. Travel Vaccines -->
+        
         <div class="col-xl-3 col-lg-4 col-sm-6">
           <div class="cs_iconbox cs_style_2 cs_radius_15">
             <div class="cs_iconbox_overlay cs_bg_filed" data-src="assets/img/service_bg.jpg"></div>
@@ -379,12 +359,12 @@
               </div>
               <h3 class="iconbox_index">07</h3>
             </div>
-            <h3 class="cs_iconbox_title"><a href='service-details.html'>Travel Vaccines</a></h3>
+            <h3 class="cs_iconbox_title">Travel Vaccines</h3>
             <p class="cs_iconbox_subtitle m-0">Yellow fever, typhoid, hepatitis A for travel needs</p>
           </div>
         </div>
 
-        <!-- 8. Catch-up Schedules -->
+       
         <div class="col-xl-3 col-lg-4 col-sm-6">
           <div class="cs_iconbox cs_style_2 cs_radius_15">
             <div class="cs_iconbox_overlay cs_bg_filed" data-src="assets/img/service_bg.jpg"></div>
@@ -395,7 +375,7 @@
               </div>
               <h3 class="iconbox_index">08</h3>
             </div>
-            <h3 class="cs_iconbox_title"><a href='service-details.html'>Catch-up Immunization</a></h3>
+            <h3 class="cs_iconbox_title">Catch-up Immunization</h3>
             <p class="cs_iconbox_subtitle m-0">Custom plans for missed or delayed vaccine doses</p>
           </div>
         </div>
@@ -406,7 +386,7 @@
     <div class="cs_height_120 cs_height_lg_80"></div>
   </section>
 
-  <!-- Team Section -->
+
   <section>
     <div class="cs_height_110 cs_height_lg_70"></div>
     <div class="container">
@@ -425,9 +405,9 @@
             <div class="cs_slide">
               <div class="cs_team cs_style_1 cs_blue_bg">
                 <div class="cs_team_shape cs_accent_bg"></div>
-                <a class='cs_team_thumbnail' href='doctor-details.html'>
+               
                   <img src="{{ asset('assets/frontend/img/doctore6.jpg') }}" alt="Dr. Sarah">
-                </a>
+           
                 <div class="cs_team_bio">
                   <h3 class="cs_team_title cs_extra_bold mb-0"><a href='doctor-details.html'>Dr. Ayesha Khan</a></h3>
                   <p class="cs_team_subtitle">Pediatric Vaccination Specialist</p>
@@ -521,88 +501,9 @@
     <hr>
   </section>
 
-  <!-- Why Choose Us Section -->
-  <section class="cs_gray_bg cs_bg_filed" data-src="{{ asset('assets/frontend/img/service_bg_2.jpg') }}">
-    <div class="cs_height_110 cs_height_lg_70"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="cs_section_heading cs_style_1">
-            <p class="cs_section_subtitle cs_accent_color wow fadeInLeft" data-wow-duration="0.9s" data-wow-delay="0.25s">
-              <span class="cs_shape_left"></span> WHY CHOOSE US
-            </p>
-            <h2 class="cs_section_title">Your Trusted Partner in <br>Immunization.</h2>
-          </div>
-          <div class="cs_height_50 cs_height_lg_50"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xxl-7 col-xl-8 col-lg-9">
-          <div class="cs_service_wrapper">
-            <div class="cs_service_list">
-              <div class="cs_iconbox cs_style_3">
-                <div class="cs_iconbox_icon cs_center cs_radius_5">
-                  <img src="{{ asset('assets/frontend/img/icons/service_icon_9.png') }}" alt="Icon">
-                </div>
-                <div class="cs_iconbox_text">
-                  <h3 class="cs_iconbox_title">Expert Vaccine Guidance</h3>
-                  <p class="cs_iconbox_subtitle">Evidence-based advice for all ages.</p>
-                </div>
-              </div>
-              <div class="cs_iconbox cs_style_3">
-                <div class="cs_iconbox_icon cs_center cs_radius_5">
-                  <img src="{{ asset('assets/frontend/img/icons/service_icon_10.png') }}" alt="Icon">
-                </div>
-                <div class="cs_iconbox_text">
-                  <h3 class="cs_iconbox_title">Convenient Booking</h3>
-                  <p class="cs_iconbox_subtitle">Schedule appointments online in minutes.</p>
-                </div>
-              </div>
-              <div class="cs_iconbox cs_style_3">
-                <div class="cs_iconbox_icon cs_center cs_radius_5">
-                  <img src="{{ asset('assets/frontend/img/icons/service_icon_11.png') }}" alt="Icon">
-                </div>
-                <div class="cs_iconbox_text">
-                  <h3 class="cs_iconbox_title">Digital Records Access</h3>
-                  <p class="cs_iconbox_subtitle">Your vaccination history, always at hand.</p>
-                </div>
-              </div>
-              <div class="cs_iconbox cs_style_3">
-                <div class="cs_iconbox_icon cs_center cs_radius_5">
-                  <img src="{{ asset('assets/frontend/img/icons/service_icon_12.png') }}" alt="Icon">
-                </div>
-                <div class="cs_iconbox_text">
-                  <h3 class="cs_iconbox_title">Certified Vaccines</h3>
-                  <p class="cs_iconbox_subtitle">Only WHO-approved and safe vaccines.</p>
-                </div>
-              </div>
-              <div class="cs_iconbox cs_style_3">
-                <div class="cs_iconbox_icon cs_center cs_radius_5">
-                  <img src="{{ asset('assets/frontend/img/icons/service_icon_13.png') }}" alt="Icon">
-                </div>
-                <div class="cs_iconbox_text">
-                  <h3 class="cs_iconbox_title">Qualified Immunizers</h3>
-                  <p class="cs_iconbox_subtitle">Trained nurses and doctors.</p>
-                </div>
-              </div>
-              <div class="cs_iconbox cs_style_3">
-                <div class="cs_iconbox_icon cs_center cs_radius_5">
-                  <img src="{{ asset('assets/frontend/img/icons/service_icon_14.png') }}" alt="Icon">
-                </div>
-                <div class="cs_iconbox_text">
-                  <h3 class="cs_iconbox_title">Affordable Plans</h3>
-                  <p class="cs_iconbox_subtitle">Quality care at accessible prices.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cs_height_120 cs_height_lg_80"></div>
-  </section>
+  
 
-  <!-- Medical Tab Section (Vaccination Focus) -->
+
   <section>
     <div class="cs_height_110 cs_height_lg_70"></div>
     <div class="container">
@@ -761,7 +662,7 @@
     <hr>
   </section>
 
-<!-- Appointment/Contact Section -->
+
 <section class="cs_card cs_style_3 cs_gray_bg position-relative">
     <div class="cs_height_110 cs_height_lg_70"></div>
     <div class="container">

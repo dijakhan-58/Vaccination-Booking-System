@@ -8,7 +8,7 @@
 
         <div class="card card-custom p-3 p-md-4">
 
-            <!-- Header -->
+
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
 
                 <div class="d-flex align-items-center gap-3">
@@ -47,7 +47,7 @@
             </div>
 
 
-            <!-- Validation Errors -->
+
             @if ($errors->any())
 
                 <div class="alert alert-danger">
@@ -65,27 +65,23 @@
             @endif
 
 
-            <!-- Success Message -->
-            @if (session('success'))
 
+            @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
                 </div>
-
             @endif
 
 
-            <!-- Edit Form -->
             <form action="{{ route('vaccines.update', $vaccine->id) }}" method="POST">
 
                 @csrf
-                @method('POST')
+
 
 
                 <div class="row g-3">
 
 
-                    <!-- Vaccine Name -->
                     <div class="col-md-6">
 
                         <label class="form-label fw-semibold small">
@@ -98,7 +94,7 @@
                     </div>
 
 
-                    <!-- Disease -->
+
                     <div class="col-md-6">
 
                         <label class="form-label fw-semibold small">
@@ -111,20 +107,19 @@
                     </div>
 
 
-                    <!-- Description -->
+
                     <div class="col-12">
 
                         <label class="form-label fw-semibold small">
                             Description
                         </label>
 
-                        <textarea name="description" class="form-control" rows="2"
-                            placeholder="Vaccine description...">{{ old('description', $vaccine->description) }}</textarea>
+                        <textarea name="description" class="form-control" rows="2" placeholder="Vaccine description...">{{ old('description', $vaccine->description) }}</textarea>
 
                     </div>
 
 
-                    <!-- Dose Count -->
+
                     <div class="col-md-4">
 
                         <label class="form-label fw-semibold small">
@@ -135,9 +130,9 @@
                             class="form-control" min="1" required>
 
                     </div>
+                    
 
 
-                    <!-- Manufacturer -->
                     <div class="col-md-4">
 
                         <label class="form-label fw-semibold small">
@@ -150,7 +145,7 @@
                     </div>
 
 
-                    <!-- Recommended Age -->
+
                     <div class="col-md-4">
 
                         <label class="form-label fw-semibold small">
@@ -164,7 +159,7 @@
                     </div>
 
 
-                    <!-- Availability -->
+
                     <div class="col-md-6">
                         <label class="form-label fw-semibold small">
                             Availability Status
@@ -172,15 +167,18 @@
 
                         <select name="availability_status" class="form-select" required>
 
-                            <option value="available" {{ old('availability_status', $vaccine->availability_status) == 'available' ? 'selected' : '' }}>
+                            <option value="available"
+                                {{ old('availability_status', $vaccine->availability_status) == 'available' ? 'selected' : '' }}>
                                 Available
                             </option>
 
-                            <option value="limited" {{ old('availability_status', $vaccine->availability_status) == 'limited' ? 'selected' : '' }}>
+                            <option value="limited"
+                                {{ old('availability_status', $vaccine->availability_status) == 'limited' ? 'selected' : '' }}>
                                 Limited
                             </option>
 
-                            <option value="out_of_stock" {{ old('availability_status', $vaccine->availability_status) == 'out_of_stock' ? 'selected' : '' }}>
+                            <option value="out_of_stock"
+                                {{ old('availability_status', $vaccine->availability_status) == 'out_of_stock' ? 'selected' : '' }}>
                                 Out of Stock
                             </option>
 
@@ -194,7 +192,7 @@
                 </div>
 
 
-                <!-- Footer Actions -->
+
                 <div class="mt-4 pt-3 border-top d-flex justify-content-end gap-2">
 
                     <a href="{{ route('vaccines.index') }}" class="btn btn-outline-secondary">

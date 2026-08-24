@@ -8,13 +8,13 @@ use App\Models\Child;
 use App\Models\Hospital;
 use App\Models\Vaccine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ParentBookingController extends Controller
 {
-    // 1. Appointment form show
     public function create()
     {
-        $children = Child::where('parent_id', auth()->id())->get();
+        $children = Child::where('parent_id', Auth::id())->get();
         $hospitals = Hospital::where('status', 'active')->get();
         $vaccines = Vaccine::all();
 
@@ -25,8 +25,6 @@ class ParentBookingController extends Controller
         ));
     }
 
-
-    // 2. Appointment save
     public function store(Request $request)
     {
         $request->validate([
@@ -42,8 +40,8 @@ class ParentBookingController extends Controller
             'child_id' => $request->child_id,
             'hospital_id' => $request->hospital_id,
             'vaccine_id' => $request->vaccine_id,
-            'created_by' => auth()->id(),
-            'booking_number' => 'BK-' . strtoupper(uniqid()),
+            'created_by' => Auth::id(),
+            'booking_number' => 'BK-'.strtoupper(uniqid()),
             'preferred_date' => $request->preferred_date,
             'appointment_time' => $request->appointment_time,
             'reason' => $request->reason,
@@ -55,12 +53,10 @@ class ParentBookingController extends Controller
             ->with('success', 'Appointment booked successfully.');
     }
 
-
-    // 3. All appointments show
     public function index()
     {
         $appointments = Booking::with(['child', 'hospital', 'vaccine'])
-            ->where('created_by', auth()->id())
+            ->where('created_by', Auth::id())
             ->latest()
             ->get();
 
@@ -70,19 +66,19 @@ class ParentBookingController extends Controller
         );
     }
 
-
-    // 4. Edit form
     public function edit(Booking $appointment)
     {
-        // Security: sirf apni booking edit kar sake
-        abort_unless($appointment->created_by === auth()->id(), 403);
+        abort_unless($appointment->created_by === Auth::id(), 403);
 
-        $children = Child::where('parent_id', auth()->id())->get();
+        $children = Child::where('parent_id', Auth::id())->get();
         $hospitals = Hospital::where('status', 'active')->get();
         $vaccines = Vaccine::all();
 
+        // Was 'front_theme.edit_appointment' — missing the 'appointment.'
+        // folder segment used by every other view in this controller,
+        // which is what caused the view-not-found error.
         return view(
-            'front_theme.edit_appointment',
+            'front_theme.appointment.edit_appointment',
             compact(
                 'appointment',
                 'children',
@@ -92,11 +88,9 @@ class ParentBookingController extends Controller
         );
     }
 
-
-    // 5. Update appointment
     public function update(Request $request, Booking $appointment)
     {
-        abort_unless($appointment->created_by === auth()->id(), 403);
+        abort_unless($appointment->created_by === Auth::id(), 403);
 
         $request->validate([
             'child_id' => 'required|exists:children,id',
@@ -121,11 +115,9 @@ class ParentBookingController extends Controller
             ->with('success', 'Appointment updated successfully.');
     }
 
-
-    // 6. Delete appointment
     public function destroy(Booking $appointment)
     {
-        abort_unless($appointment->created_by === auth()->id(), 403);
+        abort_unless($appointment->created_by === Auth::id(), 403);
 
         $appointment->delete();
 

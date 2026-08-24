@@ -48,39 +48,47 @@
                     </thead>
                     <tbody>
                         @forelse ($bookings as $booking)
-                                                        <tr>
-                                                            <td class="text-muted small">{{ $loop->iteration }}</td>
-                                                            <td class="text-muted font-monospace small">{{ $booking->booking_number }}</td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center gap-2">
-                                                                    <span class="child-avatar-sm bg-child-1">
-                                                                        {{ strtoupper(substr($booking->child->first_name ?? '', 0, 1) . substr($booking->child->last_name ?? '', 0, 1)) }}
-                                                                    </span>
-                                                                    <span class="fw-semibold">{{ $booking->child->first_name ?? '' }} {{ $booking->child->last_name ?? '' }}</span>
-                                                                </div>
-                                                            </td>
-                                                            <td>{{ $booking->vaccine->name ?? '—' }}</td>
-                                                            <td>{{ $booking->hospital->name ?? '—' }}</td>
-                                                            <td class="text-secondary small text-nowrap">{{ $booking->preferred_date->format('Y-m-d') }}</td>
-                                                            <td class="text-secondary small">{{ $booking->appointment_time ?? '—' }}</td>
-                                                            <td class="text-secondary small">{{ $booking->reason ?? '—' }}</td>
-                                                            <td>
-                                                                @if ($booking->status == 'pending')
-                                                                    <span class="badge badge-pending fw-normal"><span class="status-indicator status-pending"></span>Pending</span>
-                                                                @elseif ($booking->status == 'approved')
-                                                                    <span class="badge badge-approved fw-normal"><span class="status-indicator status-approved"></span>Approved</span>
-                                                                @elseif ($booking->status == 'completed')
-                                                                    <span class="badge badge-completed fw-normal"><span class="status-indicator status-completed"></span>Completed</span>
-                                                                @else
-                                                                    <span class="badge badge-cancelled fw-normal"><span class="status-indicator status-cancelled"></span>Cancelled</span>
-                                                                @endif
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex justify-content-center gap-1">
-                            <a href="{{ route('bookings.edit', $booking) }}" class="btn btn-sm btn-link text-teal p-1" title="Edit">                                            <i class="fas fa-edit"></i>
-                                                                    </a>
+                            <tr>
+                                <td class="text-muted small">{{ $loop->iteration }}</td>
+                                <td class="text-muted font-monospace small">{{ $booking->booking_number }}</td>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="child-avatar-sm bg-child-1">
+                                            {{ strtoupper(substr($booking->child->first_name ?? '', 0, 1) . substr($booking->child->last_name ?? '', 0, 1)) }}
+                                        </span>
+                                        <span class="fw-semibold">{{ $booking->child->first_name ?? '' }}
+                                            {{ $booking->child->last_name ?? '' }}</span>
+                                    </div>
+                                </td>
+                                <td>{{ $booking->vaccine->name ?? '—' }}</td>
+                                <td>{{ $booking->hospital->name ?? '—' }}</td>
+                                <td class="text-secondary small text-nowrap">{{ $booking->preferred_date->format('Y-m-d') }}
+                                </td>
+                                <td class="text-secondary small">{{ $booking->appointment_time ?? '—' }}</td>
+                                <td class="text-secondary small">{{ $booking->reason ?? '—' }}</td>
+                                <td>
+                                    @if ($booking->status == 'pending')
+                                        <span class="badge badge-pending fw-normal"><span
+                                                class="status-indicator status-pending"></span>Pending</span>
+                                    @elseif ($booking->status == 'approved')
+                                        <span class="badge badge-approved fw-normal"><span
+                                                class="status-indicator status-approved"></span>Approved</span>
+                                    @elseif ($booking->status == 'completed')
+                                        <span class="badge badge-completed fw-normal"><span
+                                                class="status-indicator status-completed"></span>Completed</span>
+                                    @else
+                                        <span class="badge badge-cancelled fw-normal"><span
+                                                class="status-indicator status-cancelled"></span>Cancelled</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <div class="d-flex justify-content-center gap-1">
+                                        <a href="{{ route('bookings.edit', $booking) }}"
+                                            class="btn btn-sm btn-link text-teal p-1" title="Edit"> <i
+                                                class="fas fa-edit"></i>
+                                        </a>
 
-                                                                    {{-- @if ($booking->status == 'pending')
+                                        {{-- @if ($booking->status == 'pending')
                                                                         <form action="{{ route('bookings.approve', $booking) }}" method="POST" class="d-inline">
                                                                             @csrf
                                                                             <button type="submit" class="btn btn-sm btn-link text-success p-1" title="Approve">
@@ -89,7 +97,7 @@
                                                                         </form>
                                                                     @endif --}}
 
-                                                                    {{-- @if (!in_array($booking->status, ['cancelled', 'completed']))
+                                        {{-- @if (!in_array($booking->status, ['cancelled', 'completed']))
                                                                         <form action="{{ route('bookings.cancel', $booking) }}" method="POST" class="d-inline">
                                                                             @csrf
                                                                             <button type="submit" class="btn btn-sm btn-link text-danger p-1" title="Cancel">
@@ -98,16 +106,18 @@
                                                                         </form>
                                                                     @endif --}}
 
-                                                                    <form action="{{ route('bookings.destroy', $booking) }}" method="POST" class="d-inline">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <button type="submit" class="btn btn-sm btn-link text-danger p-1" title="Delete">
-                                                                            <i class="fas fa-trash-alt"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                        <form action="{{ route('bookings.destroy', $booking) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-link text-danger p-1"
+                                                title="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="10" class="text-center text-muted py-4">No bookings found.</td>
@@ -115,7 +125,7 @@
                         @endforelse
                     </tbody>
                 </table>
-            </div>
+            </div> 
 
         </div>
     </div>

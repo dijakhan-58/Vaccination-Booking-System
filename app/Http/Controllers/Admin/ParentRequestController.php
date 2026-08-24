@@ -23,7 +23,7 @@ class ParentRequestController extends Controller
 
     public function approve(Booking $booking)
     {
-        // Check if an admin/user is currently logged in
+       
         if (!Auth::check()) {
             return back()->with('error', 'Unauthorized action. Please log in.');
         }
@@ -39,7 +39,7 @@ class ParentRequestController extends Controller
 
     public function reject(Booking $booking)
     {
-        // Check if an admin/user is currently logged in
+        
         if (!Auth::check()) {
             return back()->with('error', 'Unauthorized action. Please log in.');
         }

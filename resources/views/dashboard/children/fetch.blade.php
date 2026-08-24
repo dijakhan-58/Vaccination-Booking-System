@@ -46,15 +46,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $index = 1;
+                        @endphp
                         @forelse ($children as $child)
                             <tr>
-                                <td class="text-center text-muted font-monospace small">{{ $child->id }}</td>
-                                {{-- <td>
-                                    <div class="avatar bg-teal-500 text-white d-flex align-items-center justify-content-center rounded-circle fw-semibold"
-                                        style="width: 32px; height: 32px; font-size: 0.7rem;">
-                                        {{ strtoupper(substr($child->first_name, 0, 1) . substr($child->last_name, 0, 1)) }}
-                                    </div>
-                                </td> --}}
+                                <td class="text-center text-muted font-monospace small">{{ $index++}}</td>
+                                
                                 <td class="fw-semibold">{{ $child->first_name }} {{ $child->last_name }}</td>
                                 <td class="text-secondary">{{ $child->parent->name ?? '—' }}</td>
                                 <td class="text-secondary small text-nowrap">{{ $child->dob->format('Y-m-d') }}</td>

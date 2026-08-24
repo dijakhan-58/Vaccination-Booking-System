@@ -35,7 +35,7 @@
 
                     <div class="row">
 
-                        <!-- Child -->
+        
                         <div class="col-md-6 mb-3">
                             <label for="child_id" class="form-label fw-bold">
                                 <i class="bi bi-person"></i> Child <span class="text-danger">*</span>
@@ -50,7 +50,7 @@
                             </select>
                         </div>
 
-                        <!-- Vaccine -->
+                
                         <div class="col-md-6 mb-3">
                             <label for="vaccine_id" class="form-label fw-bold">
                                 <i class="bi bi-clipboard2-pulse"></i> Vaccine <span class="text-danger">*</span>
@@ -65,7 +65,6 @@
                             </select>
                         </div>
 
-                        <!-- Hospital -->
                         <div class="col-md-6 mb-3">
                             <label for="hospital_id" class="form-label fw-bold">
                                 <i class="bi bi-hospital"></i> Hospital <span class="text-danger">*</span>
@@ -80,7 +79,6 @@
                             </select>
                         </div>
 
-                        <!-- Status -->
                         <div class="col-md-6 mb-3">
                             <label for="status" class="form-label fw-bold">
                                 <i class="bi bi-info-circle"></i> Status <span class="text-danger">*</span>
@@ -94,7 +92,6 @@
                             </select>
                         </div>
 
-                        <!-- Preferred Date -->
                         <div class="col-md-6 mb-3">
                             <label for="preferred_date" class="form-label fw-bold">
                                 <i class="bi bi-calendar3"></i> Preferred Date <span class="text-danger">*</span>
@@ -103,7 +100,7 @@
                                 value="{{ old('preferred_date', $booking->preferred_date->format('Y-m-d')) }}" required>
                         </div>
 
-                        <!-- Appointment Time -->
+                    
                         <div class="col-md-6 mb-3">
                             <label for="appointment_time" class="form-label fw-bold">
                                 <i class="bi bi-clock"></i> Appointment Time
@@ -112,7 +109,6 @@
                                 value="{{ old('appointment_time', $booking->appointment_time) }}">
                         </div>
 
-                        <!-- Reason -->
                         <div class="col-12 mb-3">
                             <label for="reason" class="form-label fw-bold">
                                 <i class="bi bi-file-text"></i> Reason

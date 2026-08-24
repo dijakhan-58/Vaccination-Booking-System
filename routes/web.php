@@ -23,7 +23,7 @@ use App\Http\Controllers\Hospital\HospitalBookingController;
 use App\Http\Controllers\Hospital\HospitalInventoryController;
 use App\Http\Controllers\Hospital\HospitalVaccinationController;
 use App\Http\Controllers\Hospital\HospitalCertificateController;
-
+use App\Http\Controllers\MailController;
 // Parent
 use App\Http\Controllers\ParentPortal\ParentController;
 use App\Http\Controllers\ParentPortal\ChildController;
@@ -41,21 +41,20 @@ use App\Http\Controllers\Website\ContactController;
 use App\Models\AppointmentNotification;
 use App\Models\User;
 
-/*
-|--------------------------------------------------------------------------
-| Admin Dashboard
-|--------------------------------------------------------------------------
-*/
+
+
+//Admin Dashboard
+
+
 
 Route::get('/dashboard', [AdminDashboardController::class, 'index'])
     ->name('dashboard')
     ->middleware(['auth', 'verified', 'permission:view dashboard']);
 
-/*
-|--------------------------------------------------------------------------
-| Role Management
-|--------------------------------------------------------------------------
-*/
+
+
+//Role Management
+
 
 Route::get('/role', [RoleController::class, 'index'])
     ->name('role_view')
@@ -81,11 +80,10 @@ Route::delete('/role/destroy/{id}', [RoleController::class, 'destroy'])
     ->name('role_delete_action')
     ->middleware(['auth', 'verified', 'permission:delete roles']);
 
-/*
-|--------------------------------------------------------------------------
-| User Management
-|--------------------------------------------------------------------------
-*/
+
+
+//User Management
+
 
 Route::get('/user', [UserController::class, 'index'])
     ->name('user_view')
@@ -111,11 +109,14 @@ Route::delete('/user/destroy/{id}', [UserController::class, 'destroy'])
     ->name('user_delete_action')
     ->middleware(['auth', 'verified', 'permission:delete users']);
 
-/*
-|--------------------------------------------------------------------------
-| Children
-|--------------------------------------------------------------------------
-*/
+
+
+//Children
+
+
+
+
+
 
 Route::get('children/fetch', [AdminChildController::class, 'index'])
     ->name('children.index')
@@ -141,11 +142,10 @@ Route::delete('children/delete/{child}', [AdminChildController::class, 'destroy'
     ->name('children.destroy')
     ->middleware(['auth', 'verified', 'permission:delete children']);
 
-/*
-|--------------------------------------------------------------------------
-| Vaccine Management
-|--------------------------------------------------------------------------
-*/
+
+
+//Vaccine Management
+
 
 Route::get('/vaccine_managemnet/index', [AdminVaccineController::class, 'index'])
     ->name('vaccines.index')
@@ -171,21 +171,19 @@ Route::delete('/vaccine_managemnet/{vaccine}', [AdminVaccineController::class, '
     ->name('vaccines.destroy')
     ->middleware(['auth', 'verified', 'permission:delete vaccines']);
 
-/*
-|--------------------------------------------------------------------------
-| Upcoming Vaccine
-|--------------------------------------------------------------------------
-*/
+
+
+//Upcoming Vaccine
+
 
 Route::get('/upcoming_vaccine/index', [AdminUpcomingVaccineController::class, 'index'])
     ->name('upcoming_index')
     ->middleware(['auth', 'verified', 'permission:upcomming vaccines view']);
 
-/*
-|--------------------------------------------------------------------------
-| Vaccination Report
-|--------------------------------------------------------------------------
-*/
+
+
+//Vaccination Report
+
 
 Route::get('vaccination_reports/index', [AdminVaccination_reportController::class, 'index'])
     ->name('vaccin_report_index')
@@ -219,11 +217,10 @@ Route::get('vaccination-report/{vaccinationRecord}/pdf', [AdminVaccination_repor
     ->name('vaccin_report_single_pdf')
     ->middleware(['auth', 'verified']);
 
-/*
-|--------------------------------------------------------------------------
-| Vaccination Status
-|--------------------------------------------------------------------------
-*/
+
+
+//Vaccination Status
+
 
 Route::get('Vaccination_status/fetch', [AdminVaccination_statusController::class, 'index'])
     ->name('vaccine_status_index')
@@ -233,11 +230,9 @@ Route::post('Vaccination_status/{vaccine}/update', [AdminVaccination_statusContr
     ->name('vaccine_status.update')
     ->middleware(['auth', 'verified', 'permission:vaccination status edit']);
 
-/*
-|--------------------------------------------------------------------------
-| Parent Appointment Request (Admin side)
-|--------------------------------------------------------------------------
-*/
+
+//Parent Appointment Request 
+
 
 Route::get('parent-request/fetch', [AdminParentRequestController::class, 'index'])
     ->name('parent_index')
@@ -251,29 +246,23 @@ Route::post('parent-request/{booking}/reject', [AdminParentRequestController::cl
     ->name('parent_request.reject')
     ->middleware(['auth', 'verified', 'permission:parent appointment request edit']);
 
-/*
-|--------------------------------------------------------------------------
-| Upcoming Vaccine Status
-|--------------------------------------------------------------------------
-*/
+
+
+//Upcoming Vaccine Status
 
 Route::get('upcoming_vaccine_status/fetch', [Adminupcoming_vaccinestatusController::class, 'index'])
     ->name('upcoming_vaccine_status_index')
     ->middleware(['auth', 'verified', 'permission:upcomming vaccination status']);
 
-/*
-|--------------------------------------------------------------------------
-| Booking (Admin side)
-|--------------------------------------------------------------------------
-*/
+
+
+//Booking 
 
 Route::get('/bookings/fetch', [AdminBookingController::class, 'index'])
     ->name('bookings.index')
     ->middleware(['auth', 'verified']);
 
-Route::get('/bookings/add', [AdminBookingController::class, 'create'])
-    ->name('bookings.add')
-    ->middleware(['auth', 'verified']);
+
 
 Route::post('/bookings/store', [AdminBookingController::class, 'store'])
     ->name('bookings.store')
@@ -296,26 +285,12 @@ Route::post('/bookings/{booking}/complete', [AdminBookingController::class, 'com
     ->middleware(['auth', 'verified']);
 
 
-Route::get("/notification", function () {
-    $notification = AppointmentNotification::where("user_id_fk", auth()->id())->latest()->first();
-    dd($notification);
-});
 
-/*
-|--------------------------------------------------------------------------
-| Notifications
-|--------------------------------------------------------------------------
-*/
 
-// Route::get('/notifications', [AdminNotificationController::class, 'index'])
-//     ->name('notifications')
-//     ->middleware(['auth', 'verified']);
 
-/*
-|--------------------------------------------------------------------------
-| Hospital Management
-|--------------------------------------------------------------------------
-*/
+//Hospital Management
+
+
 
 Route::get('hospitals/fetch', [AdminHospitalController::class, 'index'])
     ->name('hospitals.fetch')
@@ -341,19 +316,18 @@ Route::delete('hospitals/delete/{hospital}', [AdminHospitalController::class, 'd
     ->name('hospitals.destroy')
     ->middleware(['auth', 'verified', 'permission:delete hospitals']);
 
-/*
-|--------------------------------------------------------------------------
-| Parent Portal (Frontend, logged-in parents only)
-|--------------------------------------------------------------------------
-*/
+
+
+//Parent Portal 
+
+
 
 Route::middleware(['auth', 'role:Parent'])->group(function () {
 
-    // Profile
+
     Route::get('/parent/profile', [ParentController::class, 'profile'])
         ->name('parent.profile');
 
-    // Children
     Route::get('/parent/add-child', [ChildController::class, 'create'])
         ->name('parent.addChild');
 
@@ -375,7 +349,6 @@ Route::middleware(['auth', 'role:Parent'])->group(function () {
     Route::delete('/parent/delete-child/{child}', [ChildController::class, 'destroy'])
         ->name('parent.deleteChild');
 
-    // Appointments
     Route::get('/parent/appointment', [ParentBookingController::class, 'create'])
         ->name('parent.appointment');
 
@@ -393,13 +366,26 @@ Route::middleware(['auth', 'role:Parent'])->group(function () {
 
     Route::delete('/parent/cancel-appointment/{appointment}', [ParentBookingController::class, 'destroy'])
         ->name('parent.cancelAppointment');
+        
+    
 });
 
-/*
-|--------------------------------------------------------------------------
-| Public Website
-|--------------------------------------------------------------------------
-*/
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/parent/profile', [ParentController::class, 'profile'])
+        ->name('parent.profile');
+
+    Route::put('/parent/profile', [ParentController::class, 'updateProfile'])
+        ->name('parent.profile.update');
+
+   
+});
+
+
+
+// Public Website
+
+
 Route::get('/', [WebsiteController::class, 'index'])
     ->name('Website_index');
 
@@ -427,10 +413,7 @@ Route::post('/vaccination/{id}/book', [VaccinationController::class, 'store'])
 Route::get('/contact', [ContactController::class, 'contact'])
     ->name('Website_contact');
 
-/*
-|--------------------------------------------------------------------------
-| Breeze Authentication Routes
-|--------------------------------------------------------------------------
-*/
+Route::post('/contact', [MailController::class, 'sendEmail'])->name('contact.send');
+
 
 require __DIR__ . '/auth.php';

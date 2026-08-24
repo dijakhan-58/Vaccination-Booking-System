@@ -11,6 +11,7 @@ use App\Models\VaccinationRecord;
 use App\Models\AppointmentNotification;
 use App\Models\AppointmentNotify;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -23,14 +24,7 @@ class BookingController extends Controller
         return view('dashboard.bookings.fetch', compact('bookings'));
     }
 
-    public function create()
-    {
-        $children = Child::all();
-        $hospitals = Hospital::where('status', 'active')->get();
-        $vaccines = Vaccine::all();
 
-        return view('dashboard.bookings.add', compact('children', 'hospitals', 'vaccines'));
-    }
 
     public function store(Request $request)
     {
@@ -48,7 +42,7 @@ class BookingController extends Controller
             'child_id' => $request->child_id,
             'hospital_id' => $request->hospital_id,
             'vaccine_id' => $request->vaccine_id,
-            'created_by' => auth()->id(),
+            'created_by' => Auth::id(),
             'booking_number' => 'BK-' . time(),
             'preferred_date' => $request->preferred_date,
             'appointment_time' => $request->appointment_time,
@@ -119,7 +113,7 @@ class BookingController extends Controller
     {
         $booking->update([
             'status' => 'approved',
-            'approved_by' => auth()->id(),
+            'approved_by' =>Auth::id(),
             'approved_at' => now(),
         ]);
 
@@ -134,7 +128,7 @@ class BookingController extends Controller
 
         $booking->update(['status' => 'completed']);
 
-        // Is child ke is vaccine ki pehle kitni doses complete ho chuki hain
+        
         $previousDoses = VaccinationRecord::whereHas('booking', function ($q) use ($booking) {
             $q->where('child_id', $booking->child_id)
                 ->where('vaccine_id', $booking->vaccine_id);
@@ -151,7 +145,7 @@ class BookingController extends Controller
 
         VaccinationRecord::create([
             'booking_id' => $booking->id,
-            'administered_by' => auth()->id(),
+            'administered_by' => Auth::id(),
             'vaccination_date' => now(),
             'dose_number' => $doseNumber,
             'next_dose_date' => $nextDoseDate,

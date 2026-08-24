@@ -7,10 +7,9 @@
 
     <div class="container-fluid py-4 px-3 px-md-4" style="max-width: 1400px;">
 
-        <!-- Main Card -->
         <div class="card card-custom p-3 p-md-4">
 
-            <!-- Header -->
+
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
                 <div class="d-flex align-items-center gap-3">
                     <div class="bg-teal-50 rounded-3 d-flex align-items-center justify-content-center"
@@ -33,40 +32,51 @@
                 </div>
             </div>
 
-            <!-- Filters -->
-            <div class="filter-section row g-2 mb-3">
+             
+            <form action="{{ route('vaccines.index') }}" method="GET" class="filter-section row g-2 mb-3">
                 <div class="col-md-4 col-sm-6">
                     <div class="input-group">
                         <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
-                        <input type="text" class="form-control border-start-0 ps-0"
+                        <input type="text" name="search" value="{{ request('search') }}"
+                            class="form-control border-start-0 ps-0"
                             placeholder="Search by Vaccine Name or Disease" />
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <select class="form-select">
+                    <select name="manufacturer" class="form-select">
                         <option value="">All Manufacturers</option>
-                        <option value="Sanofi">Sanofi</option>
-                        <option value="Pfizer">Pfizer</option>
-                        <option value="GSK">GSK</option>
-                        <option value="Merck">Merck</option>
+                        @foreach ($manufacturers as $manufacturer)
+                            <option value="{{ $manufacturer }}" {{ request('manufacturer') == $manufacturer ? 'selected' : '' }}>
+                                {{ $manufacturer }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <select class="form-select">
+                    <select name="availability_status" class="form-select">
                         <option value="">All Availability</option>
-                        <option value="available">Available</option>
-                        <option value="limited">Limited</option>
-                        <option value="out_of_stock">Out of Stock</option>
+                        <option value="available" {{ request('availability_status') == 'available' ? 'selected' : '' }}>Available</option>
+                        <option value="limited" {{ request('availability_status') == 'limited' ? 'selected' : '' }}>Limited</option>
+                        <option value="out_of_stock" {{ request('availability_status') == 'out_of_stock' ? 'selected' : '' }}>Out of Stock</option>
                     </select>
                 </div>
                 <div class="col-md-2 col-sm-6">
-                    <button class="btn btn-teal w-100 d-flex align-items-center justify-content-center gap-1">
+                    <button type="submit" class="btn btn-teal w-100 d-flex align-items-center justify-content-center gap-1">
                         <i class="fas fa-sliders-h"></i> Apply
                     </button>
                 </div>
-            </div>
+            </form>
 
-            <!-- Table -->
+            @if (request('search') || request('manufacturer') || request('availability_status'))
+                <div class="mb-3">
+                    <a href="{{ route('vaccines.index') }}" class="text-decoration-none small">
+                        <i class="fas fa-times-circle"></i> Clear filters
+                    </a>
+                </div>
+            @endif
+
+
+
             <div class="table-responsive rounded-3 border">
                 <table class="table table-hover mb-0">
                     <thead>
@@ -195,7 +205,7 @@
     </div>
 
     <script>
-        // Toggle description row
+      
         function toggleDescription(id) {
             const row = document.getElementById(id);
             if (row) {

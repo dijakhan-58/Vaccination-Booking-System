@@ -19,7 +19,6 @@
                 </div>
             </div>
 
-            <!-- Summary Cards -->
             <div class="row g-3 mb-4">
                 <div class="col-md-4 col-sm-6">
                     <div class="p-3 rounded-3 border bg-light d-flex align-items-center justify-content-between">
@@ -50,7 +49,6 @@
                 </div>
             </div>
 
-            <!-- Table -->
             <div class="table-responsive rounded-3 border">
                 <table class="table table-hover mb-0">
                     <thead>

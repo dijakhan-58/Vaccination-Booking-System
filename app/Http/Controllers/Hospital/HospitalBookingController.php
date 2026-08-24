@@ -8,7 +8,7 @@ use App\Models\Booking;
 class HospitalBookingController extends Controller
 {
     public function index()
-    {
+    { 
         $hospitalId = Auth::user()->hospital_id;
 
         $bookings = Booking::with(['child', 'vaccine'])

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\VaccinationRecord;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VaccinationRecordController extends Controller
 {
@@ -47,7 +48,7 @@ class VaccinationRecordController extends Controller
 
         VaccinationRecord::create([
             'booking_id' => $booking->id,
-            'administered_by' => auth()->id(),
+            'administered_by' => Auth::id(),
             'vaccination_date' => $request->vaccination_date,
             'dose_number' => $request->dose_number,
             'next_dose_date' => $request->next_dose_date,
@@ -83,4 +84,4 @@ class VaccinationRecordController extends Controller
             ->route('admin.vaccination-records.index')
             ->with('success', 'Record updated.');
     }
-}
+} 

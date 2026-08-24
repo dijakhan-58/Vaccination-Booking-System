@@ -18,7 +18,7 @@
                         <h1 class="h3 fw-bold text-slate-800 mb-0">Vaccination Report</h1>
                         <p class="text-muted small mb-0">Record of all administered vaccinations</p>
                     </div>
-                </div>
+                </div> 
                 <div class="d-flex gap-2 flex-wrap">
                     <a href="{{ route('vaccin_report_pdf') }}" class="btn btn-outline-teal d-flex align-items-center gap-2">
                         <i class="fas fa-file-pdf"></i> Download PDF
@@ -33,7 +33,6 @@
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
 
-            <!-- Summary Cards -->
             <div class="row g-3 mb-4">
                 <div class="col-md-3 col-sm-6">
                     <div class="p-3 rounded-3 border bg-light">
@@ -61,7 +60,7 @@
                 </div>
             </div>
 
-            <!-- Table -->
+         
             <div class="table-responsive rounded-3 border">
                 <table class="table table-hover mb-0">
                     <thead>
@@ -79,9 +78,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $index = 1;
+                        @endphp
                         @forelse ($records as $record)
                             <tr>
-                                <td class="text-muted small">{{ $record->id }}</td>
+                                <td class="text-muted small">{{ $index++ }}</td>
                                 <td class="text-muted font-monospace small">{{ $record->booking->booking_number ?? '—' }}</td>
                                 <td class="text-secondary small text-nowrap">{{ $record->vaccination_date->format('Y-m-d') }}
                                 </td>

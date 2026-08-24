@@ -16,12 +16,11 @@
             padding: 0;
         }
 
-        /* ===== Body wrapper ===== */
         .content {
             padding: 25px 35px 15px 35px;
         }
 
-        /* ===== Summary cards ===== */
+       
         .summary-table {
             width: 100%;
             border-collapse: separate;
@@ -75,7 +74,7 @@
             color: #dc2626;
         }
 
-        /* ===== Section label ===== */
+        
         .section-label {
             font-size: 12px;
             font-weight: bold;
@@ -85,7 +84,7 @@
             border-bottom: 2px solid #ccfbf1;
         }
 
-        /* ===== Records table ===== */
+      
         table.records {
             width: 100%;
             border-collapse: collapse;
@@ -146,7 +145,6 @@
             color: #94a3b8;
         }
 
-        /* ===== Footer ===== */
         .footer {
             margin-top: 25px;
             padding: 14px 35px;
@@ -161,7 +159,7 @@
 
 <body>
 
-    <!-- Banner: solid bgcolor set directly on table/td so dompdf is guaranteed to render it -->
+   
     <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#0f766e" style="background-color:#0f766e;">
         <tr>
             <td style="padding: 28px 35px; background-color:#0f766e;">
@@ -187,7 +185,7 @@
 
     <div class="content">
 
-        <!-- Summary cards -->
+    
         <table class="summary-table">
             <tr>
                 <td>

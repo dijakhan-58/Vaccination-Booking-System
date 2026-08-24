@@ -36,4 +36,4 @@ class Vaccination_statusController extends Controller
             ->route('vaccine_status_index')
             ->with('success', 'Vaccine status updated successfully.');
     }
-}
+} 

@@ -128,7 +128,7 @@
                                 <td colspan="8" class="text-center text-muted py-4">
                                     No upcoming doses.
                                 </td>
-                            </tr>
+                             </tr>
 
                         @endforelse
 

@@ -8,6 +8,7 @@ use App\Models\Child;
 use App\Models\Hospital;
 use App\Models\Vaccine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ParentDashboardController extends Controller
 {
@@ -18,7 +19,7 @@ class ParentDashboardController extends Controller
             'hospital',
             'vaccine'
         ])
-        ->where('created_by', auth()->id())
+        ->where('created_by',Auth::id())
         ->latest()
         ->get();
 
@@ -29,7 +30,7 @@ class ParentDashboardController extends Controller
     {
         $children = Child::where(
             'parent_id',
-            auth()->id()
+           Auth::id()
         )->get();
 
         $hospitals = Hospital::where(
@@ -62,7 +63,7 @@ class ParentDashboardController extends Controller
             'child_id' => $request->child_id,
             'hospital_id' => $request->hospital_id,
             'vaccine_id' => $request->vaccine_id,
-            'created_by' => auth()->id(),
+            'created_by' => Auth::id(),
             'booking_number' => 'BK-' . time(),
             'preferred_date' => $request->preferred_date,
             'appointment_time' => $request->appointment_time,
@@ -88,4 +89,4 @@ class ParentDashboardController extends Controller
 
         return back()->with('success', 'Booking cancelled.');
     }
-}
+} 

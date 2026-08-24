@@ -21,19 +21,11 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        /*
-        |--------------------------------------------------------------------------
-        | Permissions (run first, so roles below can sync against them)
-        |--------------------------------------------------------------------------
-        */
+     
 
         $this->call(permission_seeder::class);
 
-        /*
-        |--------------------------------------------------------------------------
-        | Roles
-        |--------------------------------------------------------------------------
-        */
+   
 
         $adminRole = Role::firstOrCreate([
             'name' => 'Admin',
@@ -50,11 +42,11 @@ class DatabaseSeeder extends Seeder
             'guard_name' => 'web',
         ]);
 
-        // Give Admin every permission that exists, no matter how many get added later
+       
         $adminRole->syncPermissions(Permission::all());
 
 
-        // Admin User
+     
         $admin = User::firstOrCreate(
             ['email' => 'admin@gmail.com'],
             [
@@ -69,11 +61,7 @@ class DatabaseSeeder extends Seeder
             $admin->assignRole($adminRole);
         }
 
-        /*
-        |--------------------------------------------------------------------------
-        | Hospital Users
-        |--------------------------------------------------------------------------
-        */
+       
 
         $hospitalUser = User::create([
             'name' => 'Aga Khan Hospital',
@@ -87,12 +75,7 @@ class DatabaseSeeder extends Seeder
         $hospitalUser->assignRole($hospitalRole);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Parent User
-        |--------------------------------------------------------------------------
-        */
-
+     
         $parent = User::create([
             'name' => 'Ali Ahmed',
             'email' => 'parent@vaccination.test',
@@ -106,12 +89,6 @@ class DatabaseSeeder extends Seeder
         $parent->assignRole($parentRole);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Hospitals
-        |--------------------------------------------------------------------------
-        */
-
         $hospital = Hospital::create([
             'name' => 'Aga Khan Hospital',
             'email' => 'info@agakhan.test',
@@ -122,11 +99,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Vaccines
-        |--------------------------------------------------------------------------
-        */
+        
 
         $bcg = Vaccine::create([
             'name' => 'BCG',
@@ -159,12 +132,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Child
-        |--------------------------------------------------------------------------
-        */
-
+  
         $child = Child::create([
             'parent_id' => $parent->id,
             'first_name' => 'Ahmed',
@@ -179,12 +147,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Booking
-        |--------------------------------------------------------------------------
-        */
-
+     
         $booking = Booking::create([
             'child_id' => $child->id,
             'hospital_id' => $hospital->id,
@@ -200,11 +163,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Vaccination Record
-        |--------------------------------------------------------------------------
-        */
+     
 
         $record = VaccinationRecord::create([
             'booking_id' => $booking->id,
@@ -218,12 +177,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Certificate
-        |--------------------------------------------------------------------------
-        */
-
+     
         Certificate::create([
             'vaccination_id' => $record->id,
             'certificate_number' => 'CERT-10001',
@@ -232,11 +186,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Notification
-        |--------------------------------------------------------------------------
-        */
+    
 
         Notification::create([
             'parent_id' => $parent->id,

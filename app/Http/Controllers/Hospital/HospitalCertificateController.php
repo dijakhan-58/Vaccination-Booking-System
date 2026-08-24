@@ -37,5 +37,5 @@ class HospitalCertificateController extends Controller
             'hospital.certificates.show',
             compact('certificate')
         );
-    }
+    } 
 }

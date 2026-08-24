@@ -3,11 +3,10 @@
 @section('fornt_body')
 
 
-    <!-- ===== PAGE CONTENT ===== -->
+
     <div class="vaccine-page">
         <div class="vaccine-container">
 
-            <!-- Header -->
             <div class="vaccine-header">
                 <h1>
                     <i class="fas fa-syringe"></i>
@@ -18,7 +17,6 @@
                 </span>
             </div>
 
-            <!-- Stats Cards -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="number">10,842</div>
@@ -38,9 +36,9 @@
                 </div>
             </div>
 
-            <!-- Two Columns: Features + Schedule -->
+          
             <div class="two-col">
-                <!-- Left: Key Features -->
+            
                 <div class="col">
                     <h2><i class="fas fa-list-ul"></i> Key Features</h2>
                     <ul class="feature-list">
@@ -70,7 +68,6 @@
                     </ul>
                 </div>
 
-                <!-- Right: Immunization Schedule -->
                 <div class="col">
                     <h2><i class="fas fa-calendar-check"></i> Immunization Schedule</h2>
                     <div class="table-responsive">
@@ -120,7 +117,7 @@
                 </div>
             </div>
 
-            <!-- How Vaccination Works Box -->
+       
             <div class="vaccine-info-box">
                 <div class="info-left">
                     <i class="fas fa-shield-virus"></i>
@@ -133,7 +130,6 @@
                 <a href="#" class="btn-learn">Learn more <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <!-- Back Button + Contact Now -->
             <div class="action-row">
                 {{-- <a class='cs_btn cs_style_1 cs_color_2' href='about.html'>
                     <span>Back To ABout Page</span>
